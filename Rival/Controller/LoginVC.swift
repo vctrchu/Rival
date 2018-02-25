@@ -8,26 +8,35 @@
 
 import UIKit
 import RevealingSplashView
+import TransitionButton
 
 class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailaddressTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var loginBtn: TransitionButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailaddressTxtField.delegate = self
+        passwordTxtField.delegate = self
+        self.hideKeyboardWhenTappedAround()
         
+        //Splash Animation
         let revealingSplashView = RevealingSplashView(iconImage: UIImage(named: "rivalIcon")!, iconInitialSize: CGSize(width: 123, height: 115), backgroundColor: #colorLiteral(red: 0.1490196078, green: 0.168627451, blue: 0.1764705882, alpha: 1))
         self.view.addSubview(revealingSplashView)
         revealingSplashView.startAnimation()
         
-        emailaddressTxtField.delegate = self
-        passwordTxtField.delegate = self
+        //Transition Button
+        //self.view.addSubview(loginBtn)
         
-        self.hideKeyboardWhenTappedAround()
+
     }
     
-
+    @IBAction func loginTransitionBtnPressed(_ sender: Any) {
+        loginBtn.startAnimation()
+    }
+    
 
     
 

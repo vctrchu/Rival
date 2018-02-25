@@ -72,13 +72,16 @@
                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="12"/>
                                 <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
                             </textField>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-zr-zxx">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iNd-zr-zxx" customClass="TransitionButton" customModule="TransitionButton">
                                 <rect key="frame" x="77.5" y="417" width="220" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="38" id="3SV-lP-QQf"/>
                                     <constraint firstAttribute="width" constant="220" id="aJ8-pm-45Z"/>
                                 </constraints>
                                 <state key="normal" image="loginBtn"/>
+                                <connections>
+                                    <action selector="loginTransitionBtnPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="hPg-nM-sxk"/>
+                                </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="X9X-SP-tlL">
                                 <rect key="frame" x="117.5" y="625" width="140" height="22"/>
@@ -136,6 +139,7 @@
                     </view>
                     <connections>
                         <outlet property="emailaddressTxtField" destination="olI-yM-CVf" id="pR4-Pp-L57"/>
+                        <outlet property="loginBtn" destination="iNd-zr-zxx" id="Za3-ob-hYh"/>
                         <outlet property="passwordTxtField" destination="hSC-QZ-Skj" id="EzC-xz-MIU"/>
                     </connections>
                 </viewController>
