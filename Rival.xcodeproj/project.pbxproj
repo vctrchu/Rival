@@ -13,6 +13,7 @@
 		FB280AA32042951700EE1627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA12042951700EE1627 /* Main.storyboard */; };
 		FB280AA52042951700EE1627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA42042951700EE1627 /* Assets.xcassets */; };
 		FB280AA82042951700EE1627 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA62042951700EE1627 /* LaunchScreen.storyboard */; };
+		FB9BB05420433C8400698747 /* TextFieldTapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05320433C8400698747 /* TextFieldTapped.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -44,6 +45,7 @@
 		FB280AC02042975700EE1627 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		FB280AC12042975700EE1627 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		FB280AC22042975700EE1627 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		FB9BB05320433C8400698747 /* TextFieldTapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTapped.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,6 +98,7 @@
 		FB280A9C2042951700EE1627 /* Rival */ = {
 			isa = PBXGroup;
 			children = (
+				FB9BB05020433BB800698747 /* Extensions */,
 				FB280A9D2042951700EE1627 /* AppDelegate.swift */,
 				FB9BB04D2043324900698747 /* Controller */,
 				FB280AA12042951700EE1627 /* Main.storyboard */,
@@ -146,6 +149,14 @@
 				FB280A9F2042951700EE1627 /* LoginVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FB9BB05020433BB800698747 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				FB9BB05320433C8400698747 /* TextFieldTapped.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -277,6 +288,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FB9BB05420433C8400698747 /* TextFieldTapped.swift in Sources */,
 				FB280AA02042951700EE1627 /* LoginVC.swift in Sources */,
 				FB280A9E2042951700EE1627 /* AppDelegate.swift in Sources */,
 			);
