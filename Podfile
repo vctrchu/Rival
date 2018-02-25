@@ -6,7 +6,7 @@ target 'Rival' do
   use_frameworks!
 
   # Pods for Rival
-  pod 'SKSplashView'
+  pod 'RevealingSplashView'
 
 
 end

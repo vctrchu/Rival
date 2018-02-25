@@ -97,7 +97,7 @@
 			isa = PBXGroup;
 			children = (
 				FB280A9D2042951700EE1627 /* AppDelegate.swift */,
-				FB280A9F2042951700EE1627 /* LoginVC.swift */,
+				FB9BB04D2043324900698747 /* Controller */,
 				FB280AA12042951700EE1627 /* Main.storyboard */,
 				FB280AA62042951700EE1627 /* LaunchScreen.storyboard */,
 				FB280AA42042951700EE1627 /* Assets.xcassets */,
@@ -138,6 +138,14 @@
 				FB280ABE2042975700EE1627 /* RobotoCondensed-Regular.ttf */,
 			);
 			path = "Roboto Font";
+			sourceTree = "<group>";
+		};
+		FB9BB04D2043324900698747 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FB280A9F2042951700EE1627 /* LoginVC.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,11 +244,11 @@
 			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-Rival/Pods-Rival-frameworks.sh",
-				"${BUILT_PRODUCTS_DIR}/SKSplashView/SKSplashView.framework",
+				"${BUILT_PRODUCTS_DIR}/RevealingSplashView/RevealingSplashView.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKSplashView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RevealingSplashView.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -10,9 +10,8 @@
 #endif
 #endif
 
-#import "SKSplashIcon.h"
-#import "SKSplashView.h"
+#import "RevealingSplashView.h"
 
-FOUNDATION_EXPORT double SKSplashViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char SKSplashViewVersionString[];
+FOUNDATION_EXPORT double RevealingSplashViewVersionNumber;
+FOUNDATION_EXPORT const unsigned char RevealingSplashViewVersionString[];
 

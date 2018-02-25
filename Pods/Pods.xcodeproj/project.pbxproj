@@ -7,69 +7,71 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		14C3712EF5EC6C248DAA525F0F5D1E31 /* SKSplashView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 7D9343B29A99A1A257BA66932F2980C5 /* SKSplashView-dummy.m */; };
-		3548CA37021C127569B45E49D88D3769 /* SKSplashIcon.h in Headers */ = {isa = PBXBuildFile; fileRef = C1FCED4682E50D6127A6D2DB2BAB82A3 /* SKSplashIcon.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5201AF7CF67785FB83DD3914CE3D0DBC /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		57DCDB7FC1F10D9EB89333482A808D5E /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
-		63C66328B4C0749E3CB8D282627446AA /* SKSplashIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = F6107038C5B66037AACB8591C1F222EE /* SKSplashIcon.m */; };
-		9086C153D85520080AF2655C8F08AA66 /* SKSplashView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = EA2432A92BEBA79D2E45FAF405CA22AA /* SKSplashView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		9EE4A6ABD46924493E272CB58E541919 /* Pods-Rival-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F1A07C04CC705C3BA76E4F53343DB6 /* Pods-Rival-dummy.m */; };
-		A2C8864D32A4BFB4696A2631F7CC0373 /* SKSplashView.h in Headers */ = {isa = PBXBuildFile; fileRef = 4EF3F0B527B2C9007099FE9250ABF8FC /* SKSplashView.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		C64359BC90EE9A4DD87FBDF4849FA540 /* SKSplashView.m in Sources */ = {isa = PBXBuildFile; fileRef = 4B31470C11E6C663D1546BCF48D86509 /* SKSplashView.m */; };
-		E989EC1675DE3E7333283994922AFA29 /* Pods-Rival-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E282EE3F5A1277314656C031D79AF41 /* Pods-Rival-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		16217731C09C43BF94C6CCA6BBA0D48C /* RevealingSplashView-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 256404BFBD69429B5B7E36770528C803 /* RevealingSplashView-dummy.m */; };
+		17DBD85E27852B722E9C543215798CC3 /* Animations.swift in Sources */ = {isa = PBXBuildFile; fileRef = C77BEC39A4D7866A6DC4FAE719323EDB /* Animations.swift */; };
+		4DFF67E612C3A3290D3D09E6E781DBF6 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		5845F7568E1CEACBC5397417513D3FAB /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */; };
+		8BEBD78A7E4AEE70CDAF38A74824E53A /* RevealingSplashView-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B63F9159D19F63D8A5D34AD909FE2D /* RevealingSplashView-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		AEE84B24CC0C9E6B730453F4CA46C6EB /* RevealingSplashView.h in Headers */ = {isa = PBXBuildFile; fileRef = D38B966E01071A170C6A4D58410F40FF /* RevealingSplashView.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		C06D11FA8D816E1A66F9DDA75A31E799 /* Pods-Rival-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 8E282EE3F5A1277314656C031D79AF41 /* Pods-Rival-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		D02F56541FAE179992BA70A32F46EEE8 /* RevealingSplashView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1F947FC524F821E881A8A06956A2AB47 /* RevealingSplashView.swift */; };
+		D4C71F2F3A12556F725BA886DE7A1D41 /* SplashAnimationType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 959AF827D9130EFC6696B3131DEE28ED /* SplashAnimationType.swift */; };
+		DB2286837CFE08C1370BC570510FBAC9 /* Pods-Rival-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = 68F1A07C04CC705C3BA76E4F53343DB6 /* Pods-Rival-dummy.m */; };
+		F85AFD7819F40F53064A05CB01C60702 /* SplashAnimatable.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED0FB8A98D30F65F9E585D669967BC1E /* SplashAnimatable.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		4449167B44F9E26C78D54FD43CE85B28 /* PBXContainerItemProxy */ = {
+		5B30CA2FD1CA4FE580B5C736F7ED115C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = D41D8CD98F00B204E9800998ECF8427E /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = C7817FD942D8AD6CD784C64392F2F73D;
-			remoteInfo = SKSplashView;
+			remoteGlobalIDString = 0A994ED6B732742AA7750B8F9329C176;
+			remoteInfo = RevealingSplashView;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0388EDBF51E1600F9B7DF2300976BB13 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		17B63F9159D19F63D8A5D34AD909FE2D /* RevealingSplashView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RevealingSplashView-umbrella.h"; sourceTree = "<group>"; };
+		1F947FC524F821E881A8A06956A2AB47 /* RevealingSplashView.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = RevealingSplashView.swift; path = RevealingSplashView/RevealingSplashView.swift; sourceTree = "<group>"; };
+		25205800D17B66315060DD7A60A42E8F /* RevealingSplashView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = RevealingSplashView.modulemap; sourceTree = "<group>"; };
+		256404BFBD69429B5B7E36770528C803 /* RevealingSplashView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "RevealingSplashView-dummy.m"; sourceTree = "<group>"; };
 		33195421A1D3421EB0B542B6815E935C /* Pods-Rival.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = "Pods-Rival.modulemap"; sourceTree = "<group>"; };
+		35392293F5F2F2AA30A454B51BE2E92C /* RevealingSplashView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = RevealingSplashView.xcconfig; sourceTree = "<group>"; };
+		37A848C58DD5B7FC13D675C0232ADA30 /* RevealingSplashView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = RevealingSplashView.framework; path = RevealingSplashView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		381297440AFB5D0294598497FBE18D51 /* Pods-Rival-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Rival-acknowledgements.plist"; sourceTree = "<group>"; };
 		4246078C8FC6CEBD104CAD90F2572D30 /* Pods-Rival-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Rival-frameworks.sh"; sourceTree = "<group>"; };
-		429E1B9223D495D5BC626F0E2D2B220D /* SKSplashView.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = SKSplashView.framework; path = SKSplashView.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		470910454688D45A12C081EAAB367CFE /* SKSplashView.modulemap */ = {isa = PBXFileReference; includeInIndex = 1; path = SKSplashView.modulemap; sourceTree = "<group>"; };
-		4B31470C11E6C663D1546BCF48D86509 /* SKSplashView.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKSplashView.m; path = SKSplashView/SKSplashView.m; sourceTree = "<group>"; };
-		4EF3F0B527B2C9007099FE9250ABF8FC /* SKSplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKSplashView.h; path = SKSplashView/SKSplashView.h; sourceTree = "<group>"; };
-		5A67B136DFD9F19EE39E6873BA295812 /* SKSplashView.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = SKSplashView.xcconfig; sourceTree = "<group>"; };
+		4A50589929271F1538B102C5A0E53708 /* RevealingSplashView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "RevealingSplashView-prefix.pch"; sourceTree = "<group>"; };
 		6455933A726FD58BC00A0DD2581602DB /* Pods-Rival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Rival.debug.xcconfig"; sourceTree = "<group>"; };
 		6604A7D69453B4569E4E4827FB9155A9 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS10.3.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		68F1A07C04CC705C3BA76E4F53343DB6 /* Pods-Rival-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "Pods-Rival-dummy.m"; sourceTree = "<group>"; };
-		797C8FAAF2238433ED97D686E2BEABA5 /* Pods_Rival.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Rival.framework; path = "Pods-Rival.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 		7D84EC91D1AF47C675DC184AF75D52AF /* Pods-Rival.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; path = "Pods-Rival.release.xcconfig"; sourceTree = "<group>"; };
-		7D9343B29A99A1A257BA66932F2980C5 /* SKSplashView-dummy.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = "SKSplashView-dummy.m"; sourceTree = "<group>"; };
 		872DBE2EAD9B07F4C006EA3FC3A0FF11 /* Pods-Rival-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Rival-resources.sh"; sourceTree = "<group>"; };
 		8E282EE3F5A1277314656C031D79AF41 /* Pods-Rival-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Pods-Rival-umbrella.h"; sourceTree = "<group>"; };
 		93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */ = {isa = PBXFileReference; explicitFileType = text.script.ruby; includeInIndex = 1; lastKnownFileType = text; name = Podfile; path = ../Podfile; sourceTree = SOURCE_ROOT; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
-		C1FCED4682E50D6127A6D2DB2BAB82A3 /* SKSplashIcon.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = SKSplashIcon.h; path = SKSplashView/SKSplashIcon.h; sourceTree = "<group>"; };
+		959AF827D9130EFC6696B3131DEE28ED /* SplashAnimationType.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplashAnimationType.swift; path = RevealingSplashView/SplashAnimationType.swift; sourceTree = "<group>"; };
+		C77BEC39A4D7866A6DC4FAE719323EDB /* Animations.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = Animations.swift; path = RevealingSplashView/Animations.swift; sourceTree = "<group>"; };
+		D38B966E01071A170C6A4D58410F40FF /* RevealingSplashView.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; name = RevealingSplashView.h; path = RevealingSplashView/RevealingSplashView.h; sourceTree = "<group>"; };
 		D6C22465C1F7A6691612FC9D7856B073 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DBB5F57459148BB6E5D580B0A21984AB /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E24CEEA5953BF65CE5718F7AAEBA97CD /* SKSplashView-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SKSplashView-prefix.pch"; sourceTree = "<group>"; };
 		E46C927EC74527C2BEB3245DDE4A6CA9 /* Pods-Rival-acknowledgements.markdown */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; path = "Pods-Rival-acknowledgements.markdown"; sourceTree = "<group>"; };
-		EA2432A92BEBA79D2E45FAF405CA22AA /* SKSplashView-umbrella.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "SKSplashView-umbrella.h"; sourceTree = "<group>"; };
-		F6107038C5B66037AACB8591C1F222EE /* SKSplashIcon.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; name = SKSplashIcon.m; path = SKSplashView/SKSplashIcon.m; sourceTree = "<group>"; };
+		ED0FB8A98D30F65F9E585D669967BC1E /* SplashAnimatable.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = SplashAnimatable.swift; path = RevealingSplashView/SplashAnimatable.swift; sourceTree = "<group>"; };
+		FB6277C3110BEBB127FFF16C0447E013 /* Pods_Rival.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; name = Pods_Rival.framework; path = "Pods-Rival.framework"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		09C2DC1954A4403E9DA7153C73370620 /* Frameworks */ = {
+		4EE410B294CF53CB9AAE76F891FF5937 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				57DCDB7FC1F10D9EB89333482A808D5E /* Foundation.framework in Frameworks */,
+				4DFF67E612C3A3290D3D09E6E781DBF6 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		E195F0E02907D6C807FC5B4149B0D97E /* Frameworks */ = {
+		75B46D6AEE1C3DD93B3B530DB968B5F1 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5201AF7CF67785FB83DD3914CE3D0DBC /* Foundation.framework in Frameworks */,
+				5845F7568E1CEACBC5397417513D3FAB /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,31 +96,27 @@
 			path = "Target Support Files/Pods-Rival";
 			sourceTree = "<group>";
 		};
-		188FC98CEE5354265F2A0A2B6550F434 /* Support Files */ = {
+		554E85B677775B2156FF055661A7FA02 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				DBB5F57459148BB6E5D580B0A21984AB /* Info.plist */,
-				470910454688D45A12C081EAAB367CFE /* SKSplashView.modulemap */,
-				5A67B136DFD9F19EE39E6873BA295812 /* SKSplashView.xcconfig */,
-				7D9343B29A99A1A257BA66932F2980C5 /* SKSplashView-dummy.m */,
-				E24CEEA5953BF65CE5718F7AAEBA97CD /* SKSplashView-prefix.pch */,
-				EA2432A92BEBA79D2E45FAF405CA22AA /* SKSplashView-umbrella.h */,
+				FB6277C3110BEBB127FFF16C0447E013 /* Pods_Rival.framework */,
+				37A848C58DD5B7FC13D675C0232ADA30 /* RevealingSplashView.framework */,
 			);
-			name = "Support Files";
-			path = "../Target Support Files/SKSplashView";
+			name = Products;
 			sourceTree = "<group>";
 		};
-		555141524C0B1514D393995FF9CB28D2 /* SKSplashView */ = {
+		6156486D19AE36FA41FFCA873842023B /* Support Files */ = {
 			isa = PBXGroup;
 			children = (
-				C1FCED4682E50D6127A6D2DB2BAB82A3 /* SKSplashIcon.h */,
-				F6107038C5B66037AACB8591C1F222EE /* SKSplashIcon.m */,
-				4EF3F0B527B2C9007099FE9250ABF8FC /* SKSplashView.h */,
-				4B31470C11E6C663D1546BCF48D86509 /* SKSplashView.m */,
-				188FC98CEE5354265F2A0A2B6550F434 /* Support Files */,
+				0388EDBF51E1600F9B7DF2300976BB13 /* Info.plist */,
+				25205800D17B66315060DD7A60A42E8F /* RevealingSplashView.modulemap */,
+				35392293F5F2F2AA30A454B51BE2E92C /* RevealingSplashView.xcconfig */,
+				256404BFBD69429B5B7E36770528C803 /* RevealingSplashView-dummy.m */,
+				4A50589929271F1538B102C5A0E53708 /* RevealingSplashView-prefix.pch */,
+				17B63F9159D19F63D8A5D34AD909FE2D /* RevealingSplashView-umbrella.h */,
 			);
-			name = SKSplashView;
-			path = SKSplashView;
+			name = "Support Files";
+			path = "../Target Support Files/RevealingSplashView";
 			sourceTree = "<group>";
 		};
 		7DB346D0F39D3F0E887471402A8071AB = {
@@ -126,8 +124,8 @@
 			children = (
 				93A4A3777CF96A4AAC1D13BA6DCCEA73 /* Podfile */,
 				BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */,
-				EA310C8D812F4969C8D3A164B6E84189 /* Pods */,
-				870357ED828797D593E76D01C9367728 /* Products */,
+				D91FEAE70316EE8A91F65526A35FC97E /* Pods */,
+				554E85B677775B2156FF055661A7FA02 /* Products */,
 				7E53C2DAD02A9F161A767287B552926B /* Targets Support Files */,
 			);
 			sourceTree = "<group>";
@@ -138,15 +136,6 @@
 				178CD58D775904A2719C524426F3FB5D /* Pods-Rival */,
 			);
 			name = "Targets Support Files";
-			sourceTree = "<group>";
-		};
-		870357ED828797D593E76D01C9367728 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				797C8FAAF2238433ED97D686E2BEABA5 /* Pods_Rival.framework */,
-				429E1B9223D495D5BC626F0E2D2B220D /* SKSplashView.framework */,
-			);
-			name = Products;
 			sourceTree = "<group>";
 		};
 		BC3CA7F9E30CC8F7E2DD044DD34432FC /* Frameworks */ = {
@@ -165,71 +154,84 @@
 			name = iOS;
 			sourceTree = "<group>";
 		};
-		EA310C8D812F4969C8D3A164B6E84189 /* Pods */ = {
+		D91FEAE70316EE8A91F65526A35FC97E /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				555141524C0B1514D393995FF9CB28D2 /* SKSplashView */,
+				F49326C7ED01A06909FA8868635BEE71 /* RevealingSplashView */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		F49326C7ED01A06909FA8868635BEE71 /* RevealingSplashView */ = {
+			isa = PBXGroup;
+			children = (
+				C77BEC39A4D7866A6DC4FAE719323EDB /* Animations.swift */,
+				D38B966E01071A170C6A4D58410F40FF /* RevealingSplashView.h */,
+				1F947FC524F821E881A8A06956A2AB47 /* RevealingSplashView.swift */,
+				ED0FB8A98D30F65F9E585D669967BC1E /* SplashAnimatable.swift */,
+				959AF827D9130EFC6696B3131DEE28ED /* SplashAnimationType.swift */,
+				6156486D19AE36FA41FFCA873842023B /* Support Files */,
+			);
+			name = RevealingSplashView;
+			path = RevealingSplashView;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		33EA20B04142E0A4DA359AF442C3EADB /* Headers */ = {
+		46A1AE1A6224ABBDE0A9F7EB89827C0D /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E989EC1675DE3E7333283994922AFA29 /* Pods-Rival-umbrella.h in Headers */,
+				8BEBD78A7E4AEE70CDAF38A74824E53A /* RevealingSplashView-umbrella.h in Headers */,
+				AEE84B24CC0C9E6B730453F4CA46C6EB /* RevealingSplashView.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F8F3EE441D6992BF0A2117AD23A77FC0 /* Headers */ = {
+		A6D76A34686F14834B3E703DE2F31CA1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3548CA37021C127569B45E49D88D3769 /* SKSplashIcon.h in Headers */,
-				9086C153D85520080AF2655C8F08AA66 /* SKSplashView-umbrella.h in Headers */,
-				A2C8864D32A4BFB4696A2631F7CC0373 /* SKSplashView.h in Headers */,
+				C06D11FA8D816E1A66F9DDA75A31E799 /* Pods-Rival-umbrella.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		B457F387A991EC000922B2DC35BCB312 /* Pods-Rival */ = {
+		0A994ED6B732742AA7750B8F9329C176 /* RevealingSplashView */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3649137165A510DD1722B8927761F56C /* Build configuration list for PBXNativeTarget "Pods-Rival" */;
+			buildConfigurationList = A5B176A0822CC399A551F1462DEB5861 /* Build configuration list for PBXNativeTarget "RevealingSplashView" */;
 			buildPhases = (
-				F96F58052EEE815F2076B8311FB893B2 /* Sources */,
-				09C2DC1954A4403E9DA7153C73370620 /* Frameworks */,
-				33EA20B04142E0A4DA359AF442C3EADB /* Headers */,
+				9512A1E5A6BC718793BB20332FF10BA2 /* Sources */,
+				75B46D6AEE1C3DD93B3B530DB968B5F1 /* Frameworks */,
+				46A1AE1A6224ABBDE0A9F7EB89827C0D /* Headers */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				4061F79EEC576ECEEA3B415AED8C61F4 /* PBXTargetDependency */,
+			);
+			name = RevealingSplashView;
+			productName = RevealingSplashView;
+			productReference = 37A848C58DD5B7FC13D675C0232ADA30 /* RevealingSplashView.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		682A92E37DDAF8CDFE8BEC0D117529E5 /* Pods-Rival */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D45943E40F9A2FCBB3B51A74FCCDEA6B /* Build configuration list for PBXNativeTarget "Pods-Rival" */;
+			buildPhases = (
+				524C3D1EDB401E940DE7D78C4E9F87FF /* Sources */,
+				4EE410B294CF53CB9AAE76F891FF5937 /* Frameworks */,
+				A6D76A34686F14834B3E703DE2F31CA1 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7C1A7D757F6EA619A266766B86D57492 /* PBXTargetDependency */,
 			);
 			name = "Pods-Rival";
 			productName = "Pods-Rival";
-			productReference = 797C8FAAF2238433ED97D686E2BEABA5 /* Pods_Rival.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		C7817FD942D8AD6CD784C64392F2F73D /* SKSplashView */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 2A11B9B074B2A088DD1B3C242428C7FD /* Build configuration list for PBXNativeTarget "SKSplashView" */;
-			buildPhases = (
-				D6AFEC75214CDDDBD369045C5A2D7157 /* Sources */,
-				E195F0E02907D6C807FC5B4149B0D97E /* Frameworks */,
-				F8F3EE441D6992BF0A2117AD23A77FC0 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = SKSplashView;
-			productName = SKSplashView;
-			productReference = 429E1B9223D495D5BC626F0E2D2B220D /* SKSplashView.framework */;
+			productReference = FB6277C3110BEBB127FFF16C0447E013 /* Pods_Rival.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 /* End PBXNativeTarget section */
@@ -249,48 +251,50 @@
 				en,
 			);
 			mainGroup = 7DB346D0F39D3F0E887471402A8071AB;
-			productRefGroup = 870357ED828797D593E76D01C9367728 /* Products */;
+			productRefGroup = 554E85B677775B2156FF055661A7FA02 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				B457F387A991EC000922B2DC35BCB312 /* Pods-Rival */,
-				C7817FD942D8AD6CD784C64392F2F73D /* SKSplashView */,
+				682A92E37DDAF8CDFE8BEC0D117529E5 /* Pods-Rival */,
+				0A994ED6B732742AA7750B8F9329C176 /* RevealingSplashView */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXSourcesBuildPhase section */
-		D6AFEC75214CDDDBD369045C5A2D7157 /* Sources */ = {
+		524C3D1EDB401E940DE7D78C4E9F87FF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				63C66328B4C0749E3CB8D282627446AA /* SKSplashIcon.m in Sources */,
-				14C3712EF5EC6C248DAA525F0F5D1E31 /* SKSplashView-dummy.m in Sources */,
-				C64359BC90EE9A4DD87FBDF4849FA540 /* SKSplashView.m in Sources */,
+				DB2286837CFE08C1370BC570510FBAC9 /* Pods-Rival-dummy.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		F96F58052EEE815F2076B8311FB893B2 /* Sources */ = {
+		9512A1E5A6BC718793BB20332FF10BA2 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EE4A6ABD46924493E272CB58E541919 /* Pods-Rival-dummy.m in Sources */,
+				17DBD85E27852B722E9C543215798CC3 /* Animations.swift in Sources */,
+				16217731C09C43BF94C6CCA6BBA0D48C /* RevealingSplashView-dummy.m in Sources */,
+				D02F56541FAE179992BA70A32F46EEE8 /* RevealingSplashView.swift in Sources */,
+				F85AFD7819F40F53064A05CB01C60702 /* SplashAnimatable.swift in Sources */,
+				D4C71F2F3A12556F725BA886DE7A1D41 /* SplashAnimationType.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		4061F79EEC576ECEEA3B415AED8C61F4 /* PBXTargetDependency */ = {
+		7C1A7D757F6EA619A266766B86D57492 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			name = SKSplashView;
-			target = C7817FD942D8AD6CD784C64392F2F73D /* SKSplashView */;
-			targetProxy = 4449167B44F9E26C78D54FD43CE85B28 /* PBXContainerItemProxy */;
+			name = RevealingSplashView;
+			target = 0A994ED6B732742AA7750B8F9329C176 /* RevealingSplashView */;
+			targetProxy = 5B30CA2FD1CA4FE580B5C736F7ED115C /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		0195C2C8B78D82480B0862E65340B837 /* Debug */ = {
+		05F1E0DA2E961EE92655B6EDCC7DC5D4 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 6455933A726FD58BC00A0DD2581602DB /* Pods-Rival.debug.xcconfig */;
 			buildSettings = {
@@ -316,6 +320,39 @@
 				PRODUCT_NAME = Pods_Rival;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Debug;
+		};
+		1219A6E37A31F1D02A8C23E485166A6B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35392293F5F2F2AA30A454B51BE2E92C /* RevealingSplashView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RevealingSplashView/RevealingSplashView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RevealingSplashView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RevealingSplashView/RevealingSplashView.modulemap";
+				PRODUCT_NAME = RevealingSplashView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -382,9 +419,9 @@
 			};
 			name = Debug;
 		};
-		5F8AEA1D5F6DC359E539B57CDAE0A518 /* Debug */ = {
+		537CD259EFB0B79DC0EC8EEE14931EC2 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A67B136DFD9F19EE39E6873BA295812 /* SKSplashView.xcconfig */;
+			baseConfigurationReference = 7D84EC91D1AF47C675DC184AF75D52AF /* Pods-Rival.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_IDENTITY = "";
 				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
@@ -395,22 +432,58 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SKSplashView/SKSplashView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SKSplashView/Info.plist";
+				INFOPLIST_FILE = "Target Support Files/Pods-Rival/Info.plist";
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SKSplashView/SKSplashView.modulemap";
-				PRODUCT_NAME = SKSplashView;
+				MACH_O_TYPE = staticlib;
+				MODULEMAP_FILE = "Target Support Files/Pods-Rival/Pods-Rival.modulemap";
+				OTHER_LDFLAGS = "";
+				OTHER_LIBTOOLFLAGS = "";
+				PODS_ROOT = "$(SRCROOT)";
+				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
+				PRODUCT_NAME = Pods_Rival;
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
-			name = Debug;
+			name = Release;
+		};
+		75921DEFD092F938B87DFCC6735D4E5F /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 35392293F5F2F2AA30A454B51BE2E92C /* RevealingSplashView.xcconfig */;
+			buildSettings = {
+				CODE_SIGN_IDENTITY = "";
+				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
+				CURRENT_PROJECT_VERSION = 1;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_PREFIX_HEADER = "Target Support Files/RevealingSplashView/RevealingSplashView-prefix.pch";
+				INFOPLIST_FILE = "Target Support Files/RevealingSplashView/Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MODULEMAP_FILE = "Target Support Files/RevealingSplashView/RevealingSplashView.modulemap";
+				PRODUCT_NAME = RevealingSplashView;
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+				VERSIONING_SYSTEM = "apple-generic";
+				VERSION_INFO_PREFIX = "";
+			};
+			name = Release;
 		};
 		89C8BB24E37B25BAEEB8FBA01EE05DAF /* Release */ = {
 			isa = XCBuildConfiguration;
@@ -467,82 +540,9 @@
 			};
 			name = Release;
 		};
-		915499090DCB214E2248411A60FD4745 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 7D84EC91D1AF47C675DC184AF75D52AF /* Pods-Rival.release.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = "Target Support Files/Pods-Rival/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MACH_O_TYPE = staticlib;
-				MODULEMAP_FILE = "Target Support Files/Pods-Rival/Pods-Rival.modulemap";
-				OTHER_LDFLAGS = "";
-				OTHER_LIBTOOLFLAGS = "";
-				PODS_ROOT = "$(SRCROOT)";
-				PRODUCT_BUNDLE_IDENTIFIER = "org.cocoapods.${PRODUCT_NAME:rfc1034identifier}";
-				PRODUCT_NAME = Pods_Rival;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
-		C3800E1F6190B0E164398D35DD765487 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5A67B136DFD9F19EE39E6873BA295812 /* SKSplashView.xcconfig */;
-			buildSettings = {
-				CODE_SIGN_IDENTITY = "";
-				"CODE_SIGN_IDENTITY[sdk=appletvos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
-				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "";
-				CURRENT_PROJECT_VERSION = 1;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				GCC_PREFIX_HEADER = "Target Support Files/SKSplashView/SKSplashView-prefix.pch";
-				INFOPLIST_FILE = "Target Support Files/SKSplashView/Info.plist";
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MODULEMAP_FILE = "Target Support Files/SKSplashView/SKSplashView.modulemap";
-				PRODUCT_NAME = SKSplashView;
-				SDKROOT = iphoneos;
-				SKIP_INSTALL = YES;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				VALIDATE_PRODUCT = YES;
-				VERSIONING_SYSTEM = "apple-generic";
-				VERSION_INFO_PREFIX = "";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		2A11B9B074B2A088DD1B3C242428C7FD /* Build configuration list for PBXNativeTarget "SKSplashView" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				5F8AEA1D5F6DC359E539B57CDAE0A518 /* Debug */,
-				C3800E1F6190B0E164398D35DD765487 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		2D8E8EC45A3A1A1D94AE762CB5028504 /* Build configuration list for PBXProject "Pods" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
@@ -552,11 +552,20 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3649137165A510DD1722B8927761F56C /* Build configuration list for PBXNativeTarget "Pods-Rival" */ = {
+		A5B176A0822CC399A551F1462DEB5861 /* Build configuration list for PBXNativeTarget "RevealingSplashView" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				0195C2C8B78D82480B0862E65340B837 /* Debug */,
-				915499090DCB214E2248411A60FD4745 /* Release */,
+				1219A6E37A31F1D02A8C23E485166A6B /* Debug */,
+				75921DEFD092F938B87DFCC6735D4E5F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D45943E40F9A2FCBB3B51A74FCCDEA6B /* Build configuration list for PBXNativeTarget "Pods-Rival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				05F1E0DA2E961EE92655B6EDCC7DC5D4 /* Debug */,
+				537CD259EFB0B79DC0EC8EEE14931EC2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
