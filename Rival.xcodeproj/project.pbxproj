@@ -1,0 +1,462 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		F8BA7E0463D36A3F797A7C23 /* Pods_Rival.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AEF92B5B31806115B04BE1 /* Pods_Rival.framework */; };
+		FB280A9E2042951700EE1627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB280A9D2042951700EE1627 /* AppDelegate.swift */; };
+		FB280AA02042951700EE1627 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB280A9F2042951700EE1627 /* LoginVC.swift */; };
+		FB280AA32042951700EE1627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA12042951700EE1627 /* Main.storyboard */; };
+		FB280AA52042951700EE1627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA42042951700EE1627 /* Assets.xcassets */; };
+		FB280AA82042951700EE1627 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA62042951700EE1627 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		3D1F4675BE2F1195ADA68E7B /* Pods-Rival.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rival.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Rival/Pods-Rival.debug.xcconfig"; sourceTree = "<group>"; };
+		66AEF92B5B31806115B04BE1 /* Pods_Rival.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rival.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		AD9509B227003E771CFC7C3B /* Pods-Rival.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rival.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rival/Pods-Rival.release.xcconfig"; sourceTree = "<group>"; };
+		FB280A9A2042951700EE1627 /* Rival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rival.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB280A9D2042951700EE1627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB280A9F2042951700EE1627 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		FB280AA22042951700EE1627 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB280AA42042951700EE1627 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB280AA72042951700EE1627 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB280AA92042951700EE1627 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB280AB12042975600EE1627 /* RobotoCondensed-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-LightItalic.ttf"; sourceTree = "<group>"; };
+		FB280AB22042975600EE1627 /* Roboto-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-LightItalic.ttf"; sourceTree = "<group>"; };
+		FB280AB32042975600EE1627 /* Roboto-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BoldItalic.ttf"; sourceTree = "<group>"; };
+		FB280AB42042975600EE1627 /* RobotoCondensed-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Bold.ttf"; sourceTree = "<group>"; };
+		FB280AB52042975600EE1627 /* Roboto-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Italic.ttf"; sourceTree = "<group>"; };
+		FB280AB62042975600EE1627 /* Roboto-MediumItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-MediumItalic.ttf"; sourceTree = "<group>"; };
+		FB280AB72042975600EE1627 /* RobotoCondensed-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Italic.ttf"; sourceTree = "<group>"; };
+		FB280AB82042975600EE1627 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
+		FB280AB92042975600EE1627 /* Roboto-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Black.ttf"; sourceTree = "<group>"; };
+		FB280ABA2042975700EE1627 /* RobotoCondensed-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-BoldItalic.ttf"; sourceTree = "<group>"; };
+		FB280ABB2042975700EE1627 /* Roboto-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		FB280ABC2042975700EE1627 /* Roboto-ThinItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-ThinItalic.ttf"; sourceTree = "<group>"; };
+		FB280ABD2042975700EE1627 /* Roboto-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-BlackItalic.ttf"; sourceTree = "<group>"; };
+		FB280ABE2042975700EE1627 /* RobotoCondensed-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Regular.ttf"; sourceTree = "<group>"; };
+		FB280ABF2042975700EE1627 /* RobotoCondensed-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "RobotoCondensed-Light.ttf"; sourceTree = "<group>"; };
+		FB280AC02042975700EE1627 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
+		FB280AC12042975700EE1627 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		FB280AC22042975700EE1627 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB280A972042951700EE1627 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F8BA7E0463D36A3F797A7C23 /* Pods_Rival.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		79D19A02B6BBA7501318772B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				66AEF92B5B31806115B04BE1 /* Pods_Rival.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BDC59A7D65FE2C4438BFEA05 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3D1F4675BE2F1195ADA68E7B /* Pods-Rival.debug.xcconfig */,
+				AD9509B227003E771CFC7C3B /* Pods-Rival.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		FB280A912042951700EE1627 = {
+			isa = PBXGroup;
+			children = (
+				FB280A9C2042951700EE1627 /* Rival */,
+				FB280A9B2042951700EE1627 /* Products */,
+				BDC59A7D65FE2C4438BFEA05 /* Pods */,
+				79D19A02B6BBA7501318772B /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		FB280A9B2042951700EE1627 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB280A9A2042951700EE1627 /* Rival.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB280A9C2042951700EE1627 /* Rival */ = {
+			isa = PBXGroup;
+			children = (
+				FB280A9D2042951700EE1627 /* AppDelegate.swift */,
+				FB280A9F2042951700EE1627 /* LoginVC.swift */,
+				FB280AA12042951700EE1627 /* Main.storyboard */,
+				FB280AA62042951700EE1627 /* LaunchScreen.storyboard */,
+				FB280AA42042951700EE1627 /* Assets.xcassets */,
+				FB280AA92042951700EE1627 /* Info.plist */,
+				FB280AAF204296D800EE1627 /* Supporting Files */,
+			);
+			path = Rival;
+			sourceTree = "<group>";
+		};
+		FB280AAF204296D800EE1627 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				FB280AB02042972200EE1627 /* Roboto Font */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		FB280AB02042972200EE1627 /* Roboto Font */ = {
+			isa = PBXGroup;
+			children = (
+				FB280AB92042975600EE1627 /* Roboto-Black.ttf */,
+				FB280ABD2042975700EE1627 /* Roboto-BlackItalic.ttf */,
+				FB280AC22042975700EE1627 /* Roboto-Bold.ttf */,
+				FB280AB32042975600EE1627 /* Roboto-BoldItalic.ttf */,
+				FB280AB52042975600EE1627 /* Roboto-Italic.ttf */,
+				FB280AB82042975600EE1627 /* Roboto-Light.ttf */,
+				FB280AB22042975600EE1627 /* Roboto-LightItalic.ttf */,
+				FB280AC12042975700EE1627 /* Roboto-Medium.ttf */,
+				FB280AB62042975600EE1627 /* Roboto-MediumItalic.ttf */,
+				FB280ABB2042975700EE1627 /* Roboto-Regular.ttf */,
+				FB280AC02042975700EE1627 /* Roboto-Thin.ttf */,
+				FB280ABC2042975700EE1627 /* Roboto-ThinItalic.ttf */,
+				FB280AB42042975600EE1627 /* RobotoCondensed-Bold.ttf */,
+				FB280ABA2042975700EE1627 /* RobotoCondensed-BoldItalic.ttf */,
+				FB280AB72042975600EE1627 /* RobotoCondensed-Italic.ttf */,
+				FB280ABF2042975700EE1627 /* RobotoCondensed-Light.ttf */,
+				FB280AB12042975600EE1627 /* RobotoCondensed-LightItalic.ttf */,
+				FB280ABE2042975700EE1627 /* RobotoCondensed-Regular.ttf */,
+			);
+			path = "Roboto Font";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB280A992042951700EE1627 /* Rival */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB280AAC2042951700EE1627 /* Build configuration list for PBXNativeTarget "Rival" */;
+			buildPhases = (
+				30E10412DB8863E506CA7FA1 /* [CP] Check Pods Manifest.lock */,
+				FB280A962042951700EE1627 /* Sources */,
+				FB280A972042951700EE1627 /* Frameworks */,
+				FB280A982042951700EE1627 /* Resources */,
+				D187E1EEC67221C3C7E9F4BE /* [CP] Embed Pods Frameworks */,
+				DF5E12FEFEC0220028DEAF41 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = Rival;
+			productName = Rival;
+			productReference = FB280A9A2042951700EE1627 /* Rival.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB280A922042951700EE1627 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0920;
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = "Victor Chu";
+				TargetAttributes = {
+					FB280A992042951700EE1627 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = FB280A952042951700EE1627 /* Build configuration list for PBXProject "Rival" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB280A912042951700EE1627;
+			productRefGroup = FB280A9B2042951700EE1627 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB280A992042951700EE1627 /* Rival */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB280A982042951700EE1627 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB280AA82042951700EE1627 /* LaunchScreen.storyboard in Resources */,
+				FB280AA52042951700EE1627 /* Assets.xcassets in Resources */,
+				FB280AA32042951700EE1627 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		30E10412DB8863E506CA7FA1 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Rival-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		D187E1EEC67221C3C7E9F4BE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Rival/Pods-Rival-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/SKSplashView/SKSplashView.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SKSplashView.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rival/Pods-Rival-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DF5E12FEFEC0220028DEAF41 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Rival/Pods-Rival-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB280A962042951700EE1627 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB280AA02042951700EE1627 /* LoginVC.swift in Sources */,
+				FB280A9E2042951700EE1627 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		FB280AA12042951700EE1627 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB280AA22042951700EE1627 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB280AA62042951700EE1627 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB280AA72042951700EE1627 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB280AAA2042951700EE1627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FB280AAB2042951700EE1627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB280AAD2042951700EE1627 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3D1F4675BE2F1195ADA68E7B /* Pods-Rival.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZ967DRVJD;
+				INFOPLIST_FILE = Rival/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.victorchu.-rival";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB280AAE2042951700EE1627 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = AD9509B227003E771CFC7C3B /* Pods-Rival.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = BZ967DRVJD;
+				INFOPLIST_FILE = Rival/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.victorchu.-rival";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB280A952042951700EE1627 /* Build configuration list for PBXProject "Rival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB280AAA2042951700EE1627 /* Debug */,
+				FB280AAB2042951700EE1627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB280AAC2042951700EE1627 /* Build configuration list for PBXNativeTarget "Rival" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB280AAD2042951700EE1627 /* Debug */,
+				FB280AAE2042951700EE1627 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = FB280A922042951700EE1627 /* Project object */;
+}
