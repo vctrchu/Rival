@@ -21,7 +21,7 @@
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController storyboardIdentifier="LoginVC" id="BYZ-38-t0r" customClass="LoginVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BYZ-38-t0r" customClass="LoginVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -145,9 +145,6 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailaddressTxtField" destination="olI-yM-CVf" id="pR4-Pp-L57"/>
                         <outlet property="lockIcon" destination="4iT-Jo-ds1" id="3Ih-jo-1vC"/>
@@ -164,13 +161,13 @@
         <!--Sign UpVC-->
         <scene sceneID="4F1-FO-muz">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC1" id="BGH-d3-Uaa" customClass="SignUpVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC1" useStoryboardIdentifierAsRestorationIdentifier="YES" id="BGH-d3-Uaa" customClass="SignUpVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MkW-ds-juF">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rfu-7t-lCd" userLabel="UpperSV">
-                                <rect key="frame" x="78" y="98" width="240" height="152.5"/>
+                                <rect key="frame" x="78" y="80" width="240" height="152"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="63G-g2-sTC">
                                         <rect key="frame" x="0.0" y="0.0" width="219" height="100"/>
@@ -195,7 +192,7 @@
                                         </subviews>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="A C C O U N T" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Baz-bJ-JQ7">
-                                        <rect key="frame" x="0.0" y="105" width="240" height="47.5"/>
+                                        <rect key="frame" x="0.0" y="105" width="240" height="47"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="240" id="ajW-Fn-m7M"/>
                                         </constraints>
@@ -206,7 +203,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="oav-4G-zrC" userLabel="LowerSV">
-                                <rect key="frame" x="78" y="297" width="219" height="130"/>
+                                <rect key="frame" x="78" y="254" width="219" height="130"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="03k-Qq-mhB">
                                         <rect key="frame" x="0.0" y="0.0" width="219" height="57"/>
@@ -228,6 +225,9 @@
                                                 <color key="textColor" red="0.98561900854110718" green="0.76878386735916138" blue="0.01524305809289217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="nameTxtFieldPressed:" destination="BGH-d3-Uaa" eventType="editingDidBegin" id="Aa0-og-Jb7"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line Copy" translatesAutoresizingMaskIntoConstraints="NO" id="IJZ-kX-mrv">
                                                 <rect key="frame" x="0.0" y="47" width="219" height="10"/>
@@ -258,6 +258,9 @@
                                                 <color key="textColor" red="0.98561900854110718" green="0.76878386735916138" blue="0.01524305809289217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="userTxtFieldPressed:" destination="BGH-d3-Uaa" eventType="editingDidBegin" id="ast-jQ-6uZ"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line Copy" translatesAutoresizingMaskIntoConstraints="NO" id="QU9-7C-OfA">
                                                 <rect key="frame" x="0.0" y="47" width="219" height="1"/>
@@ -270,7 +273,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cOf-OL-Anf">
-                                <rect key="frame" x="77.5" y="452" width="220" height="38"/>
+                                <rect key="frame" x="77.5" y="409" width="220" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="3vP-Pk-c0c"/>
                                     <constraint firstAttribute="height" constant="38" id="wPs-aw-eXB"/>
@@ -306,25 +309,22 @@
                         <color key="backgroundColor" red="0.14901960784313725" green="0.16862745098039217" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="cOf-OL-Anf" firstAttribute="centerX" secondItem="MkW-ds-juF" secondAttribute="centerX" id="6H0-sB-w5h"/>
-                            <constraint firstItem="Apf-CK-JG7" firstAttribute="top" secondItem="cOf-OL-Anf" secondAttribute="bottom" constant="135" id="ACa-OS-iIQ"/>
+                            <constraint firstItem="Apf-CK-JG7" firstAttribute="top" secondItem="cOf-OL-Anf" secondAttribute="bottom" constant="178" id="ACa-OS-iIQ"/>
                             <constraint firstItem="oav-4G-zrC" firstAttribute="centerX" secondItem="MkW-ds-juF" secondAttribute="centerX" id="Apj-eo-yaw"/>
                             <constraint firstItem="rfu-7t-lCd" firstAttribute="leading" secondItem="LAx-Zc-VFh" secondAttribute="leading" id="DPy-Ij-WzV"/>
                             <constraint firstItem="LAx-Zc-VFh" firstAttribute="top" secondItem="Cje-1D-k1Q" secondAttribute="top" constant="30" id="MyN-nm-mZC"/>
                             <constraint firstItem="cOf-OL-Anf" firstAttribute="top" secondItem="oav-4G-zrC" secondAttribute="bottom" constant="25" id="eBq-5s-8zp"/>
                             <constraint firstItem="Apf-CK-JG7" firstAttribute="centerX" secondItem="MkW-ds-juF" secondAttribute="centerX" id="haM-h1-GVd"/>
-                            <constraint firstItem="rfu-7t-lCd" firstAttribute="top" secondItem="LAx-Zc-VFh" secondAttribute="bottom" constant="30" id="kbC-6Z-rQ0"/>
+                            <constraint firstItem="rfu-7t-lCd" firstAttribute="top" secondItem="LAx-Zc-VFh" secondAttribute="bottom" constant="12" id="kbC-6Z-rQ0"/>
                             <constraint firstItem="LAx-Zc-VFh" firstAttribute="leading" secondItem="oav-4G-zrC" secondAttribute="leading" id="lv3-5n-L2f"/>
-                            <constraint firstItem="oav-4G-zrC" firstAttribute="top" secondItem="rfu-7t-lCd" secondAttribute="bottom" constant="47" id="qfc-RN-Bac"/>
+                            <constraint firstItem="oav-4G-zrC" firstAttribute="top" secondItem="rfu-7t-lCd" secondAttribute="bottom" constant="22" id="qfc-RN-Bac"/>
                             <constraint firstItem="Cje-1D-k1Q" firstAttribute="bottom" secondItem="Apf-CK-JG7" secondAttribute="bottom" constant="20" id="qsA-0S-z5e"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cje-1D-k1Q"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZqM-9a-yoH"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                        <userDefinedRuntimeAttribute type="string" keyPath="heroModalAnimationTypeString" value="SignUpVC1"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
+                        <outlet property="emailIconImg" destination="kcW-oj-Y0g" id="hWb-Me-cbM"/>
                         <outlet property="nameLbl" destination="brY-Ns-mcG" id="H1l-yB-qlW"/>
                         <outlet property="nameTxtField" destination="e44-K6-ip6" id="WcM-7H-fzz"/>
                         <outlet property="userLbl" destination="NhP-FY-oAc" id="Bk0-SV-ypn"/>
@@ -339,13 +339,13 @@
         <!--Sign UpVC-->
         <scene sceneID="IAc-py-mUb">
             <objects>
-                <viewController storyboardIdentifier="SignUpVC2" id="YFb-co-8oo" customClass="SignUpVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SignUpVC2" useStoryboardIdentifierAsRestorationIdentifier="YES" id="YFb-co-8oo" customClass="SignUpVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bma-5w-1SP">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="2IX-kx-hXc">
-                                <rect key="frame" x="78" y="297" width="219" height="130"/>
+                                <rect key="frame" x="78" y="254" width="219" height="130"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="D04-p1-dUy">
                                         <rect key="frame" x="0.0" y="0.0" width="219" height="57"/>
@@ -367,6 +367,9 @@
                                                 <color key="textColor" red="0.98561900849999995" green="0.76878386740000004" blue="0.015243058090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="14"/>
                                                 <textInputTraits key="textInputTraits"/>
+                                                <connections>
+                                                    <action selector="emailTxtFieldPressed:" destination="YFb-co-8oo" eventType="editingDidBegin" id="vBg-pM-CMh"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line Copy" translatesAutoresizingMaskIntoConstraints="NO" id="HqG-aZ-ewQ">
                                                 <rect key="frame" x="0.0" y="47" width="219" height="10"/>
@@ -396,7 +399,10 @@
                                                 </constraints>
                                                 <color key="textColor" red="0.98561900849999995" green="0.76878386740000004" blue="0.015243058090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
+                                                <connections>
+                                                    <action selector="passwordTxtFieldPressed:" destination="YFb-co-8oo" eventType="editingDidBegin" id="xBv-B0-aHx"/>
+                                                </connections>
                                             </textField>
                                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Line Copy" translatesAutoresizingMaskIntoConstraints="NO" id="4qs-wH-Z7g">
                                                 <rect key="frame" x="0.0" y="47" width="219" height="1"/>
@@ -409,7 +415,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ayE-Dj-tH2" userLabel="UpperSV">
-                                <rect key="frame" x="78" y="98" width="240" height="152.5"/>
+                                <rect key="frame" x="78" y="80" width="240" height="152.5"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" alignment="bottom" spacing="20" translatesAutoresizingMaskIntoConstraints="NO" id="1bp-ev-hFb">
                                         <rect key="frame" x="0.0" y="0.0" width="219" height="100"/>
@@ -445,7 +451,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xi9-kb-9Fr">
-                                <rect key="frame" x="77.5" y="452" width="220" height="38"/>
+                                <rect key="frame" x="77.5" y="409" width="220" height="38"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="220" id="Hlq-73-Bqr"/>
                                     <constraint firstAttribute="height" constant="38" id="aAl-p6-HeF"/>
@@ -478,14 +484,13 @@
                         </subviews>
                         <color key="backgroundColor" red="0.14901960780000001" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="IFz-OF-sei" firstAttribute="top" secondItem="Xi9-kb-9Fr" secondAttribute="bottom" constant="135" id="Eu4-0V-lHg"/>
-                            <constraint firstItem="ayE-Dj-tH2" firstAttribute="top" secondItem="p4a-Pr-TAv" secondAttribute="bottom" constant="30" id="FbQ-rW-0H9"/>
-                            <constraint firstItem="ayE-Dj-tH2" firstAttribute="top" secondItem="p4a-Pr-TAv" secondAttribute="bottom" constant="30" id="Mdg-fM-Zun"/>
+                            <constraint firstItem="IFz-OF-sei" firstAttribute="top" secondItem="Xi9-kb-9Fr" secondAttribute="bottom" constant="178" id="Eu4-0V-lHg"/>
+                            <constraint firstItem="ayE-Dj-tH2" firstAttribute="top" secondItem="p4a-Pr-TAv" secondAttribute="bottom" constant="12" id="Hja-mr-9Jl"/>
                             <constraint firstItem="ayE-Dj-tH2" firstAttribute="leading" secondItem="p4a-Pr-TAv" secondAttribute="leading" id="QGv-zb-K8A"/>
                             <constraint firstItem="p4a-Pr-TAv" firstAttribute="leading" secondItem="2IX-kx-hXc" secondAttribute="leading" id="Vzs-cn-ap1"/>
                             <constraint firstItem="IFz-OF-sei" firstAttribute="centerX" secondItem="bma-5w-1SP" secondAttribute="centerX" id="aLh-Pd-ae1"/>
                             <constraint firstItem="3MQ-gh-Ll8" firstAttribute="bottom" secondItem="IFz-OF-sei" secondAttribute="bottom" constant="20" id="bbP-A1-gSI"/>
-                            <constraint firstItem="2IX-kx-hXc" firstAttribute="top" secondItem="ayE-Dj-tH2" secondAttribute="bottom" constant="46.5" id="cio-bM-x9h"/>
+                            <constraint firstItem="2IX-kx-hXc" firstAttribute="top" secondItem="ayE-Dj-tH2" secondAttribute="bottom" constant="21.5" id="cio-bM-x9h"/>
                             <constraint firstItem="Xi9-kb-9Fr" firstAttribute="centerX" secondItem="bma-5w-1SP" secondAttribute="centerX" id="eU2-Bs-GPt"/>
                             <constraint firstItem="p4a-Pr-TAv" firstAttribute="top" secondItem="3MQ-gh-Ll8" secondAttribute="top" constant="30" id="kjL-qv-jir"/>
                             <constraint firstItem="Xi9-kb-9Fr" firstAttribute="top" secondItem="2IX-kx-hXc" secondAttribute="bottom" constant="25" id="mo4-bb-3pV"/>
@@ -493,13 +498,10 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3MQ-gh-Ll8"/>
                     </view>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="string" keyPath="heroModalAnimationTypeString" value="SignUpVC2"/>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="isHeroEnabled" value="YES"/>
-                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailLbl" destination="GnZ-Os-zWL" id="Gc3-XH-Em4"/>
                         <outlet property="emailTxtField" destination="cT7-0B-8ZK" id="g7X-St-aaa"/>
+                        <outlet property="passwordIconImg" destination="1bM-7T-IaT" id="CAZ-KX-2zu"/>
                         <outlet property="passwordLbl" destination="obj-Vz-f6B" id="gAe-n3-N7n"/>
                         <outlet property="passwordTxtField" destination="4Qj-nK-Qaz" id="ga5-he-3wv"/>
                     </connections>

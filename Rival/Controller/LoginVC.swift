@@ -45,21 +45,18 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         performSegue(withIdentifier: "toSignUp1", sender: self)
     }
     
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     @IBAction func unwindToLoginVC(segue: UIStoryboardSegue) {
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
     
     //User and Lock image animations in textfield
     @IBAction func emailaddressTxtFieldTapped(_ sender: Any) {

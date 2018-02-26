@@ -7,7 +7,7 @@
 //
 
 import UIKit
-
+import SimpleAnimation
 
 class SignUpVC: UIViewController {
     
@@ -19,12 +19,24 @@ class SignUpVC: UIViewController {
     @IBOutlet weak var userTxtField: UITextField!
     @IBOutlet weak var emailTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
+    @IBOutlet weak var emailIconImg: UIImageView!
+    @IBOutlet weak var passwordIconImg: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+            if self.restorationIdentifier == "SignUpVC1" {
+                self.emailIconImg.hop()
+            } else if self.restorationIdentifier == "SignUpVC2" {
+                self.passwordIconImg.hop()
+            }
+        }
         
     }
+    
+
 
     @IBAction func backBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -37,5 +49,25 @@ class SignUpVC: UIViewController {
     @IBAction func nextBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: "toSignUp2", sender: self)
     }
-
+    
+    
+    
+    
+    //Name and user label simple animations
+    
+    @IBAction func nameTxtFieldPressed(_ sender: Any) {
+        nameLbl.hop()
+    }
+    
+    @IBAction func userTxtFieldPressed(_ sender: Any) {
+        userLbl.hop()
+    }
+    
+    @IBAction func emailTxtFieldPressed(_ sender: Any) {
+        emailLbl.hop()
+    }
+    @IBAction func passwordTxtFieldPressed(_ sender: Any) {
+        passwordLbl.hop()
+    }
+    
 }
