@@ -8,9 +8,11 @@ target 'Rival' do
   # Pods for Rival
   pod 'RevealingSplashView'
   pod 'TransitionButton'
+  pod 'SimpleAnimation', '~> 0.4'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
+  
 
 
 end
