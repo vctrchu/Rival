@@ -6,14 +6,11 @@ target 'Rival' do
   use_frameworks!
 
   # Pods for Rival
-  pod 'RevealingSplashView'
   pod 'TransitionButton'
   pod 'SimpleAnimation', '~> 0.4'
-  #pod 'Hero', '~> 1.1'
+  pod 'Motion', '~> 1.3'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
-  
-
 
 end

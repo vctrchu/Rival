@@ -145,6 +145,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailaddressTxtField" destination="olI-yM-CVf" id="pR4-Pp-L57"/>
                         <outlet property="lockIcon" destination="4iT-Jo-ds1" id="3Ih-jo-1vC"/>
@@ -323,6 +326,9 @@
                         <viewLayoutGuide key="safeArea" id="Cje-1D-k1Q"/>
                     </view>
                     <navigationItem key="navigationItem" id="ZqM-9a-yoH"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailIconImg" destination="kcW-oj-Y0g" id="hWb-Me-cbM"/>
                         <outlet property="nameLbl" destination="brY-Ns-mcG" id="H1l-yB-qlW"/>
@@ -498,6 +504,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3MQ-gh-Ll8"/>
                     </view>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="isMotionEnabled" value="YES"/>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailLbl" destination="GnZ-Os-zWL" id="Gc3-XH-Em4"/>
                         <outlet property="emailTxtField" destination="cT7-0B-8ZK" id="g7X-St-aaa"/>

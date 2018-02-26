@@ -10,8 +10,7 @@
 #endif
 #endif
 
-#import "RevealingSplashView.h"
 
-FOUNDATION_EXPORT double RevealingSplashViewVersionNumber;
-FOUNDATION_EXPORT const unsigned char RevealingSplashViewVersionString[];
+FOUNDATION_EXPORT double MotionVersionNumber;
+FOUNDATION_EXPORT const unsigned char MotionVersionString[];
 

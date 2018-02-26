@@ -8,6 +8,7 @@
 
 import UIKit
 import SimpleAnimation
+import Motion
 
 class SignUpVC: UIViewController {
     
@@ -34,6 +35,7 @@ class SignUpVC: UIViewController {
             }
         }
         
+        self.motionTransitionType = .autoReverse(presenting: MotionTransitionAnimationType.slide(direction: MotionTransitionAnimationType.Direction.left))
     }
     
 
