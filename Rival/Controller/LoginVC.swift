@@ -11,6 +11,7 @@ import RevealingSplashView
 import TransitionButton
 import SimpleAnimation
 
+
 class LoginVC: UIViewController, UITextFieldDelegate {
     
     @IBOutlet weak var emailaddressTxtField: UITextField!
@@ -19,6 +20,8 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var lockIcon: UIImageView!
     
+
+
     override func viewDidLoad() {
         super.viewDidLoad()
         emailaddressTxtField.delegate = self
@@ -30,12 +33,20 @@ class LoginVC: UIViewController, UITextFieldDelegate {
         self.view.addSubview(revealingSplashView)
         revealingSplashView.startAnimation()
         
+
     }
+    
     
     @IBAction func loginTransitionBtnPressed(_ sender: Any) {
         loginBtn.startAnimation()
     }
     
+    @IBAction func noAccountBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toSignUp1", sender: self)
+    }
+    
+    @IBAction func unwindToLoginVC(segue: UIStoryboardSegue) {
+    }
     
     
     

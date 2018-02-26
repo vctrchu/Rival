@@ -109,6 +109,7 @@
 				FB280A9D2042951700EE1627 /* AppDelegate.swift */,
 				FB9BB055204363D200698747 /* Services */,
 				FB9BB05020433BB800698747 /* Extensions */,
+				FB9BB05E2043BC7A00698747 /* Model */,
 				FB9BB04D2043324900698747 /* Controller */,
 				FB280AA12042951700EE1627 /* Main.storyboard */,
 				FB280AA62042951700EE1627 /* LaunchScreen.storyboard */,
@@ -177,6 +178,13 @@
 				FB9BB05A2043656D00698747 /* AuthService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FB9BB05E2043BC7A00698747 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

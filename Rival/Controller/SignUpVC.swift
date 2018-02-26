@@ -8,28 +8,34 @@
 
 import UIKit
 
-class SignUpVC: UIViewController {
 
+class SignUpVC: UIViewController {
+    
+    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var userLbl: UILabel!
+    @IBOutlet weak var emailLbl: UILabel!
+    @IBOutlet weak var passwordLbl: UILabel!
+    @IBOutlet weak var nameTxtField: UITextField!
+    @IBOutlet weak var userTxtField: UITextField!
+    @IBOutlet weak var emailTxtField: UITextField!
+    @IBOutlet weak var passwordTxtField: UITextField!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
+        
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func alreadyHaveAccPressed(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToLoginVC", sender: self)
     }
-    */
+    
+    @IBAction func nextBtnPressed(_ sender: Any) {
+        performSegue(withIdentifier: "toSignUp2", sender: self)
+    }
 
 }
