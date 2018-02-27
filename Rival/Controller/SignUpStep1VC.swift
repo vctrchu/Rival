@@ -9,30 +9,25 @@
 import UIKit
 import SimpleAnimation
 import Motion
+import TransitionButton
 
-class SignUpVC: UIViewController {
+class SignUpStep1VC: UIViewController {
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var userLbl: UILabel!
-    @IBOutlet weak var emailLbl: UILabel!
-    @IBOutlet weak var passwordLbl: UILabel!
     @IBOutlet weak var nameTxtField: UITextField!
     @IBOutlet weak var userTxtField: UITextField!
-    @IBOutlet weak var emailTxtField: UITextField!
-    @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var emailIconImg: UIImageView!
-    @IBOutlet weak var passwordIconImg: UIImageView!
+    @IBOutlet weak var nextBtn: TransitionButton!
+    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-            if self.restorationIdentifier == "SignUpVC1" {
-                self.emailIconImg.hop()
-            } else if self.restorationIdentifier == "SignUpVC2" {
-                self.passwordIconImg.hop()
-            }
+            self.emailIconImg.hop()
         }
         
         self.motionTransitionType = .autoReverse(presenting: MotionTransitionAnimationType.slide(direction: MotionTransitionAnimationType.Direction.left))
@@ -44,16 +39,25 @@ class SignUpVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
-    @IBAction func alreadyHaveAccPressed(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToLoginVC", sender: self)
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if (segue.identifier == "toSignUp2") {
+            nextBtn.startAnimation()
+            let signupVC2 = segue.destination as! SignUpStep2VC
+            signupVC2.nameTxt = nameTxtField.text!
+            signupVC2.userTxt = userTxtField.text!
+        }
     }
     
     @IBAction func nextBtnPressed(_ sender: Any) {
-        performSegue(withIdentifier: "toSignUp2", sender: self)
+        nextBtn.startAnimation()
+        if (nameTxtField.text?.isEmpty)! || (userTxtField.text?.isEmpty)! {
+            nextBtn.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 1, completion: nil)
+
+        } else {
+            nextBtn.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 1, completion: nil)
+            performSegue(withIdentifier: "toSignUp2", sender: self)
+        }
     }
-    
-    
-    
     
     //Name and user label simple animations
     
@@ -65,11 +69,6 @@ class SignUpVC: UIViewController {
         userLbl.hop()
     }
     
-    @IBAction func emailTxtFieldPressed(_ sender: Any) {
-        emailLbl.hop()
-    }
-    @IBAction func passwordTxtFieldPressed(_ sender: Any) {
-        passwordLbl.hop()
-    }
+
     
 }

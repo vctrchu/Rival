@@ -36,6 +36,7 @@ PODS:
     - GoogleToolboxForMac/NSString+URLArguments (= 2.1.3)
   - GoogleToolboxForMac/NSString+URLArguments (2.1.3)
   - GTMSessionFetcher/Core (1.1.13)
+  - KYDrawerController (2.0.4)
   - leveldb-library (1.20)
   - Motion (1.3.5):
     - Motion/Core (= 1.3.5)
@@ -52,6 +53,7 @@ DEPENDENCIES:
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
+  - KYDrawerController (~> 2.0)
   - Motion (~> 1.3)
   - SimpleAnimation (~> 0.4)
   - TransitionButton
@@ -65,12 +67,13 @@ SPEC CHECKSUMS:
   FirebaseInstanceID: d2058a35e9bebda1b6dd42486b84917bde552a9d
   GoogleToolboxForMac: 2501e2ad72a52eb3dfe7bd9aee7dad11b858bd20
   GTMSessionFetcher: 5bb1eae636127de695590f50e7d248483eb891e6
+  KYDrawerController: cf5839877c442132123e9d482f458821026defdf
   leveldb-library: 08cba283675b7ed2d99629a4bc5fd052cd2bb6a5
   Motion: 9f74d115d7f72bb5380a8e3cde2f8a1fc898ac36
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   SimpleAnimation: a3473da5421c65100d68f98a44fc853b81091249
   TransitionButton: 0bf7e5ffe80030f9d10d57983a04acf2f511998a
 
-PODFILE CHECKSUM: 4cdbda3ab76b417507f936052660363d32e32327
+PODFILE CHECKSUM: e56a0bf94c8b85d097a6dd60b067a0148b71640e
 
 COCOAPODS: 1.3.1

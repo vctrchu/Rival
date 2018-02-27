@@ -9,6 +9,7 @@ target 'Rival' do
   pod 'TransitionButton'
   pod 'SimpleAnimation', '~> 0.4'
   pod 'Motion', '~> 1.3'
+  pod 'KYDrawerController', '~> 2.0'
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'

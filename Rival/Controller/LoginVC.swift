@@ -30,7 +30,22 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func loginTransitionBtnPressed(_ sender: Any) {
-        loginBtn.startAnimation()
+        if emailaddressTxtField.text != nil && passwordTxtField.text != nil {
+            loginBtn.startAnimation()
+            AuthService.instance.loginUser(withEmail: emailaddressTxtField.text!, andPassword: passwordTxtField.text!, loginComplete: { (success, loginError) in
+                if success {
+                    self.loginBtn.stopAnimation(animationStyle: StopAnimationStyle.expand, revertAfterDelay: 1, completion: {
+                        let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "Main")
+                        mainVC!.present(mainVC!, animated: true, completion: nil)
+                    })
+                } else {
+                    print(String(describing: loginError?.localizedDescription))
+                    self.loginBtn.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 0.75, completion: nil)
+                }
+            })
+        }
+        
+        
     }
     
     @IBAction func noAccountBtnPressed(_ sender: Any) {

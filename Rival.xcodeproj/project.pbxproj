@@ -17,7 +17,8 @@
 		FB9BB0572043647A00698747 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB9BB0562043647A00698747 /* GoogleService-Info.plist */; };
 		FB9BB0592043656200698747 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB0582043656200698747 /* DataService.swift */; };
 		FB9BB05B2043656D00698747 /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05A2043656D00698747 /* AuthService.swift */; };
-		FB9BB05D20437BFB00698747 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05C20437BFB00698747 /* SignUpVC.swift */; };
+		FB9BB05D20437BFB00698747 /* SignUpStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */; };
+		FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -53,7 +54,8 @@
 		FB9BB0562043647A00698747 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB9BB0582043656200698747 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		FB9BB05A2043656D00698747 /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
-		FB9BB05C20437BFB00698747 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1VC.swift; sourceTree = "<group>"; };
+		FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2VC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,7 +160,8 @@
 			isa = PBXGroup;
 			children = (
 				FB280A9F2042951700EE1627 /* LoginVC.swift */,
-				FB9BB05C20437BFB00698747 /* SignUpVC.swift */,
+				FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */,
+				FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Rival/Pods-Rival-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/KYDrawerController/KYDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/SimpleAnimation/SimpleAnimation.framework",
 				"${BUILT_PRODUCTS_DIR}/TransitionButton/TransitionButton.framework",
@@ -296,6 +300,7 @@
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KYDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SimpleAnimation.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TransitionButton.framework",
@@ -332,8 +337,9 @@
 				FB9BB05420433C8400698747 /* TextFieldTapped.swift in Sources */,
 				FB280AA02042951700EE1627 /* LoginVC.swift in Sources */,
 				FB9BB05B2043656D00698747 /* AuthService.swift in Sources */,
+				FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */,
 				FB280A9E2042951700EE1627 /* AppDelegate.swift in Sources */,
-				FB9BB05D20437BFB00698747 /* SignUpVC.swift in Sources */,
+				FB9BB05D20437BFB00698747 /* SignUpStep1VC.swift in Sources */,
 				FB9BB0592043656200698747 /* DataService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
