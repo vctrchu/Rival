@@ -34,7 +34,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R I V A L" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cuM-23-iCo">
-                                <rect key="frame" x="97" y="152.5" width="181" height="63.5"/>
+                                <rect key="frame" x="97.5" y="152.5" width="180.5" height="63.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="48"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -220,7 +220,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e44-K6-ip6">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="John Smith" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="e44-K6-ip6">
                                                 <rect key="frame" x="0.0" y="22" width="218" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="218" id="X6p-2S-Lbz"/>
@@ -253,7 +253,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Qx-d7-B3F">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="johnsmith123" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="9Qx-d7-B3F">
                                                 <rect key="frame" x="0.0" y="22" width="218" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="218" id="cTf-cF-fbf"/>
@@ -308,6 +308,12 @@
                                     <action selector="backBtnPressed:" destination="BGH-d3-Uaa" eventType="touchUpInside" id="aNa-jp-enY"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2is-yE-ipp">
+                                <rect key="frame" x="187.5" y="477" width="0.0" height="0.0"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960784313725" green="0.16862745098039217" blue="0.1764705882352941" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
@@ -322,6 +328,7 @@
                             <constraint firstItem="LAx-Zc-VFh" firstAttribute="leading" secondItem="oav-4G-zrC" secondAttribute="leading" id="lv3-5n-L2f"/>
                             <constraint firstItem="oav-4G-zrC" firstAttribute="top" secondItem="rfu-7t-lCd" secondAttribute="bottom" constant="22" id="qfc-RN-Bac"/>
                             <constraint firstItem="Cje-1D-k1Q" firstAttribute="bottom" secondItem="Apf-CK-JG7" secondAttribute="bottom" constant="20" id="qsA-0S-z5e"/>
+                            <constraint firstItem="2is-yE-ipp" firstAttribute="centerX" secondItem="MkW-ds-juF" secondAttribute="centerX" id="vic-sG-bTs"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Cje-1D-k1Q"/>
                     </view>
@@ -331,6 +338,7 @@
                     </userDefinedRuntimeAttributes>
                     <connections>
                         <outlet property="emailIconImg" destination="kcW-oj-Y0g" id="hWb-Me-cbM"/>
+                        <outlet property="errorLabel" destination="2is-yE-ipp" id="fZ7-id-17X"/>
                         <outlet property="nameLbl" destination="brY-Ns-mcG" id="H1l-yB-qlW"/>
                         <outlet property="nameTxtField" destination="e44-K6-ip6" id="WcM-7H-fzz"/>
                         <outlet property="nextBtn" destination="cOf-OL-Anf" id="AD6-Rh-2Qu"/>
@@ -366,7 +374,7 @@
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cT7-0B-8ZK">
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="johnsmith@gmail.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="cT7-0B-8ZK">
                                                 <rect key="frame" x="0.0" y="22" width="218" height="19"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="218" id="omM-aJ-3yl"/>
@@ -598,7 +606,7 @@
         <!--Item 1-->
         <scene sceneID="QNS-ma-k1i">
             <objects>
-                <viewController id="YXh-yc-dGj" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="Groups" id="YXh-yc-dGj" customClass="GroupsVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="WQZ-XJ-xH7">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -606,9 +614,25 @@
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xtE-0Z-bd8">
                                 <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                                 <items>
-                                    <navigationItem title="Group" id="CO1-PA-1K4"/>
+                                    <navigationItem title="Group" id="CO1-PA-1K4">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="D3X-BI-hL1">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="nXA-8A-jN5">
+                                                <rect key="frame" x="16" y="7" width="83" height="30"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" title="Button"/>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
                                 </items>
                             </navigationBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LLz-sB-q21">
+                                <rect key="frame" x="138" y="159" width="46" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="signOutBtnPressed:" destination="YXh-yc-dGj" eventType="touchUpInside" id="6BZ-rE-qz6"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960784313725" green="0.16862745098039217" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>

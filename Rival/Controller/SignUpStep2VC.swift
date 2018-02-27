@@ -51,9 +51,10 @@ class SignUpStep2VC: UIViewController {
             AuthService.instance.registerUser(fullName: nameTxt, userName: userTxt, withEmail: emailTxtField.text!, andPassword: passwordTxtField.text!, userCreationComplete: { (success, signupError) in
                 if success {
                     AuthService.instance.loginUser(withEmail: self.emailTxtField.text!, andPassword: self.passwordTxtField.text!, loginComplete: { (success, nil) in
-                        self.completeBtn.stopAnimation(animationStyle: StopAnimationStyle.expand, revertAfterDelay: 1, completion: {
+                        self.completeBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
                             let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                            mainVC?.present(mainVC!, animated: true, completion: nil)
+                            mainVC!.modalTransitionStyle = .crossDissolve
+                            self.present(mainVC!, animated: true, completion: nil)
                         })
                     })
                 } else {

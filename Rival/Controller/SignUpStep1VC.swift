@@ -18,6 +18,7 @@ class SignUpStep1VC: UIViewController {
     @IBOutlet weak var nameTxtField: UITextField!
     @IBOutlet weak var userTxtField: UITextField!
     @IBOutlet weak var emailIconImg: UIImageView!
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nextBtn: TransitionButton!
     
 
@@ -41,7 +42,6 @@ class SignUpStep1VC: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toSignUp2") {
-            nextBtn.startAnimation()
             let signupVC2 = segue.destination as! SignUpStep2VC
             signupVC2.nameTxt = nameTxtField.text!
             signupVC2.userTxt = userTxtField.text!
@@ -49,12 +49,11 @@ class SignUpStep1VC: UIViewController {
     }
     
     @IBAction func nextBtnPressed(_ sender: Any) {
-        nextBtn.startAnimation()
         if (nameTxtField.text?.isEmpty)! || (userTxtField.text?.isEmpty)! {
-            nextBtn.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 1, completion: nil)
-
+            nextBtn.shake()
+            errorLabel.text = "Please make sure both fields are filled."
+            
         } else {
-            nextBtn.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 1, completion: nil)
             performSegue(withIdentifier: "toSignUp2", sender: self)
         }
     }

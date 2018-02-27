@@ -34,9 +34,10 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             loginBtn.startAnimation()
             AuthService.instance.loginUser(withEmail: emailaddressTxtField.text!, andPassword: passwordTxtField.text!, loginComplete: { (success, loginError) in
                 if success {
-                    self.loginBtn.stopAnimation(animationStyle: StopAnimationStyle.expand, revertAfterDelay: 1, completion: {
+                    self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
                         let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                        mainVC!.present(mainVC!, animated: true, completion: nil)
+                        mainVC!.modalTransitionStyle = .crossDissolve
+                        self.present(mainVC!, animated: true, completion: nil)
                     })
                 } else {
                     print(String(describing: loginError?.localizedDescription))
