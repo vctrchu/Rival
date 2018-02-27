@@ -10,12 +10,14 @@ import UIKit
 import Firebase
 
 class GroupsVC: UIViewController {
-
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
     }
 
-
+    
     @IBAction func signOutBtnPressed(_ sender: Any) {
         do {
             try Auth.auth().signOut()
