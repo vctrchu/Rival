@@ -51,9 +51,9 @@ class SignUpStep1VC: UIViewController {
     @IBAction func nextBtnPressed(_ sender: Any) {
         if (nameTxtField.text?.isEmpty)! || (userTxtField.text?.isEmpty)! {
             nextBtn.shake()
-            errorLabel.text = "Please make sure both fields are filled."
-            
+            errorLabel.text = "Please make sure both fields are filled."            
         } else {
+            errorLabel.text = ""
             performSegue(withIdentifier: "toSignUp2", sender: self)
         }
     }

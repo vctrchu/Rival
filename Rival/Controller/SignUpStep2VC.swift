@@ -17,6 +17,7 @@ class SignUpStep2VC: UIViewController {
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
     @IBOutlet weak var emailTxtField: UITextField!
+    @IBOutlet weak var errorLbl: UILabel!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var passwordIconImg: UIImageView!
     @IBOutlet weak var completeBtn: TransitionButton!
@@ -59,6 +60,8 @@ class SignUpStep2VC: UIViewController {
                     })
                 } else {
                     print(String(describing: signupError?.localizedDescription))
+                    self.errorLbl.text = String(describing: signupError!.localizedDescription)
+                    self.errorLbl.hop()
                     self.completeBtn.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 1, completion: nil)
                 }
             })

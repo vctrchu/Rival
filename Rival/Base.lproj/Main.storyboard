@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="z6a-zV-bYM">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13771" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="MLC-hz-7s4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,6 +10,9 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="Roboto-Light.ttf">
+            <string>Roboto-Light</string>
+        </array>
         <array key="Roboto-Regular.ttf">
             <string>Roboto-Regular</string>
         </array>
@@ -308,10 +311,13 @@
                                     <action selector="backBtnPressed:" destination="BGH-d3-Uaa" eventType="touchUpInside" id="aNa-jp-enY"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2is-yE-ipp">
-                                <rect key="frame" x="187.5" y="477" width="0.0" height="0.0"/>
-                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="15"/>
-                                <nil key="textColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2is-yE-ipp">
+                                <rect key="frame" x="63" y="477" width="250" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="250" id="JLz-Fv-pX8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
+                                <color key="textColor" red="0.87969464063644409" green="0.12357986718416214" blue="0.24129801988601685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
@@ -323,6 +329,7 @@
                             <constraint firstItem="rfu-7t-lCd" firstAttribute="leading" secondItem="LAx-Zc-VFh" secondAttribute="leading" id="DPy-Ij-WzV"/>
                             <constraint firstItem="LAx-Zc-VFh" firstAttribute="top" secondItem="Cje-1D-k1Q" secondAttribute="top" constant="30" id="MyN-nm-mZC"/>
                             <constraint firstItem="cOf-OL-Anf" firstAttribute="top" secondItem="oav-4G-zrC" secondAttribute="bottom" constant="25" id="eBq-5s-8zp"/>
+                            <constraint firstItem="2is-yE-ipp" firstAttribute="top" secondItem="cOf-OL-Anf" secondAttribute="bottom" constant="30" id="eph-wk-dhF"/>
                             <constraint firstItem="Apf-CK-JG7" firstAttribute="centerX" secondItem="MkW-ds-juF" secondAttribute="centerX" id="haM-h1-GVd"/>
                             <constraint firstItem="rfu-7t-lCd" firstAttribute="top" secondItem="LAx-Zc-VFh" secondAttribute="bottom" constant="12" id="kbC-6Z-rQ0"/>
                             <constraint firstItem="LAx-Zc-VFh" firstAttribute="leading" secondItem="oav-4G-zrC" secondAttribute="leading" id="lv3-5n-L2f"/>
@@ -349,7 +356,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7i-pq-pRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="728.5" y="31.5"/>
+            <point key="canvasLocation" x="727.20000000000005" y="31.03448275862069"/>
         </scene>
         <!--Sign Up Step2VC-->
         <scene sceneID="IAc-py-mUb">
@@ -499,9 +506,19 @@
                                     <action selector="backBtnPressed:" destination="YFb-co-8oo" eventType="touchUpInside" id="Tx5-zQ-fhH"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="                   " textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n20-6X-jqn">
+                                <rect key="frame" x="37" y="477" width="300" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="8eg-EI-fAm"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="12"/>
+                                <color key="textColor" red="0.87969464060000002" green="0.1235798672" blue="0.24129801989999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.14901960780000001" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="n20-6X-jqn" firstAttribute="top" secondItem="Xi9-kb-9Fr" secondAttribute="bottom" constant="30" id="9ZZ-6t-wwH"/>
                             <constraint firstItem="IFz-OF-sei" firstAttribute="top" secondItem="Xi9-kb-9Fr" secondAttribute="bottom" constant="178" id="Eu4-0V-lHg"/>
                             <constraint firstItem="ayE-Dj-tH2" firstAttribute="top" secondItem="p4a-Pr-TAv" secondAttribute="bottom" constant="12" id="Hja-mr-9Jl"/>
                             <constraint firstItem="ayE-Dj-tH2" firstAttribute="leading" secondItem="p4a-Pr-TAv" secondAttribute="leading" id="QGv-zb-K8A"/>
@@ -512,6 +529,7 @@
                             <constraint firstItem="Xi9-kb-9Fr" firstAttribute="centerX" secondItem="bma-5w-1SP" secondAttribute="centerX" id="eU2-Bs-GPt"/>
                             <constraint firstItem="p4a-Pr-TAv" firstAttribute="top" secondItem="3MQ-gh-Ll8" secondAttribute="top" constant="30" id="kjL-qv-jir"/>
                             <constraint firstItem="Xi9-kb-9Fr" firstAttribute="top" secondItem="2IX-kx-hXc" secondAttribute="bottom" constant="25" id="mo4-bb-3pV"/>
+                            <constraint firstItem="n20-6X-jqn" firstAttribute="centerX" secondItem="bma-5w-1SP" secondAttribute="centerX" id="ndx-rZ-MHp"/>
                             <constraint firstItem="2IX-kx-hXc" firstAttribute="centerX" secondItem="bma-5w-1SP" secondAttribute="centerX" id="ryj-sV-jA6"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="3MQ-gh-Ll8"/>
@@ -523,6 +541,7 @@
                         <outlet property="completeBtn" destination="Xi9-kb-9Fr" id="CDV-a3-k4a"/>
                         <outlet property="emailLbl" destination="GnZ-Os-zWL" id="7xz-7N-MgH"/>
                         <outlet property="emailTxtField" destination="cT7-0B-8ZK" id="CET-iS-bdq"/>
+                        <outlet property="errorLbl" destination="n20-6X-jqn" id="tXa-dG-Avp"/>
                         <outlet property="passwordIconImg" destination="1bM-7T-IaT" id="OnX-Lb-s7X"/>
                         <outlet property="passwordLbl" destination="obj-Vz-f6B" id="l2F-sO-giw"/>
                         <outlet property="passwordTxtField" destination="4Qj-nK-Qaz" id="WbA-YT-AtL"/>
@@ -647,6 +666,43 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qr-tT-1WL" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3604" y="358.4707646176912"/>
+        </scene>
+        <!--Launch Screen DelayVC-->
+        <scene sceneID="3iX-1A-HKd">
+            <objects>
+                <viewController storyboardIdentifier="LaunchScreenDelayVC" id="MLC-hz-7s4" customClass="LaunchScreenDelayVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="xYT-jr-p3R">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rivalIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Dpj-xW-tu7">
+                                <rect key="frame" x="162" y="260" width="51" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="51" id="DPI-wi-EFC"/>
+                                    <constraint firstAttribute="height" constant="48" id="b3V-fM-GTO"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="R I V A L" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QUH-SF-a0K">
+                                <rect key="frame" x="97" y="302" width="181" height="63.5"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="48"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.14901960784313725" green="0.16862745098039217" blue="0.1764705882352941" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="QUH-SF-a0K" firstAttribute="top" secondItem="Dpj-xW-tu7" secondAttribute="bottom" constant="-6" id="0kL-eb-Luh"/>
+                            <constraint firstItem="QUH-SF-a0K" firstAttribute="top" secondItem="Dpj-xW-tu7" secondAttribute="bottom" constant="-6" id="GGN-zA-OZL"/>
+                            <constraint firstItem="QUH-SF-a0K" firstAttribute="centerY" secondItem="xYT-jr-p3R" secondAttribute="centerY" id="PKS-gX-E4h"/>
+                            <constraint firstItem="QUH-SF-a0K" firstAttribute="centerX" secondItem="xYT-jr-p3R" secondAttribute="centerX" id="Vl1-KD-yCE"/>
+                            <constraint firstItem="Dpj-xW-tu7" firstAttribute="centerX" secondItem="xYT-jr-p3R" secondAttribute="centerX" id="dEg-q0-FGZ"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="MhI-ud-fLh"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1Mk-5i-woi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-679" y="30"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="ziC-ah-Gvb">
