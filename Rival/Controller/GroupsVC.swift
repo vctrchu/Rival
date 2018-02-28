@@ -17,9 +17,6 @@ class GroupsVC: UIViewController {
         
     }
 
-    @IBAction func drawerBtnPressed(_ sender: Any) {
-        
-    }
     
     @IBAction func signOutBtnPressed(_ sender: Any) {
         do {

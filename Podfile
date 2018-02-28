@@ -6,10 +6,14 @@ target 'Rival' do
   use_frameworks!
 
   # Pods for Rival
+  # Pods for animation
   pod 'TransitionButton'
   pod 'SimpleAnimation'
   pod 'Motion'
   pod 'SideMenu'
+  pod 'RAMAnimatedTabBarController'
+  
+  # Firebase pods
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Auth'
