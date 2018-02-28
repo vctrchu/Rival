@@ -17,7 +17,10 @@ class SideMenuVC: UITableViewController {
     }
     
     func sideMenuCustomization() {
-        SideMenuManager.default.menuPresentMode = .viewSlideOut
+        SideMenuManager.default.menuPresentMode = .viewSlideInOut
+        SideMenuManager.default.menuAnimationFadeStrength = 0.3
+        SideMenuManager.default.menuFadeStatusBar = false
+        SideMenuManager.default.menuWidth = 300
     }
 
     override func didReceiveMemoryWarning() {
