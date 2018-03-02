@@ -8,13 +8,13 @@
 
 import UIKit
 import Firebase
+import SideMenu
 
 class GroupsVC: UIViewController {
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
     }
 
     
