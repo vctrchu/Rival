@@ -10,8 +10,9 @@ import UIKit
 import TransitionButton
 import SimpleAnimation
 import Motion
+import RAMAnimatedTabBarController
 
-class LoginVC: UIViewController, UITextFieldDelegate {
+class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     
     @IBOutlet weak var emailaddressTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -19,7 +20,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var lockIcon: UIImageView!
     
-
+    private var groupsVCTabBarController: RAMAnimatedTabBarController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,9 +36,14 @@ class LoginVC: UIViewController, UITextFieldDelegate {
             AuthService.instance.loginUser(withEmail: emailaddressTxtField.text!, andPassword: passwordTxtField.text!, loginComplete: { (success, loginError) in
                 if success {
                     self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
-                        let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                        mainVC!.modalTransitionStyle = .crossDissolve
-                        self.present(mainVC!, animated: true, completion: nil)
+                        if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as? RAMAnimatedTabBarController {
+                            self.groupsVCTabBarController = groupsVCTabBarController
+                            groupsVCTabBarController.modalTransitionStyle = .crossDissolve
+                            if let groupsVC = groupsVCTabBarController.viewControllers?.first as? GroupsVC {
+                                groupsVC.delegate = self
+                            }
+                            self.present(groupsVCTabBarController, animated: true, completion: nil)
+                        }
                     })
                 } else {
                     print(String(describing: loginError?.localizedDescription))
@@ -72,6 +78,12 @@ class LoginVC: UIViewController, UITextFieldDelegate {
     }
     @IBAction func passwordTxtFieldTapped(_ sender: Any) {
         lockIcon.hop()
+    }
+    
+    func onLogoutPressed() {
+        emailaddressTxtField.text = nil
+        passwordTxtField.text = nil
+        groupsVCTabBarController?.dismiss(animated: false, completion: nil)
     }
 
 }

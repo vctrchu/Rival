@@ -776,7 +776,7 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="drawerIcon"/>
                                                 <connections>
-                                                    <segue destination="YXE-z5-SHm" kind="presentation" id="UED-nP-uDY"/>
+                                                    <segue destination="YXE-z5-SHm" kind="presentation" identifier="SideMenuVCSegue" id="UED-nP-uDY"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>

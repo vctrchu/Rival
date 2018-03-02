@@ -10,6 +10,10 @@ import UIKit
 import SideMenu
 import Firebase
 
+protocol SideMenuVCDelegate: class {
+    func onLogoutPressed()
+}
+
 class SideMenuVC: UIViewController {
 
     @IBOutlet weak var profileImg: UIImageView!
@@ -18,6 +22,7 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var editPasswordBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
     
+    weak var delegate: SideMenuVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -46,6 +51,7 @@ class SideMenuVC: UIViewController {
         alert.addAction(UIAlertAction(title: "Logout", style: UIAlertActionStyle.default, handler: { (action) in
             do {
                 try Auth.auth().signOut()
+                self.delegate?.onLogoutPressed()
             } catch {
                 print(error)
                 self.present(logoutFailure, animated: true, completion: nil)

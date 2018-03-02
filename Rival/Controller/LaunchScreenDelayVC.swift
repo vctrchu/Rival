@@ -9,23 +9,40 @@
 import UIKit
 import Firebase
 import Motion
+import RAMAnimatedTabBarController
 
-class LaunchScreenDelayVC: UIViewController {
+class LaunchScreenDelayVC: UIViewController, GroupsVCDelegate {
 
+    private var groupsVCTabBarController: RAMAnimatedTabBarController?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1.5) {
             if Auth.auth().currentUser == nil {
-                let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
-                loginVC!.modalTransitionStyle = .crossDissolve
-                self.present(loginVC!, animated: true, completion: nil)
+                self.presentLoginScreen()
             } else {
-                let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                mainVC!.modalTransitionStyle = .crossDissolve
-                self.present(mainVC!, animated: true, completion: nil)
+                if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as? RAMAnimatedTabBarController {
+                    self.groupsVCTabBarController = groupsVCTabBarController
+                    groupsVCTabBarController.modalTransitionStyle = .crossDissolve
+                    if let groupsVC = groupsVCTabBarController.viewControllers?.first as? GroupsVC {
+                        groupsVC.delegate = self
+                    }
+                    self.present(groupsVCTabBarController, animated: true, completion: nil)
+                }
             }
         }
     }
+    
+    private func presentLoginScreen() {
+        let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
+        loginVC!.modalTransitionStyle = .crossDissolve
+        self.present(loginVC!, animated: true, completion: nil)
+    }
 
+    func onLogoutPressed() {
+        groupsVCTabBarController?.dismiss(animated: false, completion: {
+            self.presentLoginScreen()
+        })
+    }
 }
