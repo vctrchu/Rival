@@ -31,9 +31,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     
     
     @IBAction func loginTransitionBtnPressed(_ sender: Any) {
-        if emailaddressTxtField.text != nil && passwordTxtField.text != nil {
+        if let email = emailaddressTxtField.text, let password = passwordTxtField.text {
             loginBtn.startAnimation()
-            AuthService.instance.loginUser(withEmail: emailaddressTxtField.text!, andPassword: passwordTxtField.text!, loginComplete: { (success, loginError) in
+            AuthService.instance.loginUser(withEmail: email, andPassword: password, loginComplete: { (success, loginError) in
                 if success {
                     self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
                         if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as? RAMAnimatedTabBarController {
