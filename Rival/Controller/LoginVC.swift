@@ -36,7 +36,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
             AuthService.instance.loginUser(withEmail: email, andPassword: password, loginComplete: { (success, loginError) in
                 if success {
                     self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
-                        if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as? RAMAnimatedTabBarController {
+                        if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                             self.groupsVCTabBarController = groupsVCTabBarController
                             groupsVCTabBarController.modalTransitionStyle = .crossDissolve
                             if let groupsVC = groupsVCTabBarController.viewControllers?.first as? GroupsVC {

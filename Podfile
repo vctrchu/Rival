@@ -12,7 +12,8 @@ target 'Rival' do
   pod 'Motion'
   pod 'SideMenu'
   pod 'RAMAnimatedTabBarController'
-  
+  pod 'JTAppleCalendar'
+
   # Firebase pods
   pod 'Firebase/Core'
   pod 'Firebase/Database'

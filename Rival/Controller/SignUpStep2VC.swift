@@ -47,9 +47,9 @@ class SignUpStep2VC: UIViewController {
     
     
     @IBAction func completeBtnPressed(_ sender: Any) {
-        if  emailTxtField.text != nil && passwordTxtField.text != nil {
+        if  let email = emailTxtField.text, let password = passwordTxtField.text {
             completeBtn.startAnimation()
-            AuthService.instance.registerUser(fullName: nameTxt, userName: userTxt, withEmail: emailTxtField.text!, andPassword: passwordTxtField.text!, userCreationComplete: { (success, signupError) in
+            AuthService.instance.registerUser(fullName: nameTxt, userName: userTxt, withEmail: email, andPassword: password, userCreationComplete: { (success, signupError) in
                 if success {
                     AuthService.instance.loginUser(withEmail: self.emailTxtField.text!, andPassword: self.passwordTxtField.text!, loginComplete: { (success, nil) in
                         self.completeBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {

@@ -22,7 +22,7 @@ class LaunchScreenDelayVC: UIViewController, GroupsVCDelegate {
             if Auth.auth().currentUser == nil {
                 self.presentLoginScreen()
             } else {
-                if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "Main") as? RAMAnimatedTabBarController {
+                if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                     self.groupsVCTabBarController = groupsVCTabBarController
                     groupsVCTabBarController.modalTransitionStyle = .crossDissolve
                     if let groupsVC = groupsVCTabBarController.viewControllers?.first as? GroupsVC {
