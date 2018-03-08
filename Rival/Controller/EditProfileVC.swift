@@ -10,11 +10,20 @@ import UIKit
 
 class EditProfileVC: UIViewController {
 
-    @IBOutlet weak var userImage: UIImageView!
+    @IBOutlet weak var profileImage: UIImageView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        userImage.layer.cornerRadius = userImage.frame.size.width/2
+        profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditProfileVC.handleSelectProfileImageView))
+        profileImage.addGestureRecognizer(tapGesture)
+        profileImage.isUserInteractionEnabled = true
+    }
+    
+    @objc func handleSelectProfileImageView() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
     }
 
     @IBAction func cancelBtnPressed(_ sender: Any) {
@@ -25,6 +34,9 @@ class EditProfileVC: UIViewController {
 
 extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-        <#code#>
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            profileImage.image = image
+        }
+        dismiss(animated: true, completion: nil)
     }
 }

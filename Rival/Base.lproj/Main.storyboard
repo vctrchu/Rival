@@ -766,7 +766,7 @@
                         <viewLayoutGuide key="safeArea" id="dEJ-Pm-i3I"/>
                     </view>
                     <connections>
-                        <outlet property="userImage" destination="sDw-4y-8zY" id="O8O-8j-bhq"/>
+                        <outlet property="profileImage" destination="sDw-4y-8zY" id="yfV-zo-NR3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTL-oj-ktV" userLabel="First Responder" sceneMemberID="firstResponder"/>
