@@ -62,7 +62,14 @@ extension GroupsVC: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
         dateComponent.year = 1
         let startDate = Date()
         let endDate = Calendar.current.date(byAdding: dateComponent, to: startDate)
-        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate!, numberOfRows: 1, calendar: Calendar.current, generateInDates: .forFirstMonthOnly, generateOutDates: .off, firstDayOfWeek: .sunday, hasStrictBoundaries: false)
+        let parameters = ConfigurationParameters(startDate: startDate,
+                                                 endDate: endDate!,
+                                                 numberOfRows: 1,
+                                                 calendar: Calendar.current,
+                                                 generateInDates: .forFirstMonthOnly,
+                                                 generateOutDates: .off,
+                                                 firstDayOfWeek: .sunday,
+                                                 hasStrictBoundaries: false)
         return parameters
     }
     
