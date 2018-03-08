@@ -35,6 +35,9 @@ class SideMenuVC: UIViewController {
         editProfileBtn.adjustsImageWhenHighlighted = false
         editPasswordBtn.adjustsImageWhenHighlighted = false
         logoutBtn.adjustsImageWhenHighlighted = false
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(SideMenuVC.handleSelectProfileImageView))
+        profileImg.addGestureRecognizer(tapGesture)
+        profileImg.isUserInteractionEnabled = true
     }
     
     func sideMenuCustomization() {
@@ -42,6 +45,12 @@ class SideMenuVC: UIViewController {
         SideMenuManager.default.menuAnimationFadeStrength = 0.3
         SideMenuManager.default.menuFadeStatusBar = false
         SideMenuManager.default.menuWidth = 275
+    }
+    
+    @objc func handleSelectProfileImageView() {
+        let pickerController = UIImagePickerController()
+        pickerController.delegate = self
+        present(pickerController, animated: true, completion: nil)
     }
     
     func createLogoutAlert() {
@@ -70,7 +79,8 @@ class SideMenuVC: UIViewController {
     }
    
     @IBAction func editProfileBtnPressed(_ sender: Any) {
-        print("works")
+        let editProfileVC = storyboard?.instantiateViewController(withIdentifier: "EditProfileVC")
+        present(editProfileVC!, animated: true, completion: nil)
     }
     
     @IBAction func editPasswordBtnPressed(_ sender: Any) {
@@ -80,9 +90,15 @@ class SideMenuVC: UIViewController {
         createLogoutAlert()
     }
     
-    
-    
-    
-    
+}
+
+extension SideMenuVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            profileImg.image = image
+        }
+        print(info)
+        dismiss(animated: true, completion: nil)
+    }
 }
 
