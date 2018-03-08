@@ -1090,6 +1090,9 @@
                             <outlet property="animation" destination="zDq-Nq-vl7" id="Z5x-fZ-Nft"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="calendarView" destination="0RV-X8-bsb" id="bhx-FJ-Oxm"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qr-tT-1WL" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="zDq-Nq-vl7" customClass="RAMFlipRightTransitionItemAnimations" customModule="RAMAnimatedTabBarController">
