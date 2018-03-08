@@ -7,10 +7,13 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class EditProfileVC: UIViewController {
 
     @IBOutlet weak var profileImage: UIImageView!
+    
+    var selectedImage: UIImage?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,11 +33,20 @@ class EditProfileVC: UIViewController {
         dismiss(animated: true, completion: nil)
     }
     
+    @IBAction func doneBtnPressed(_ sender: Any) {
+        if let profileImg = selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            StorageService.instance.createUserProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
+            dismiss(animated: true, completion: nil)
+        }
+       
+    }
+    
 }
 
 extension EditProfileVC: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let image = info["UIImagePickerControllerOriginalImage"] as? UIImage {
+            selectedImage = image
             profileImage.image = image
         }
         dismiss(animated: true, completion: nil)

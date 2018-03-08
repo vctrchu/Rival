@@ -748,6 +748,9 @@
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                                 <state key="normal" title="DONE"/>
+                                                <connections>
+                                                    <action selector="doneBtnPressed:" destination="auq-5m-9ec" eventType="touchUpInside" id="6tH-Vv-vRZ"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                     </navigationItem>

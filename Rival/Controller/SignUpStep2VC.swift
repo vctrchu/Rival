@@ -53,9 +53,9 @@ class SignUpStep2VC: UIViewController {
                 if success {
                     AuthService.instance.loginUser(withEmail: self.emailTxtField.text!, andPassword: self.passwordTxtField.text!, loginComplete: { (success, nil) in
                         self.completeBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
-                            let mainVC = self.storyboard?.instantiateViewController(withIdentifier: "Main")
-                            mainVC!.modalTransitionStyle = .crossDissolve
-                            self.present(mainVC!, animated: true, completion: nil)
+                            let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+                            tabBarVC!.modalTransitionStyle = .crossDissolve
+                            self.present(tabBarVC!, animated: true, completion: nil)
                         })
                     })
                 } else {
