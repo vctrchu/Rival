@@ -35,7 +35,7 @@ class EditProfileVC: UIViewController {
     
     @IBAction func doneBtnPressed(_ sender: Any) {
         if let profileImg = selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-            StorageService.instance.createUserProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
+            StorageService.instance.uploadProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
             dismiss(animated: true, completion: nil)
         }
        

@@ -9,6 +9,7 @@
 import UIKit
 import SideMenu
 import Firebase
+import Kingfisher
 
 protocol SideMenuVCDelegate: class {
     func onLogoutPressed()
@@ -21,14 +22,37 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var editProfileBtn: UIButton!
     @IBOutlet weak var editPasswordBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
-    
+        
     weak var delegate: SideMenuVCDelegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        //retrieveUserInfo()
+        setUserInfo()
         sideMenuCustomization()
         outletCustomization()
     }
+    
+    func setUserInfo() {
+        let imageUrl = DataService.instance.retrieveUserInfo()
+        let dataRef = DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("profile_image")
+        if  dataRef != nil {
+            let imageUrl = URL(string: urlString)
+            profileImg.kf.setImage(with: imageUrl)
+        }
+    }
+    
+//    func retrieveUserInfo() {
+//        let uid = Auth.auth().currentUser?.uid
+//        let dataBaseRef = DataService.instance.REF_USERS.child(uid!).child("profile_image")
+//        dataBaseRef.observe(.value) { (snapshot) in
+//            let snapShot = snapshot.value as? String!
+//            let imageUrl = URL(string: snapShot!)
+//            self.profileImg.kf.setImage(with: imageUrl)
+//        }
+//    }
+    
+    
     
     func outletCustomization() {
         profileImg.layer.cornerRadius = profileImg.frame.size.width/2

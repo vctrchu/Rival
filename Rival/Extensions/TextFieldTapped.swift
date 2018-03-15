@@ -20,8 +20,4 @@ extension UIViewController {
         view.endEditing(true)
     }
     
-    func hideKeyboardWhenReturnTapped(textField: UITextField!) -> Bool {
-        textField.resignFirstResponder()
-        return true
-    }
 }

@@ -17,6 +17,7 @@
 		FB3EACB52050D8A40076A9AD /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB42050D8A40076A9AD /* ProgressCell.swift */; };
 		FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB62050E6380076A9AD /* EditProfileVC.swift */; };
 		FB3EACB92050EDB20076A9AD /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB82050EDB20076A9AD /* StorageService.swift */; };
+		FB8426D82051C064005054BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8426D72051C064005054BC /* User.swift */; };
 		FB9BB05420433C8400698747 /* TextFieldTapped.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05320433C8400698747 /* TextFieldTapped.swift */; };
 		FB9BB0572043647A00698747 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FB9BB0562043647A00698747 /* GoogleService-Info.plist */; };
 		FB9BB0592043656200698747 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB0582043656200698747 /* DataService.swift */; };
@@ -24,6 +25,7 @@
 		FB9BB05D20437BFB00698747 /* SignUpStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */; };
 		FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */; };
 		FBCB25BB2045ECA700D2B964 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */; };
+		FBD79E0E205A1B0C00425408 /* ImageDownloadAndCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD79E0D205A1B0C00425408 /* ImageDownloadAndCache.swift */; };
 		FBED60EA2044F74700136153 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60E92044F74600136153 /* GroupsVC.swift */; };
 		FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */; };
 /* End PBXBuildFile section */
@@ -61,6 +63,7 @@
 		FB3EACB42050D8A40076A9AD /* ProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
 		FB3EACB62050E6380076A9AD /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		FB3EACB82050EDB20076A9AD /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
+		FB8426D72051C064005054BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FB9BB05320433C8400698747 /* TextFieldTapped.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldTapped.swift; sourceTree = "<group>"; };
 		FB9BB0562043647A00698747 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		FB9BB0582043656200698747 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
@@ -68,6 +71,7 @@
 		FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1VC.swift; sourceTree = "<group>"; };
 		FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2VC.swift; sourceTree = "<group>"; };
 		FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		FBD79E0D205A1B0C00425408 /* ImageDownloadAndCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadAndCache.swift; sourceTree = "<group>"; };
 		FBED60E92044F74600136153 /* GroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsVC.swift; sourceTree = "<group>"; };
 		FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -135,6 +139,7 @@
 				FB280A9D2042951700EE1627 /* AppDelegate.swift */,
 				FB9BB055204363D200698747 /* Services */,
 				FB9BB05020433BB800698747 /* Extensions */,
+				FB8426D62051C053005054BC /* Model */,
 				FB151C46204F82BF009ADA4C /* View */,
 				FB9BB04D2043324900698747 /* Controller */,
 				FB280AA12042951700EE1627 /* Main.storyboard */,
@@ -179,6 +184,14 @@
 			path = "Roboto Font";
 			sourceTree = "<group>";
 		};
+		FB8426D62051C053005054BC /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FB8426D72051C064005054BC /* User.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FB9BB04D2043324900698747 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +210,7 @@
 			isa = PBXGroup;
 			children = (
 				FB9BB05320433C8400698747 /* TextFieldTapped.swift */,
+				FBD79E0D205A1B0C00425408 /* ImageDownloadAndCache.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -310,6 +324,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -323,6 +338,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
@@ -362,9 +378,11 @@
 				FB280AA02042951700EE1627 /* LoginVC.swift in Sources */,
 				FB151C4A204F8FE3009ADA4C /* CalendarCell.swift in Sources */,
 				FBED60EA2044F74700136153 /* GroupsVC.swift in Sources */,
+				FB8426D82051C064005054BC /* User.swift in Sources */,
 				FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */,
 				FB3EACB52050D8A40076A9AD /* ProgressCell.swift in Sources */,
 				FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */,
+				FBD79E0E205A1B0C00425408 /* ImageDownloadAndCache.swift in Sources */,
 				FBCB25BB2045ECA700D2B964 /* SideMenuVC.swift in Sources */,
 				FB9BB05B2043656D00698747 /* AuthService.swift in Sources */,
 				FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */,

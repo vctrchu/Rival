@@ -20,4 +20,7 @@ target 'Rival' do
   pod 'Firebase/Auth'
   pod 'Firebase/Storage'
 
+  # Other
+  pod 'Kingfisher'
+
 end

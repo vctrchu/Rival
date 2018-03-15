@@ -26,12 +26,12 @@ class StorageService {
         return _REF_PROFILEIMAGE
     }
     
-    func createUserProfileImage(uid: String, data: Data) {
+    func uploadProfileImage(uid: String, data: Data) {
         REF_PROFILEIMAGE.child(uid).putData(data, metadata: nil) { (metadata, error) in
-            if error != nil {
+            guard let metadata = metadata else {
                 return
             }
-            let profileImageUrl = metadata?.downloadURL()?.absoluteString
+            let profileImageUrl = metadata.downloadURL()?.absoluteString
             let userData = ["profile_image": profileImageUrl]
             DataService.instance.createDBUser(uid: Auth.auth().currentUser!.uid , userData: userData)
         }
