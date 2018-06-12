@@ -32,15 +32,6 @@ class SideMenuVC: UIViewController {
         outletCustomization()
     }
     
-    func setUserInfo(imageRef: String) {
-        let dataRef = DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("profile_image")
-        if  dataRef != nil {
-            let imageUrl = URL(string: imageRef)
-            profileImg.kf.setImage(with: imageUrl)
-            //profileImg.kf.setImage(with: imageUrl)
-        }
-    }
-    
     func retrieveUserInfo() {
         let uid = Auth.auth().currentUser?.uid
         var imageRef: String!
@@ -71,17 +62,14 @@ class SideMenuVC: UIViewController {
         }
     }
     
-//    func retrieveUserInfo() {
-//        let uid = Auth.auth().currentUser?.uid
-//        let dataBaseRef = DataService.instance.REF_USERS.child(uid!).child("profile_image")
-//        dataBaseRef.observe(.value) { (snapshot) in
-//            let snapShot = snapshot.value as? String!
-//            let imageUrl = URL(string: snapShot!)
-//            self.profileImg.kf.setImage(with: imageUrl)
-//        }
-//    }
-    
-    
+    func setUserInfo(imageRef: String) {
+        let dataRef = DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("profile_image")
+        if  dataRef != nil {
+            let imageUrl = URL(string: imageRef)
+            profileImg.kf.setImage(with: imageUrl)
+            
+        }
+    }
     
     func outletCustomization() {
         profileImg.layer.cornerRadius = profileImg.frame.size.width/2
