@@ -27,18 +27,47 @@ class SideMenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //retrieveUserInfo()
-        setUserInfo()
+        retrieveUserInfo()
         sideMenuCustomization()
         outletCustomization()
     }
     
-    func setUserInfo() {
-        let imageUrl = DataService.instance.retrieveUserInfo()
+    func setUserInfo(imageRef: String) {
         let dataRef = DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("profile_image")
         if  dataRef != nil {
-            let imageUrl = URL(string: urlString)
+            let imageUrl = URL(string: imageRef)
             profileImg.kf.setImage(with: imageUrl)
+            //profileImg.kf.setImage(with: imageUrl)
+        }
+    }
+    
+    func retrieveUserInfo() {
+        let uid = Auth.auth().currentUser?.uid
+        var imageRef: String!
+        let dataBaseRef = DataService.instance.REF_USERS.child(uid!).child("profile_image")
+        
+        dataBaseRef.observe(.value) { (snapshot) in
+            
+            let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
+            
+            // This group will keep track of the number of blocks still pending
+            let group = DispatchGroup()
+            
+            let snapShot = snapshot.value as! String
+            imageRef = snapShot
+            
+            for groupKey in groupKeys {
+                group.enter()
+                dataBaseRef.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
+                    group.leave()
+                })
+            }
+            
+            // We ask to be notified when every block left the group
+            group.notify(queue: .main) {
+                print("All callbacks are completed")
+                self.setUserInfo(imageRef: imageRef)
+            }
         }
     }
     

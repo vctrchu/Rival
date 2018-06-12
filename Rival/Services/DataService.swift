@@ -30,17 +30,6 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
-    func retrieveUserInfo() -> String {
-        let uid = Auth.auth().currentUser?.uid
-        var imageRef: String!
-        let dataBaseRef = DataService.instance.REF_USERS.child(uid!).child("profile_image")
-        dataBaseRef.observe(.value) { (snapshot) in
-            let snapShot = snapshot.value as? String!
-            imageRef = snapShot
-        }
-        return imageRef
-    }
-    
 //    func getUserInfo(uid: String, info: String) -> String {
 //        var returnString = "error"
 //        switch info {
