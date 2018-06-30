@@ -35,31 +35,75 @@ class SideMenuVC: UIViewController {
     func retrieveUserInfo() {
         let uid = Auth.auth().currentUser?.uid
         var imageRef: String!
-        let dataBaseRef = DataService.instance.REF_USERS.child(uid!).child("profile_image")
+        let dataBaseRefProf = DataService.instance.REF_USERS.child(uid!).child("profile_image")
+        let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
         
         dataBaseRef.observe(.value) { (snapshot) in
             
-            let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
-            
-            // This group will keep track of the number of blocks still pending
-            let group = DispatchGroup()
-            
-            let snapShot = snapshot.value as! String
-            imageRef = snapShot
-            
-            for groupKey in groupKeys {
-                group.enter()
-                dataBaseRef.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
-                    group.leave()
+            if snapshot.hasChild("profile_image") {
+                dataBaseRefProf.observe(.value, with: { (snapshot) in
+                
+                        let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
+                        
+                        // This group will keep track of the number of blocks still pending
+                        let group = DispatchGroup()
+                        
+                        for groupKey in groupKeys {
+                            group.enter()
+                            dataBaseRef.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
+                                group.leave()
+                            })
+                        }
+                        
+                        let snapShot = snapshot.value as! String
+                        imageRef = snapShot
+                        
+                        
+                        group.notify(queue: .main) {
+                            print("All callbacks are completed")
+                            self.setUserInfo(imageRef: imageRef)
+                        }
                 })
             }
-            
-            // We ask to be notified when every block left the group
-            group.notify(queue: .main) {
-                print("All callbacks are completed")
-                self.setUserInfo(imageRef: imageRef)
-            }
+                    else {
+                    
+                    print("no profile image")
+                }
         }
+        
+//        dataBaseRef.observeSingleEvent(of: .value) { (snapshot) in
+//
+//            if snapshot.hasChild("profile_image") {
+//
+//                dataBaseRefProf.observeSingleEvent(of: .value, with: { (snapshot) in
+//                    let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
+//
+//                    // This group will keep track of the number of blocks still pending
+//                    let group = DispatchGroup()
+//
+//                    for groupKey in groupKeys {
+//                        group.enter()
+//                        dataBaseRef.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
+//                            group.leave()
+//                        })
+//                    }
+//
+//                    let snapShot = snapshot.value as! String
+//                    imageRef = snapShot
+//
+//
+//                    group.notify(queue: .main) {
+//                        print("All callbacks are completed")
+//                        self.setUserInfo(imageRef: imageRef)
+//                    }
+//                })
+//            }
+//
+//            else {
+//
+//                print("no profile image")
+//            }
+//        }
     }
     
     func setUserInfo(imageRef: String) {

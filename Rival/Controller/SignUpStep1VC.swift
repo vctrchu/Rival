@@ -15,8 +15,8 @@ class SignUpStep1VC: UIViewController {
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var userLbl: UILabel!
-    @IBOutlet weak var nameTxtField: UITextField!
-    @IBOutlet weak var userTxtField: UITextField!
+    @IBOutlet weak var firstNameTxtField: UITextField!
+    @IBOutlet weak var lastNameTxtField: UITextField!
     @IBOutlet weak var emailIconImg: UIImageView!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nextBtn: TransitionButton!
@@ -43,13 +43,13 @@ class SignUpStep1VC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toSignUp2") {
             let signupVC2 = segue.destination as! SignUpStep2VC
-            signupVC2.nameTxt = nameTxtField.text!
-            signupVC2.userTxt = userTxtField.text!
+            signupVC2.nameTxt = firstNameTxtField.text!
+            signupVC2.userTxt = lastNameTxtField.text!
         }
     }
     
     @IBAction func nextBtnPressed(_ sender: Any) {
-        if (nameTxtField.text?.isEmpty)! || (userTxtField.text?.isEmpty)! {
+        if (firstNameTxtField.text?.isEmpty)! || (lastNameTxtField.text?.isEmpty)! {
             nextBtn.shake()
             errorLabel.text = "Please make sure both fields are filled."            
         } else {
@@ -64,7 +64,7 @@ class SignUpStep1VC: UIViewController {
         nameLbl.hop()
     }
     
-    @IBAction func userTxtFieldPressed(_ sender: Any) {
+    @IBAction func lastNameTxtFieldPressed(_ sender: Any) {
         userLbl.hop()
     }
     

@@ -11,8 +11,8 @@ import Firebase
 
 struct User {
     
-    var fullName: String!
-    var userName: String!
+    var firstName: String!
+    var lastName: String!
     var email: String!
     var photoUrl: String?
     var ref: DatabaseReference?
@@ -21,8 +21,8 @@ struct User {
     init(snapshot: DataSnapshot) {
         key = snapshot.key
         ref = snapshot.ref
-        userName = (snapshot.value! as! NSDictionary)["username"] as! String
-        fullName = (snapshot.value! as! NSDictionary)["fullname"] as! String
+        firstName = (snapshot.value! as! NSDictionary)["firstname"] as! String
+        lastName = (snapshot.value! as! NSDictionary)["lastname"] as! String
         email = (snapshot.value! as! NSDictionary)["email"] as! String
         photoUrl = (snapshot.value! as! NSDictionary)["profile_image"] as! String
 
