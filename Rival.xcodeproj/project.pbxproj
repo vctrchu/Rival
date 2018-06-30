@@ -13,8 +13,6 @@
 		FB280AA02042951700EE1627 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB280A9F2042951700EE1627 /* LoginVC.swift */; };
 		FB280AA32042951700EE1627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA12042951700EE1627 /* Main.storyboard */; };
 		FB280AA52042951700EE1627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA42042951700EE1627 /* Assets.xcassets */; };
-		FB3EACB32050D8980076A9AD /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB22050D8980076A9AD /* UserCell.swift */; };
-		FB3EACB52050D8A40076A9AD /* ProgressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB42050D8A40076A9AD /* ProgressCell.swift */; };
 		FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB62050E6380076A9AD /* EditProfileVC.swift */; };
 		FB3EACB92050EDB20076A9AD /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB82050EDB20076A9AD /* StorageService.swift */; };
 		FB8426D82051C064005054BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8426D72051C064005054BC /* User.swift */; };
@@ -25,7 +23,6 @@
 		FB9BB05D20437BFB00698747 /* SignUpStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */; };
 		FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */; };
 		FBCB25BB2045ECA700D2B964 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */; };
-		FBD79E0E205A1B0C00425408 /* ImageDownloadAndCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBD79E0D205A1B0C00425408 /* ImageDownloadAndCache.swift */; };
 		FBED60EA2044F74700136153 /* GroupsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60E92044F74600136153 /* GroupsVC.swift */; };
 		FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */; };
 /* End PBXBuildFile section */
@@ -59,8 +56,6 @@
 		FB280AC02042975700EE1627 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		FB280AC12042975700EE1627 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		FB280AC22042975700EE1627 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
-		FB3EACB22050D8980076A9AD /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
-		FB3EACB42050D8A40076A9AD /* ProgressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressCell.swift; sourceTree = "<group>"; };
 		FB3EACB62050E6380076A9AD /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		FB3EACB82050EDB20076A9AD /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		FB8426D72051C064005054BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -71,7 +66,6 @@
 		FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1VC.swift; sourceTree = "<group>"; };
 		FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2VC.swift; sourceTree = "<group>"; };
 		FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
-		FBD79E0D205A1B0C00425408 /* ImageDownloadAndCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageDownloadAndCache.swift; sourceTree = "<group>"; };
 		FBED60E92044F74600136153 /* GroupsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupsVC.swift; sourceTree = "<group>"; };
 		FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -109,8 +103,6 @@
 			isa = PBXGroup;
 			children = (
 				FB151C49204F8FE3009ADA4C /* CalendarCell.swift */,
-				FB3EACB22050D8980076A9AD /* UserCell.swift */,
-				FB3EACB42050D8A40076A9AD /* ProgressCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -210,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				FB9BB05320433C8400698747 /* TextFieldTapped.swift */,
-				FBD79E0D205A1B0C00425408 /* ImageDownloadAndCache.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -380,14 +371,11 @@
 				FBED60EA2044F74700136153 /* GroupsVC.swift in Sources */,
 				FB8426D82051C064005054BC /* User.swift in Sources */,
 				FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */,
-				FB3EACB52050D8A40076A9AD /* ProgressCell.swift in Sources */,
 				FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */,
-				FBD79E0E205A1B0C00425408 /* ImageDownloadAndCache.swift in Sources */,
 				FBCB25BB2045ECA700D2B964 /* SideMenuVC.swift in Sources */,
 				FB9BB05B2043656D00698747 /* AuthService.swift in Sources */,
 				FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */,
 				FB3EACB92050EDB20076A9AD /* StorageService.swift in Sources */,
-				FB3EACB32050D8980076A9AD /* UserCell.swift in Sources */,
 				FB280A9E2042951700EE1627 /* AppDelegate.swift in Sources */,
 				FB9BB05D20437BFB00698747 /* SignUpStep1VC.swift in Sources */,
 				FB9BB0592043656200698747 /* DataService.swift in Sources */,
