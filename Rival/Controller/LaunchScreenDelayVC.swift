@@ -25,7 +25,7 @@ class LaunchScreenDelayVC: UIViewController, GroupsVCDelegate {
                 if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                     self.groupsVCTabBarController = groupsVCTabBarController
                     groupsVCTabBarController.modalTransitionStyle = .crossDissolve
-                    if let groupsVC = groupsVCTabBarController.viewControllers?.first as? GroupsVC {
+                    if let groupsVC = groupsVCTabBarController.viewControllers?.first as? HomeVC {
                         groupsVC.delegate = self
                     }
                     self.present(groupsVCTabBarController, animated: true, completion: nil)
