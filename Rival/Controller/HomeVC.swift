@@ -18,6 +18,16 @@ protocol GroupsVCDelegate: class {
 class HomeVC: UIViewController, SideMenuVCDelegate {
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var monthLabel: UILabel!
+    @IBOutlet weak var yearLabel: UILabel!
+    
+    @IBAction func checkInTapped(_ sender: Any) {
+        print("works")
+    }
+    
+    @IBAction func missedTapped(_ sender: Any) {
+        print("missed works")
+    }
     
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
     weak var delegate: GroupsVCDelegate?
@@ -26,8 +36,28 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //calendarView.scrollToDate(Date())
+        setupCalendar()
     }
+    
+    func setupCalendar() {
+        calendarView.minimumLineSpacing = 0
+        calendarView.minimumInteritemSpacing = 0
+        
+        calendarView.visibleDates { (visibleDates) in
+            self.setupViewsOfCalendar(from: visibleDates)
+        }
+    }
+    
+    func setupViewsOfCalendar(from visibleDates: DateSegmentInfo) {
+        let date = visibleDates.monthDates.first?.date
+        
+        formatter.dateFormat = "yyyy"
+        yearLabel.text = formatter.string(from: date!)
+        
+        formatter.dateFormat = "MMMM"
+        monthLabel.text = formatter.string(from: date!)
+    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
@@ -62,14 +92,8 @@ extension HomeVC: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
         dateComponent.year = 1
         let startDate = Date()
         let endDate = Calendar.current.date(byAdding: dateComponent, to: startDate)
-        let parameters = ConfigurationParameters(startDate: startDate,
-                                                 endDate: endDate!,
-                                                 numberOfRows: 4,
-                                                 calendar: Calendar.current,
-                                                 generateInDates: .forFirstMonthOnly,
-                                                 generateOutDates: .off,
-                                                 firstDayOfWeek: .sunday,
-                                                 hasStrictBoundaries: false)
+        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate!)
+                                            
         return parameters
     }
 
@@ -87,6 +111,11 @@ extension HomeVC: JTAppleCalendarViewDataSource, JTAppleCalendarViewDelegate {
 
     func sharedFunctionToConfigureCell(calendarCell: CalendarCell, cellState: CellState, date: Date) {
         calendarCell.dateLabel.text = cellState.text
+    }
+    
+    func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
+        setupViewsOfCalendar(from: visibleDates)
+        
     }
 
 
