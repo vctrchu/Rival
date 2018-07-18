@@ -852,7 +852,7 @@
                                 <color key="backgroundColor" red="0.14831149578094482" green="0.1677398681640625" blue="0.17719176411628723" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </view>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="-20" translatesAutoresizingMaskIntoConstraints="NO" id="hHg-pG-6wO">
-                                <rect key="frame" x="0.0" y="537" width="375" height="61"/>
+                                <rect key="frame" x="0.0" y="507" width="375" height="61"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="Xl9-yq-LlI">
                                         <rect key="frame" x="0.0" y="0.0" width="197.5" height="61"/>
@@ -903,19 +903,19 @@
                                 </subviews>
                             </stackView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="W E L C O M E" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJ7-f9-d8n">
-                                <rect key="frame" x="106.5" y="64" width="163.5" height="34.5"/>
+                                <rect key="frame" x="106" y="80" width="163.5" height="34.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="26"/>
                                 <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VICTOR" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VFn-Dl-KiD">
-                                <rect key="frame" x="147" y="98.5" width="82.5" height="32"/>
+                                <rect key="frame" x="146.5" y="114.5" width="82.5" height="32"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="24"/>
                                 <color key="textColor" red="0.93725490196078431" green="0.70980392156862748" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="8xr-ER-ByS">
-                                <rect key="frame" x="16" y="225.5" width="343" height="18.5"/>
+                                <rect key="frame" x="16" y="238.5" width="343" height="18.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SUN" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J7d-0d-k3b">
                                         <rect key="frame" x="0.0" y="0.0" width="49" height="18.5"/>
@@ -962,10 +962,10 @@
                                 </subviews>
                             </stackView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNy-Kr-eeV" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
-                                <rect key="frame" x="16" y="244" width="343" height="240"/>
+                                <rect key="frame" x="16" y="257" width="343" height="200"/>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.16862745098039217" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="240" id="Huy-V6-Jh6"/>
+                                    <constraint firstAttribute="height" constant="200" id="25m-rG-Fgh"/>
                                 </constraints>
                                 <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="CCY-9E-Ghq">
                                     <size key="itemSize" width="82" height="85"/>
@@ -1011,7 +1011,7 @@
                                 </connections>
                             </collectionView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="June" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uFO-25-1ht">
-                                <rect key="frame" x="20" y="183.5" width="52.5" height="32"/>
+                                <rect key="frame" x="20" y="196.5" width="52.5" height="32"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="24"/>
                                 <color key="textColor" red="0.97647058819999999" green="0.73333333329999995" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1020,11 +1020,11 @@
                         <color key="backgroundColor" red="0.14901960784313725" green="0.16862745098039217" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="zNy-Kr-eeV" firstAttribute="top" secondItem="8xr-ER-ByS" secondAttribute="bottom" id="1g0-Vo-nD9"/>
-                            <constraint firstItem="hHg-pG-6wO" firstAttribute="top" secondItem="zNy-Kr-eeV" secondAttribute="bottom" constant="53" id="6UI-Ig-GXI"/>
                             <constraint firstItem="VFn-Dl-KiD" firstAttribute="top" secondItem="UJ7-f9-d8n" secondAttribute="bottom" id="BX0-Db-cyi"/>
                             <constraint firstItem="xtE-0Z-bd8" firstAttribute="top" secondItem="S8C-U4-lfF" secondAttribute="top" id="CZ8-Xv-rMX"/>
                             <constraint firstItem="S8C-U4-lfF" firstAttribute="trailing" secondItem="hHg-pG-6wO" secondAttribute="trailing" id="Egx-q1-IxN"/>
                             <constraint firstItem="uFO-25-1ht" firstAttribute="leading" secondItem="S8C-U4-lfF" secondAttribute="leading" constant="20" id="IEH-up-xgz"/>
+                            <constraint firstItem="hHg-pG-6wO" firstAttribute="top" secondItem="zNy-Kr-eeV" secondAttribute="bottom" constant="50" id="JDB-PU-TvQ"/>
                             <constraint firstAttribute="trailing" secondItem="VPu-Cp-Aw1" secondAttribute="trailing" id="Ldr-qF-Mha"/>
                             <constraint firstItem="8xr-ER-ByS" firstAttribute="top" secondItem="uFO-25-1ht" secondAttribute="bottom" constant="10" id="Np2-Qg-c5M"/>
                             <constraint firstItem="UJ7-f9-d8n" firstAttribute="centerX" secondItem="WQZ-XJ-xH7" secondAttribute="centerX" id="Nxe-mR-kj2"/>
@@ -1032,14 +1032,14 @@
                             <constraint firstItem="hHg-pG-6wO" firstAttribute="leading" secondItem="S8C-U4-lfF" secondAttribute="leading" id="TNv-hN-TJH"/>
                             <constraint firstItem="8xr-ER-ByS" firstAttribute="trailing" secondItem="zNy-Kr-eeV" secondAttribute="trailing" id="UhQ-ln-Axq"/>
                             <constraint firstItem="xtE-0Z-bd8" firstAttribute="trailing" secondItem="S8C-U4-lfF" secondAttribute="trailing" id="ZXA-9V-9RZ"/>
+                            <constraint firstItem="S8C-U4-lfF" firstAttribute="bottom" secondItem="hHg-pG-6wO" secondAttribute="bottom" constant="50" id="aoL-8Y-TSH"/>
                             <constraint firstItem="8xr-ER-ByS" firstAttribute="leading" secondItem="zNy-Kr-eeV" secondAttribute="leading" id="bD8-mQ-fpm"/>
                             <constraint firstItem="S8C-U4-lfF" firstAttribute="trailing" secondItem="zNy-Kr-eeV" secondAttribute="trailing" constant="16" id="dWW-rX-d6E"/>
                             <constraint firstItem="VPu-Cp-Aw1" firstAttribute="leading" secondItem="WQZ-XJ-xH7" secondAttribute="leading" id="iQX-qa-TNX"/>
-                            <constraint firstItem="S8C-U4-lfF" firstAttribute="bottom" secondItem="hHg-pG-6wO" secondAttribute="bottom" constant="20" id="j3V-Pa-OkW"/>
                             <constraint firstItem="VPu-Cp-Aw1" firstAttribute="top" secondItem="WQZ-XJ-xH7" secondAttribute="top" id="kPu-2v-s9O"/>
                             <constraint firstItem="VFn-Dl-KiD" firstAttribute="centerX" secondItem="WQZ-XJ-xH7" secondAttribute="centerX" id="ox9-eZ-HhZ"/>
                             <constraint firstItem="xtE-0Z-bd8" firstAttribute="leading" secondItem="S8C-U4-lfF" secondAttribute="leading" id="t69-PM-cf3"/>
-                            <constraint firstItem="UJ7-f9-d8n" firstAttribute="top" secondItem="xtE-0Z-bd8" secondAttribute="bottom" id="uXZ-L0-ci1"/>
+                            <constraint firstItem="UJ7-f9-d8n" firstAttribute="top" secondItem="xtE-0Z-bd8" secondAttribute="bottom" constant="16" id="uXZ-L0-ci1"/>
                             <constraint firstItem="zNy-Kr-eeV" firstAttribute="leading" secondItem="S8C-U4-lfF" secondAttribute="leading" constant="16" id="xNr-Ln-Wj5"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8C-U4-lfF"/>
