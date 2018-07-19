@@ -20,6 +20,8 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
+    @IBOutlet weak var checkInBtn: UIButton!
+    @IBOutlet weak var missedBtn: UIButton!
     
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
     weak var delegate: GroupsVCDelegate?
@@ -38,6 +40,8 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     }
     
     func setupCalendar() {
+        calendarView.scrollToDate(Date(), animateScroll: false)
+        calendarView.selectDates([Date()])
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         calendarView.allowsMultipleSelection = true
@@ -62,20 +66,16 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     func configureCell(cell: JTAppleCell?, cellState: CellState) {
         guard let calendarCell = cell as? CalendarCell else {return}
         
-        //handleCellVisibility(cell: calendarCell, cellState: cellState)
+        handleCellVisibility(cell: calendarCell, cellState: cellState)
         handleCellSelection(cell: calendarCell, cellState: cellState)
         handleCellTextColor(cell: calendarCell, cellState: cellState)
     }
     
     func handleCellTextColor(cell: CalendarCell, cellState: CellState) {
         if cellState.isSelected {
-            cell.dateLabel.textColor = UIColor.white
+            cell.dateLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         } else {
-            if cellState.dateBelongsTo == .thisMonth {
-                cell.dateLabel.textColor = #colorLiteral(red: 0.9843137255, green: 0.737254902, blue: 0.02745098039, alpha: 1)
-            } else {
-                cell.dateLabel.textColor = #colorLiteral(red: 0.9843137255, green: 0.737254902, blue: 0.02745098039, alpha: 0.4)
-            }
+            cell.dateLabel.textColor = #colorLiteral(red: 0.9843137255, green: 0.737254902, blue: 0.02745098039, alpha: 1)
         }
     }
     
@@ -86,19 +86,40 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     func handleCellSelection(cell: CalendarCell, cellState: CellState) {
         cell.selectedView.isHidden = !cellState.isSelected
     }
-    
-//    func handleCellVisibility(cell: CalendarCell, cellState: CellState) {
-//        cell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
-//    }
 
     
     @IBAction func checkInTapped(_ sender: Any) {
         
-        print("works")
+        /* Button Animation */
+        checkInBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowUserInteraction,
+                       animations: { [weak self] in
+                        self?.checkInBtn.transform = .identity
+            },
+                       completion: nil)
     }
     
     @IBAction func missedTapped(_ sender: Any) {
-        print("missed works")
+        
+        /* Button Animation */
+        missedBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
+        UIView.animate(withDuration: 2.0,
+                       delay: 0,
+                       usingSpringWithDamping: 0.2,
+                       initialSpringVelocity: 6.0,
+                       options: .allowUserInteraction,
+                       animations: { [weak self] in
+                        self?.missedBtn.transform = .identity
+            },
+                       completion: nil)
+    }
+    
+    func buttonAnimation() {
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -165,22 +186,9 @@ extension HomeVC: JTAppleCalendarViewDelegate {
         configureCell(cell: cell, cellState: cellState)
     }
     
-//    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
-////        if cellState.day == .sunday || cellState.day == .monday || cellState.day == .tuesday || cellState.day == .wednesday || cellState.day == .thursday || cellState.day == .friday || cellState.day == .saturday {
-////            return false
-////        }
-//        return false
-//    }
-    
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewsOfCalendar(from: visibleDates)
     }
-    
-    
-    
-//    func calendar(_ calendar: JTAppleCalendarView, shouldSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) -> Bool {
-//        return cellState.day == .monday || cellState.day == .sunday
-//    }
     
 }
 
