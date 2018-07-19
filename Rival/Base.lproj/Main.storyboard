@@ -966,7 +966,7 @@
                                     </label>
                                 </subviews>
                             </stackView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNy-Kr-eeV" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zNy-Kr-eeV" customClass="JTAppleCalendarView" customModule="JTAppleCalendar">
                                 <rect key="frame" x="16" y="257" width="343" height="200"/>
                                 <color key="backgroundColor" red="0.14901960784313725" green="0.16862745098039217" blue="0.17647058823529413" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
@@ -979,28 +979,23 @@
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" userInteractionEnabled="NO" contentMode="center" reuseIdentifier="CalendarCell" id="ZI3-ff-nX6" customClass="CalendarCell" customModule="Rival" customModuleProvider="target">
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CalendarCell" id="ZI3-ff-nX6" customClass="CalendarCell" customModule="Rival" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="82" height="85"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
                                             <rect key="frame" x="0.0" y="0.0" width="82" height="85"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nK5-mo-aGD">
-                                                    <rect key="frame" x="26" y="27" width="30" height="30"/>
-                                                    <color key="backgroundColor" red="0.58039215686274515" green="0.72941176470588232" blue="0.43529411764705883" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="125-nH-z7R">
+                                                    <rect key="frame" x="21" y="22.5" width="40" height="40"/>
+                                                    <color key="backgroundColor" red="0.74142116309999995" green="0.93607741590000004" blue="0.53752022980000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="36t-K4-Nz6"/>
-                                                        <constraint firstAttribute="width" constant="30" id="Jp0-F5-lrf"/>
+                                                        <constraint firstAttribute="height" constant="40" id="1zL-Mw-YBC"/>
+                                                        <constraint firstAttribute="width" constant="40" id="msm-pX-3F4"/>
                                                     </constraints>
-                                                    <userDefinedRuntimeAttributes>
-                                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                                            <integer key="value" value="15"/>
-                                                        </userDefinedRuntimeAttribute>
-                                                    </userDefinedRuntimeAttributes>
                                                 </view>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vzz-0b-NcZ">
-                                                    <rect key="frame" x="36.5" y="31.5" width="10" height="23"/>
+                                                    <rect key="frame" x="36" y="31" width="10" height="22.5"/>
                                                     <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="17"/>
                                                     <color key="textColor" red="0.97647058823529409" green="0.73333333333333328" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1008,13 +1003,14 @@
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstItem="vzz-0b-NcZ" firstAttribute="centerY" secondItem="ZI3-ff-nX6" secondAttribute="centerY" id="0PG-fj-B64"/>
-                                            <constraint firstItem="nK5-mo-aGD" firstAttribute="centerY" secondItem="ZI3-ff-nX6" secondAttribute="centerY" id="0VP-tC-Lbx"/>
-                                            <constraint firstItem="nK5-mo-aGD" firstAttribute="centerX" secondItem="ZI3-ff-nX6" secondAttribute="centerX" id="bPR-XO-Crz"/>
-                                            <constraint firstItem="vzz-0b-NcZ" firstAttribute="centerX" secondItem="ZI3-ff-nX6" secondAttribute="centerX" id="s4n-Tq-SBS"/>
+                                            <constraint firstItem="vzz-0b-NcZ" firstAttribute="centerY" secondItem="ZI3-ff-nX6" secondAttribute="centerY" id="9xn-Na-r6f"/>
+                                            <constraint firstItem="125-nH-z7R" firstAttribute="centerX" secondItem="ZI3-ff-nX6" secondAttribute="centerX" id="Kvr-Od-PhM"/>
+                                            <constraint firstItem="125-nH-z7R" firstAttribute="centerY" secondItem="ZI3-ff-nX6" secondAttribute="centerY" id="apN-Jn-ONK"/>
+                                            <constraint firstItem="vzz-0b-NcZ" firstAttribute="centerX" secondItem="ZI3-ff-nX6" secondAttribute="centerX" id="glW-Ao-ggb"/>
                                         </constraints>
                                         <connections>
                                             <outlet property="dateLabel" destination="vzz-0b-NcZ" id="s1b-SC-6Fo"/>
+                                            <outlet property="selectedView" destination="125-nH-z7R" id="7jz-7d-iaK"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
