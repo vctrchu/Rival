@@ -40,6 +40,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     func setupCalendar() {
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
+        calendarView.allowsMultipleSelection = true
         
         calendarView.visibleDates { (visibleDates) in
             self.setupViewsOfCalendar(from: visibleDates)
@@ -61,22 +62,35 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     func configureCell(cell: JTAppleCell?, cellState: CellState) {
         guard let calendarCell = cell as? CalendarCell else {return}
         
-        handleCellVisibility(cell: calendarCell, cellState: cellState)
+        //handleCellVisibility(cell: calendarCell, cellState: cellState)
         handleCellSelection(cell: calendarCell, cellState: cellState)
-
+        handleCellTextColor(cell: calendarCell, cellState: cellState)
     }
     
-    //        func handleCellTextColor(cell: MyCell, cellState: CellState) {
-    //            cell.textLabel.textColor = cellState.isSelected ? UIColor.red : UIColor.white
-    //        }
+    func handleCellTextColor(cell: CalendarCell, cellState: CellState) {
+        if cellState.isSelected {
+            cell.dateLabel.textColor = UIColor.white
+        } else {
+            if cellState.dateBelongsTo == .thisMonth {
+                cell.dateLabel.textColor = #colorLiteral(red: 0.9843137255, green: 0.737254902, blue: 0.02745098039, alpha: 1)
+            } else {
+                cell.dateLabel.textColor = #colorLiteral(red: 0.9843137255, green: 0.737254902, blue: 0.02745098039, alpha: 0.4)
+            }
+        }
+    }
     
     func handleCellVisibility(cell: CalendarCell, cellState: CellState) {
         cell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
     }
     
     func handleCellSelection(cell: CalendarCell, cellState: CellState) {
-        cell.selectedView.isHidden = cellState.isSelected ? false : true
+        cell.selectedView.isHidden = !cellState.isSelected
     }
+    
+//    func handleCellVisibility(cell: CalendarCell, cellState: CellState) {
+//        cell.isHidden = cellState.dateBelongsTo == .thisMonth ? false : true
+//    }
+
     
     @IBAction func checkInTapped(_ sender: Any) {
         
@@ -132,14 +146,13 @@ extension HomeVC: JTAppleCalendarViewDelegate {
         //let calendarCell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         //sharedFunctionToConfigureCell(calendarCell: calendarCell, cellState: cellState, date: date)
         let calendarCell = calendar.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
-        self.calendar(calendar, willDisplay: calendarCell, forItemAt: date, cellState: cellState, indexPath: indexPath)
+        calendarCell.dateLabel.text = cellState.text
+        configureCell(cell: calendarCell, cellState: cellState)
         return calendarCell
     }
     
 
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
-        guard let calendarCell = cell as? CalendarCell else {return}
-        calendarCell.dateLabel.text = cellState.text
         configureCell(cell: cell, cellState: cellState)
     }
     
