@@ -23,6 +23,8 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     @IBOutlet weak var checkInBtn: UIButton!
     @IBOutlet weak var missedBtn: UIButton!
     
+    var buttonCheck = "none"
+    
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
     weak var delegate: GroupsVCDelegate?
     
@@ -41,7 +43,6 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     
     func setupCalendar() {
         calendarView.scrollToDate(Date(), animateScroll: false)
-        calendarView.selectDates([Date()])
         calendarView.minimumLineSpacing = 0
         calendarView.minimumInteritemSpacing = 0
         calendarView.allowsMultipleSelection = true
@@ -84,7 +85,15 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     }
     
     func handleCellSelection(cell: CalendarCell, cellState: CellState) {
-        cell.selectedView.isHidden = !cellState.isSelected
+        if cellState.isSelected && buttonCheck == "check in" {
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
+            cell.selectedView.isHidden = !cellState.isSelected
+        } else if cellState.isSelected && buttonCheck == "missed" {
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
+            cell.selectedView.isHidden = !cellState.isSelected
+        } else {
+            cell.selectedView.isHidden = !cellState.isSelected
+        }
     }
 
     
@@ -98,9 +107,11 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                        initialSpringVelocity: 6.0,
                        options: .allowUserInteraction,
                        animations: { [weak self] in
-                        self?.checkInBtn.transform = .identity
-            },
+                        self?.checkInBtn.transform = .identity},
                        completion: nil)
+        
+        buttonCheck = "check in"
+        calendarView.selectDates([Date()])
     }
     
     @IBAction func missedTapped(_ sender: Any) {
@@ -113,9 +124,11 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                        initialSpringVelocity: 6.0,
                        options: .allowUserInteraction,
                        animations: { [weak self] in
-                        self?.missedBtn.transform = .identity
-            },
+                        self?.missedBtn.transform = .identity},
                        completion: nil)
+        
+        buttonCheck = "missed"
+        calendarView.selectDates([Date()])
     }
     
     func buttonAnimation() {
@@ -181,7 +194,7 @@ extension HomeVC: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         configureCell(cell: cell, cellState: cellState)
     }
-    
+
     func calendar(_ calendar: JTAppleCalendarView, didDeselectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         configureCell(cell: cell, cellState: cellState)
     }
