@@ -85,7 +85,9 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     }
     
     func handleCellSelection(cell: CalendarCell, cellState: CellState) {
+        
         if cellState.isSelected && buttonCheck == "check in" {
+            print("hit")
             cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
             cell.selectedView.isHidden = !cellState.isSelected
         } else if cellState.isSelected && buttonCheck == "missed" {
@@ -94,10 +96,15 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         } else {
             cell.selectedView.isHidden = !cellState.isSelected
         }
+        
     }
 
     
     @IBAction func checkInTapped(_ sender: Any) {
+        
+//        let uid = Auth.auth().currentUser?.uid
+//
+//        DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [Date(): "check in"])
         
         /* Button Animation */
         checkInBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -110,8 +117,17 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                         self?.checkInBtn.transform = .identity},
                        completion: nil)
         
-        buttonCheck = "check in"
-        calendarView.selectDates([Date()])
+        if buttonCheck == "none" {
+            buttonCheck = "check in"
+            calendarView.selectDates([Date()])
+        } else if buttonCheck == "missed" {
+            buttonCheck = "check in"
+            calendarView.selectDates([Date()])
+            calendarView.selectDates([Date()])
+        } else {
+            calendarView.selectDates([Date()])
+            calendarView.selectDates([Date()])
+        }
     }
     
     @IBAction func missedTapped(_ sender: Any) {
@@ -127,12 +143,17 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                         self?.missedBtn.transform = .identity},
                        completion: nil)
         
-        buttonCheck = "missed"
-        calendarView.selectDates([Date()])
-    }
-    
-    func buttonAnimation() {
-        
+        if buttonCheck == "none" {
+            buttonCheck = "missed"
+            calendarView.selectDates([Date()])
+        } else if buttonCheck == "check in" {
+            buttonCheck = "missed"
+            calendarView.selectDates([Date()])
+            calendarView.selectDates([Date()])
+        } else {
+            calendarView.selectDates([Date()])
+            calendarView.selectDates([Date()])
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -171,25 +192,18 @@ extension HomeVC: JTAppleCalendarViewDataSource {
 }
 
 extension HomeVC: JTAppleCalendarViewDelegate {
-    
-//    func sharedFunctionToConfigureCell(calendarCell: CalendarCell, cellState: CellState, date: Date) {
-//        calendarCell.dateLabel.text = cellState.text
-//    }
 
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
-        //let calendarCell = calendar.dequeueReusableJTAppleCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
-        //sharedFunctionToConfigureCell(calendarCell: calendarCell, cellState: cellState, date: date)
+
         let calendarCell = calendar.dequeueReusableCell(withReuseIdentifier: "CalendarCell", for: indexPath) as! CalendarCell
         calendarCell.dateLabel.text = cellState.text
         configureCell(cell: calendarCell, cellState: cellState)
         return calendarCell
     }
-    
 
     func calendar(_ calendar: JTAppleCalendarView, willDisplay cell: JTAppleCell, forItemAt date: Date, cellState: CellState, indexPath: IndexPath) {
         configureCell(cell: cell, cellState: cellState)
     }
-    
     
     func calendar(_ calendar: JTAppleCalendarView, didSelectDate date: Date, cell: JTAppleCell?, cellState: CellState) {
         configureCell(cell: cell, cellState: cellState)
@@ -202,6 +216,10 @@ extension HomeVC: JTAppleCalendarViewDelegate {
     func calendar(_ calendar: JTAppleCalendarView, didScrollToDateSegmentWith visibleDates: DateSegmentInfo) {
         setupViewsOfCalendar(from: visibleDates)
     }
+    
+}
+
+extension HomeVC {
     
 }
 

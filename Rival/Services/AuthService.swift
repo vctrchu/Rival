@@ -10,8 +10,8 @@ import Foundation
 import Firebase
 
 class AuthService {
-    static var instance = AuthService()
     
+    static var instance = AuthService()
     
     func registerUser(firstName: String, lastName: String, withEmail email: String, andPassword password: String, userCreationComplete: @escaping(_ status: Bool, _ error: Error?) -> ()) {
         Auth.auth().createUser(withEmail: email, password: password) { (user, error) in
