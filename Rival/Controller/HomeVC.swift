@@ -166,6 +166,10 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         }
     }
     
+    func selectCalendarEvents(calendarEvents: Dictionary <String, String>) {
+        
+    }
+    
     func retrieveDBUserCalendarEvents() {
         let uid = Auth.auth().currentUser?.uid
         let dataBaseRefProf = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
@@ -207,6 +211,8 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
             }
         }
     }
+    
+
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
