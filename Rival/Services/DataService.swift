@@ -32,7 +32,7 @@ class DataService {
     
     func uploadDBUserCalendarEvent(uid: String, userData: Dictionary <String, Any>) {
         let calendarEventRef = REF_USERS.child(uid).child("calendarEvents")
-        calendarEventRef.setValue(userData)
+        calendarEventRef.updateChildValues(userData)
     }
     
 //    func getUserInfo(uid: String, info: String) -> String {

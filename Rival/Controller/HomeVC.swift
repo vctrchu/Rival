@@ -24,6 +24,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     @IBOutlet weak var missedBtn: UIButton!
     
     var buttonCheck = "none"
+    var calendarEventsDictionary = [String: String]()
     
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
     weak var delegate: GroupsVCDelegate?
@@ -39,6 +40,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCalendar()
+        retrieveDBUserCalendarEvents()
     }
     
     func setupCalendar() {
@@ -137,6 +139,9 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     
     @IBAction func missedTapped(_ sender: Any) {
         
+        let uid = Auth.auth().currentUser?.uid
+        DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "missed"])
+        
         /* Button Animation */
         missedBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
         UIView.animate(withDuration: 2.0,
@@ -158,6 +163,48 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         } else {
             calendarView.selectDates([Date()])
             calendarView.selectDates([Date()])
+        }
+    }
+    
+    func retrieveDBUserCalendarEvents() {
+        let uid = Auth.auth().currentUser?.uid
+        let dataBaseRefProf = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
+        let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
+        
+        dataBaseRefProf.observe(.value) { (snapshot) in
+            
+            if snapshot.hasChild("calendarEvents") {
+                dataBaseRefProf.observe(.value, with: { (snapshot) in
+
+                    let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
+
+                    // This group will keep track of the number of blocks still pending
+                    let group = DispatchGroup()
+
+                    for groupKey in groupKeys {
+                        group.enter()
+                        dataBaseRef.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
+                            group.leave()
+                        })
+                    }
+
+                    for child in snapshot.children {
+                        let snap = child as! DataSnapshot
+                        let key = snap.key as String
+                        let value = snap.value as! String
+
+                        self.calendarEventsDictionary[key] = value
+                    }
+
+                    group.notify(queue: .main) {
+                        print(self.calendarEventsDictionary)
+
+                    }
+                })
+            }
+            else {
+                print("no calendar events")
+            }
         }
     }
     
