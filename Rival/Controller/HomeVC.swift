@@ -62,7 +62,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         monthLabel.text = formatter.string(from: date!)
     }
     
-    /* CELL CONFIGURATION FUNCTIONS */
+    // MARK: - CELL CONFIGURATION FUNCTIONS
     
     func configureCell(cell: JTAppleCell?, cellState: CellState) {
         guard let calendarCell = cell as? CalendarCell else {return}
@@ -99,12 +99,17 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         
     }
 
+    func getTimeStamp() -> String {
+        formatter.dateFormat = "yyyy MM dd"
+        let date = formatter.string(from: Date())
+        return date
+    }
+    
     
     @IBAction func checkInTapped(_ sender: Any) {
         
-//        let uid = Auth.auth().currentUser?.uid
-//
-//        DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [Date(): "check in"])
+        let uid = Auth.auth().currentUser?.uid
+        DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "check in"])
         
         /* Button Animation */
         checkInBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -176,7 +181,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     }
 }
 
-// MARK: - JTAppleCalendar code
+// MARK: - JTAppleCalendar Source and Delgate Extensions
 
 extension HomeVC: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
@@ -220,7 +225,7 @@ extension HomeVC: JTAppleCalendarViewDelegate {
 }
 
 extension HomeVC {
-    
+   
 }
 
 
