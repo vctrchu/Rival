@@ -168,6 +168,32 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     
     func selectCalendarEvents(calendarEvents: Dictionary <String, String>) {
         
+        for (key,value) in calendarEvents {
+            
+            let addedDate = key
+            formatter.dateFormat = "yyyy MM dd"
+            let date = formatter.date(from: addedDate)
+            
+            if value == "check in" && buttonCheck == "none" {
+                buttonCheck = "check in"
+                calendarView.selectDates([date!])
+            } else if value == "check in" && buttonCheck == "missed" {
+                buttonCheck = "check in"
+                calendarView.selectDates([date!])
+                //calendarView.selectDates([date!])
+            } else if value == "missed" && buttonCheck == "none" {
+                buttonCheck = "missed"
+                calendarView.selectDates([date!])
+            } else if value == "missed" && buttonCheck == "check in" {
+                buttonCheck = "missed"
+                calendarView.selectDates([date!])
+                //calendarView.selectDates([date!])
+            } else {
+                calendarView.selectDates([date!])
+                //calendarView.selectDates([date!])
+            }
+        }
+        
     }
     
     func retrieveDBUserCalendarEvents() {
@@ -175,9 +201,10 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         let dataBaseRefProf = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
         let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
         
-        dataBaseRefProf.observe(.value) { (snapshot) in
+        dataBaseRef.observe(.value) { (snapshot) in
             
             if snapshot.hasChild("calendarEvents") {
+                
                 dataBaseRefProf.observe(.value, with: { (snapshot) in
 
                     let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
@@ -187,7 +214,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
 
                     for groupKey in groupKeys {
                         group.enter()
-                        dataBaseRef.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
+                        dataBaseRefProf.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
                             group.leave()
                         })
                     }
@@ -202,7 +229,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
 
                     group.notify(queue: .main) {
                         print(self.calendarEventsDictionary)
-
+                        self.selectCalendarEvents(calendarEvents: self.calendarEventsDictionary)
                     }
                 })
             }
@@ -276,12 +303,5 @@ extension HomeVC: JTAppleCalendarViewDelegate {
     }
     
 }
-
-extension HomeVC {
-   
-}
-
-
-    
 
 
