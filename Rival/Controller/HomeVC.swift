@@ -23,13 +23,8 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     @IBOutlet weak var checkInBtn: UIButton!
     @IBOutlet weak var missedBtn: UIButton!
     
-    var buttonCheck = "none"
-    
-    //var checkInDictionary = [String: String]()
-    //var missedDictionary = [String: String] ()
     var checkInArray = [Date]()
     var missedArray = [Date]()
-    var calendarEventsDictionary = [String: String]()
     
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
     weak var delegate: GroupsVCDelegate?
@@ -94,63 +89,18 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     func handleCellSelection(cell: CalendarCell, cellState: CellState) {
         
         cell.selectedView.backgroundColor = nil
+        cell.selectedView.isHidden = true
         
-        if cellState.isSelected {
-            
-        }
-        
-        
-//        if cellState.isSelected && buttonCheck == "check in" && cell.selectedView.backgroundColor != #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065) {
-//            print("check in")
-//            cell.selectedView.backgroundColor = nil
-//            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
-//            cell.selectedView.isHidden = false
-//        }
-//
-//        else if cellState.isSelected && buttonCheck == "check in" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065) {
-//            print("dup check in")
-//            cell.selectedView.backgroundColor = nil
-//            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
-//            cell.selectedView.isHidden = false
-//        }
-//
-//        else if cellState.isSelected && buttonCheck == "missed" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065) {
-//            print("not here?")
-//            cell.selectedView.backgroundColor = nil
-//            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
-//            cell.selectedView.isHidden = false
-//        }
-//
-//        else if cellState.isSelected && buttonCheck == "missed" && cell.selectedView.backgroundColor != #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7) {
-//            print("missed")
-//            cell.selectedView.backgroundColor = nil
-//            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
-//            cell.selectedView.isHidden = false
-//        }
-//
-//        else if cellState.isSelected && buttonCheck == "missed" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7) {
-//            cell.selectedView.backgroundColor = nil
-//            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
-//            cell.selectedView.isHidden = false
-//        }
-//
-//        else if cellState.isSelected && buttonCheck == "check in" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7) {
-//            cell.selectedView.backgroundColor = nil
-//            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
-//            cell.selectedView.isHidden = false
-//        }
-
-        else {
-            //print("else")
-            //print(cell.dateLabel.text!)
-            //print(cell.selectedView.backgroundColor)
+        if cellState.isSelected && checkInArray.contains(cellState.date) {
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
+            cell.selectedView.isHidden = false
+        } else if cellState.isSelected && missedArray.contains(cellState.date) {
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
+            cell.selectedView.isHidden = false
+        } else {
             cell.selectedView.backgroundColor = nil
             cell.selectedView.isHidden = true
         }
-        
-    }
-    
-    func selectCalendarEventsAfterRetrieval(calendarEventsDict: Dictionary <String, String>) {
         
     }
 
@@ -165,7 +115,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "check in"])
-
+        //calendarView.selectDates(checkInArray)
         
         /* Button Animation */
         checkInBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -177,25 +127,13 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                        animations: { [weak self] in
                         self?.checkInBtn.transform = .identity},
                        completion: nil)
-        
-//        if buttonCheck == "none" {
-//            buttonCheck = "check in"
-//            calendarView.selectDates([Date()])
-//        } else if buttonCheck == "missed" {
-//            buttonCheck = "check in"
-//            calendarView.selectDates([Date()])
-//            calendarView.selectDates([Date()])
-//        } else {
-//            calendarView.selectDates([Date()])
-//            calendarView.selectDates([Date()])
-//        }
     }
     
     @IBAction func missedTapped(_ sender: Any) {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "missed"])
-        //retrieveDBUserCalendarEvents()
+        //calendarView.selectDates(missedArray)
         
         /* Button Animation */
         missedBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -207,18 +145,6 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                        animations: { [weak self] in
                         self?.missedBtn.transform = .identity},
                        completion: nil)
-        
-//        if buttonCheck == "none" {
-//            buttonCheck = "missed"
-//            calendarView.selectDates([Date()])
-//        } else if buttonCheck == "check in" {
-//            buttonCheck = "missed"
-//            calendarView.selectDates([Date()])
-//            calendarView.selectDates([Date()])
-//        } else {
-//            calendarView.selectDates([Date()])
-//            calendarView.selectDates([Date()])
-//        }
     }
     
     //MARK: FIREBASE CALENDAR EVENT RETRIEVAL
@@ -255,26 +181,17 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                         self.formatter.dateFormat = "yyyy MM dd"
                         let date = self.formatter.date(from: addedDate)
                         
-                        
                         if value == "check in" {
                             self.checkInArray.append(date!)
-                            //self.checkInDictionary[key] = value
                         } else {
                             self.missedArray.append(date!)
-                            //self.missedDictionary[key] = value
                         }
-                        
-                        //self.calendarEventsDictionary[key] = value
                     }
 
                     group.notify(queue: .main) {
-                        print(self.checkInArray)
-                        print(self.missedArray)
-                        
+                
                         self.calendarView.selectDates(self.checkInArray, triggerSelectionDelegate: false)
                         self.calendarView.selectDates(self.missedArray, triggerSelectionDelegate: false)
-                        //self.selectCalendarEvents(calendarEvents: self.checkInDictionary)
-                        //self.selectCalendarEvents(calendarEvents: self.missedDictionary)
                     }
                 })
             }
@@ -283,41 +200,6 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
             }
         }
     }
-    
-//    func selectCalendarEvents(calendarArray: [Date]) {
-//
-//        for value in calendarArray {
-//
-//
-//            calendarView.selectDates([date!])
-//        }
-//
-//    }
-    
-//    func selectCalendarEvents(calendarEvents: Dictionary <String, String>) {
-//
-//        for (key,value) in calendarEvents {
-//
-//            let addedDate = key
-//            formatter.dateFormat = "yyyy MM dd"
-//            let date = formatter.date(from: addedDate)
-//
-//            if value == "check in" {
-//                buttonCheck = "check in"
-//                calendarView.selectDates([date!])
-//                //buttonCheck = "none"
-//            }
-//
-//            else {
-//                buttonCheck = "missed"
-//                calendarView.selectDates([date!])
-//                //buttonCheck = "none"
-//            }
-//
-//        }
-//
-//    }
-    
 
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
