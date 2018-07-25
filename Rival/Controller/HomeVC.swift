@@ -88,15 +88,42 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     
     func handleCellSelection(cell: CalendarCell, cellState: CellState) {
         
-        if cellState.isSelected && buttonCheck == "check in" {
-            print("hit")
+        if cellState.isSelected && buttonCheck == "check in" && cell.selectedView.backgroundColor != #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065) {
+            print("check in")
             cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
-            cell.selectedView.isHidden = !cellState.isSelected
-        } else if cellState.isSelected && buttonCheck == "missed" {
+            cell.selectedView.isHidden = false
+        }
+        
+        else if cellState.isSelected && buttonCheck == "check in" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065) {
+            print("dup check in")
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
+            cell.selectedView.isHidden = false
+        }
+            
+        else if cellState.isSelected && buttonCheck == "missed" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065) {
             cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
-            cell.selectedView.isHidden = !cellState.isSelected
-        } else {
-            cell.selectedView.isHidden = !cellState.isSelected
+            cell.selectedView.isHidden = false
+        }
+        
+        else if cellState.isSelected && buttonCheck == "missed" && cell.selectedView.backgroundColor != #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7) {
+            print("missed")
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
+            cell.selectedView.isHidden = false
+        }
+            
+        else if cellState.isSelected && buttonCheck == "missed" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7) {
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
+            cell.selectedView.isHidden = false
+        }
+        
+        else if cellState.isSelected && buttonCheck == "check in" && cell.selectedView.backgroundColor == #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7) {
+            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
+            cell.selectedView.isHidden = false
+        }
+
+        else {
+            print("else")
+            cell.selectedView.isHidden = true
         }
         
     }
@@ -112,6 +139,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "check in"])
+        retrieveDBUserCalendarEvents()
         
         /* Button Animation */
         checkInBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -124,23 +152,24 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                         self?.checkInBtn.transform = .identity},
                        completion: nil)
         
-        if buttonCheck == "none" {
-            buttonCheck = "check in"
-            calendarView.selectDates([Date()])
-        } else if buttonCheck == "missed" {
-            buttonCheck = "check in"
-            calendarView.selectDates([Date()])
-            calendarView.selectDates([Date()])
-        } else {
-            calendarView.selectDates([Date()])
-            calendarView.selectDates([Date()])
-        }
+//        if buttonCheck == "none" {
+//            buttonCheck = "check in"
+//            calendarView.selectDates([Date()])
+//        } else if buttonCheck == "missed" {
+//            buttonCheck = "check in"
+//            calendarView.selectDates([Date()])
+//            calendarView.selectDates([Date()])
+//        } else {
+//            calendarView.selectDates([Date()])
+//            calendarView.selectDates([Date()])
+//        }
     }
     
     @IBAction func missedTapped(_ sender: Any) {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "missed"])
+        retrieveDBUserCalendarEvents()
         
         /* Button Animation */
         missedBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -153,17 +182,17 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                         self?.missedBtn.transform = .identity},
                        completion: nil)
         
-        if buttonCheck == "none" {
-            buttonCheck = "missed"
-            calendarView.selectDates([Date()])
-        } else if buttonCheck == "check in" {
-            buttonCheck = "missed"
-            calendarView.selectDates([Date()])
-            calendarView.selectDates([Date()])
-        } else {
-            calendarView.selectDates([Date()])
-            calendarView.selectDates([Date()])
-        }
+//        if buttonCheck == "none" {
+//            buttonCheck = "missed"
+//            calendarView.selectDates([Date()])
+//        } else if buttonCheck == "check in" {
+//            buttonCheck = "missed"
+//            calendarView.selectDates([Date()])
+//            calendarView.selectDates([Date()])
+//        } else {
+//            calendarView.selectDates([Date()])
+//            calendarView.selectDates([Date()])
+//        }
     }
     
     func selectCalendarEvents(calendarEvents: Dictionary <String, String>) {
@@ -177,7 +206,15 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
             if value == "check in" && buttonCheck == "none" {
                 buttonCheck = "check in"
                 calendarView.selectDates([date!])
-            } else if value == "check in" && buttonCheck == "missed" {
+            }
+            
+            else if value == "check in" && buttonCheck == "reset" {
+                buttonCheck = "check in"
+                calendarView.selectDates([date!])
+                calendarView.selectDates([date!])
+            }
+                
+            else if value == "check in" && buttonCheck == "missed" {
                 buttonCheck = "check in"
                 calendarView.selectDates([date!])
                 //calendarView.selectDates([date!])
