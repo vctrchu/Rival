@@ -92,9 +92,13 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         cell.selectedView.isHidden = true
         
         if cellState.isSelected && checkInArray.contains(cellState.date) {
+            print("check")
             cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
             cell.selectedView.isHidden = false
-        } else if cellState.isSelected && missedArray.contains(cellState.date) {
+        }
+            
+        else if cellState.isSelected && missedArray.contains(cellState.date) {
+            print("missed")
             cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
             cell.selectedView.isHidden = false
         } else {
@@ -115,7 +119,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "check in"])
-        //calendarView.selectDates(checkInArray)
+        retrieveDBUserCalendarEvents()
         
         /* Button Animation */
         checkInBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -133,7 +137,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "missed"])
-        //calendarView.selectDates(missedArray)
+        retrieveDBUserCalendarEvents()
         
         /* Button Animation */
         missedBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -181,15 +185,31 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                         self.formatter.dateFormat = "yyyy MM dd"
                         let date = self.formatter.date(from: addedDate)
                         
-                        if value == "check in" {
+                        if value == "check in" && !self.checkInArray.contains(date!) {
                             self.checkInArray.append(date!)
-                        } else {
+                        }
+                            
+                        else if value == "check in" && self.checkInArray.contains(date!) {
+                            self.checkInArray = self.checkInArray.filter{$0 != date!}
+                            self.missedArray = self.missedArray.filter{$0 != date!}
+                            self.checkInArray.append(date!)
+                        }
+                            
+                        else if value == "missed" && !self.missedArray.contains(date!) {
+                            self.missedArray.append(date!)
+                        }
+    
+                        else if value == "missed" && self.missedArray.contains(date!) {
+                            self.checkInArray = self.checkInArray.filter{$0 != date!}
+                            self.missedArray = self.missedArray.filter{$0 != date!}
                             self.missedArray.append(date!)
                         }
                     }
 
                     group.notify(queue: .main) {
-                
+                        print(self.checkInArray)
+                        print(self.missedArray)
+                        
                         self.calendarView.selectDates(self.checkInArray, triggerSelectionDelegate: false)
                         self.calendarView.selectDates(self.missedArray, triggerSelectionDelegate: false)
                     }
