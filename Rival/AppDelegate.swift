@@ -13,25 +13,13 @@ import Firebase
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var firstName = String()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        
+
         FirebaseApp.configure()
-        retrieveDBFirstName()
         
         return true
-    }
-    
-    func retrieveDBFirstName() {
-        let uid = Auth.auth().currentUser?.uid
-        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("firstname")
-        dataBaseFirstName.observe(.value) { (snapshot) in
-            
-            self.firstName = snapshot.value as! String
-
-        }
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
