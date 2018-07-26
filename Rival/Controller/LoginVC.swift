@@ -19,6 +19,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     @IBOutlet weak var loginBtn: TransitionButton!
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var lockIcon: UIImageView!
+    @IBOutlet weak var loginErrorLabel: UILabel!
     
     private var groupsVCTabBarController: RAMAnimatedTabBarController?
 
@@ -35,6 +36,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
             loginBtn.startAnimation()
             AuthService.instance.loginUser(withEmail: email, andPassword: password, loginComplete: { (success, loginError) in
                 if success {
+                    self.loginErrorLabel.text = " "
                     self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
                         if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                             self.groupsVCTabBarController = groupsVCTabBarController
@@ -48,6 +50,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
                 } else {
                     print(String(describing: loginError?.localizedDescription))
                     self.loginBtn.stopAnimation(animationStyle: StopAnimationStyle.shake, revertAfterDelay: 0.75, completion: nil)
+                    DispatchQueue.main.asyncAfter(deadline: .now() + 1.25) {
+                        self.loginErrorLabel.text = "Incorrect email and/or password."
+                    }
                 }
             })
         }
@@ -57,6 +62,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     
     @IBAction func noAccountBtnPressed(_ sender: Any) {
         performSegue(withIdentifier: "toSignUp1", sender: self)
+        self.loginErrorLabel.text = " "
     }
     
     
