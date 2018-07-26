@@ -23,8 +23,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     @IBOutlet weak var checkInBtn: UIButton!
     @IBOutlet weak var missedBtn: UIButton!
     
-    var checkInArray = [Date]()
-    var missedArray = [Date]()
+    var calendarEventsDictionary = [Date: String]()
     
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
     weak var delegate: GroupsVCDelegate?
@@ -71,15 +70,6 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         
         handleCellVisibility(cell: calendarCell, cellState: cellState)
         handleCellSelection(cell: calendarCell, cellState: cellState)
-        handleCellTextColor(cell: calendarCell, cellState: cellState)
-    }
-    
-    func handleCellTextColor(cell: CalendarCell, cellState: CellState) {
-        if cellState.isSelected {
-            cell.dateLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
-        } else {
-            cell.dateLabel.textColor = #colorLiteral(red: 0.9843137255, green: 0.737254902, blue: 0.02745098039, alpha: 1)
-        }
     }
     
     func handleCellVisibility(cell: CalendarCell, cellState: CellState) {
@@ -91,29 +81,29 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         cell.selectedView.backgroundColor = nil
         cell.selectedView.isHidden = true
         
-        if cellState.isSelected && checkInArray.contains(cellState.date) {
-            print("check")
-            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
-            cell.selectedView.isHidden = false
-        }
-            
-        else if cellState.isSelected && missedArray.contains(cellState.date) {
-            print("missed")
-            cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
-            cell.selectedView.isHidden = false
+        if let value = calendarEventsDictionary[cellState.date] {
+            print(value)
+            if value == "check in" {
+                cell.dateLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                cell.selectedView.backgroundColor = #colorLiteral(red: 0.7414211631, green: 0.9360774159, blue: 0.5375202298, alpha: 0.6956068065)
+                cell.selectedView.isHidden = false
+            } else {
+                cell.dateLabel.textColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+                cell.selectedView.backgroundColor = #colorLiteral(red: 0.7921568627, green: 0.1019607843, blue: 0.1019607843, alpha: 0.7)
+                cell.selectedView.isHidden = false
+            }
         } else {
+            cell.dateLabel.textColor = #colorLiteral(red: 0.9843137255, green: 0.737254902, blue: 0.02745098039, alpha: 1)
             cell.selectedView.backgroundColor = nil
             cell.selectedView.isHidden = true
-        }
-        
+          }
     }
-
+    
     func getTimeStamp() -> String {
         formatter.dateFormat = "yyyy MM dd"
         let date = formatter.string(from: Date())
         return date
     }
-    
     
     @IBAction func checkInTapped(_ sender: Any) {
         
@@ -159,23 +149,9 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
         
         dataBaseRef.observe(.value) { (snapshot) in
-            
             if snapshot.hasChild("calendarEvents") {
-                
                 dataBaseRefProf.observe(.value, with: { (snapshot) in
-
-                    let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
-
-                    // This group will keep track of the number of blocks still pending
-                    let group = DispatchGroup()
-
-                    for groupKey in groupKeys {
-                        group.enter()
-                        dataBaseRefProf.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
-                            group.leave()
-                        })
-                    }
-
+                    
                     for child in snapshot.children {
                         let snap = child as! DataSnapshot
                         let key = snap.key as String
@@ -185,34 +161,11 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                         self.formatter.dateFormat = "yyyy MM dd"
                         let date = self.formatter.date(from: addedDate)
                         
-                        if value == "check in" && !self.checkInArray.contains(date!) {
-                            self.checkInArray.append(date!)
-                        }
-                            
-                        else if value == "check in" && self.checkInArray.contains(date!) {
-                            self.checkInArray = self.checkInArray.filter{$0 != date!}
-                            self.missedArray = self.missedArray.filter{$0 != date!}
-                            self.checkInArray.append(date!)
-                        }
-                            
-                        else if value == "missed" && !self.missedArray.contains(date!) {
-                            self.missedArray.append(date!)
-                        }
-    
-                        else if value == "missed" && self.missedArray.contains(date!) {
-                            self.checkInArray = self.checkInArray.filter{$0 != date!}
-                            self.missedArray = self.missedArray.filter{$0 != date!}
-                            self.missedArray.append(date!)
-                        }
-                    }
-
-                    group.notify(queue: .main) {
-                        print(self.checkInArray)
-                        print(self.missedArray)
+                        self.calendarEventsDictionary[date!] = value
                         
-                        self.calendarView.selectDates(self.checkInArray, triggerSelectionDelegate: false)
-                        self.calendarView.selectDates(self.missedArray, triggerSelectionDelegate: false)
                     }
+                    self.calendarView.reloadData()
+                    print(self.calendarEventsDictionary)
                 })
             }
             else {
@@ -220,7 +173,6 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
             }
         }
     }
-
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if let identifier = segue.identifier {
