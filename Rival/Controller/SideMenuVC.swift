@@ -18,7 +18,8 @@ protocol SideMenuVCDelegate: class {
 class SideMenuVC: UIViewController {
 
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var nameLbl: UILabel!
+    @IBOutlet weak var firstNameLbl: UILabel!
+    @IBOutlet weak var lastNameLabel: UILabel!
     @IBOutlet weak var editProfileBtn: UIButton!
     @IBOutlet weak var editPasswordBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
@@ -28,8 +29,32 @@ class SideMenuVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         retrieveUserInfo()
+        retrieveDBFirstName()
+        retrieveDBLastName()
         sideMenuCustomization()
         outletCustomization()
+    }
+    
+    func retrieveDBFirstName() {
+        let uid = Auth.auth().currentUser?.uid
+        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("firstname")
+        dataBaseFirstName.observe(.value) { (snapshot) in
+            
+            let firstname = snapshot.value as! String
+            self.firstNameLbl.text = firstname.uppercased()
+            
+        }
+    }
+    
+    func retrieveDBLastName() {
+        let uid = Auth.auth().currentUser?.uid
+        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("lastname")
+        dataBaseFirstName.observe(.value) { (snapshot) in
+            
+            let lastname = snapshot.value as! String
+            self.lastNameLabel.text = lastname.uppercased()
+            
+        }
     }
     
     func retrieveUserInfo() {

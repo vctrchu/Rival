@@ -22,6 +22,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var checkInBtn: UIButton!
     @IBOutlet weak var missedBtn: UIButton!
+    @IBOutlet weak var firstNameLabel: UILabel!
     
     var calendarEventsDictionary = [Date: String]()
     
@@ -40,6 +41,8 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
         super.viewDidLoad()
         setupCalendar()
         retrieveDBUserCalendarEvents()
+        retrieveDBFirstName()
+        
     }
     
     func setupCalendar() {
@@ -141,16 +144,27 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
                        completion: nil)
     }
     
-    //MARK: FIREBASE CALENDAR EVENT RETRIEVAL
+    //MARK: FIREBASE RETRIEVAL
+    
+    func retrieveDBFirstName() {
+        let uid = Auth.auth().currentUser?.uid
+        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("firstname")
+        dataBaseFirstName.observe(.value) { (snapshot) in
+            
+            let firstname = snapshot.value as! String
+            self.firstNameLabel.text = firstname.uppercased()
+            
+        }
+    }
     
     func retrieveDBUserCalendarEvents() {
         let uid = Auth.auth().currentUser?.uid
-        let dataBaseRefProf = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
         let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
-        
+        let dataBaseCalendarEvents = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
+
         dataBaseRef.observe(.value) { (snapshot) in
             if snapshot.hasChild("calendarEvents") {
-                dataBaseRefProf.observe(.value, with: { (snapshot) in
+                dataBaseCalendarEvents.observe(.value, with: { (snapshot) in
                     
                     for child in snapshot.children {
                         let snap = child as! DataSnapshot
