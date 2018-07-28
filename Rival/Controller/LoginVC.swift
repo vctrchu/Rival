@@ -30,8 +30,21 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
         self.hideKeyboardWhenTappedAround()
     }
     
+    //MARK: - Controlling the Keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == emailaddressTxtField {
+            textField.resignFirstResponder()
+            passwordTxtField.becomeFirstResponder()
+        } else if textField == passwordTxtField {
+            textField.resignFirstResponder()
+            loginUser()
+        }
+        return true
+    }
     
-    @IBAction func loginTransitionBtnPressed(_ sender: Any) {
+    
+    func loginUser() {
         if let email = emailaddressTxtField.text, let password = passwordTxtField.text {
             loginBtn.startAnimation()
             AuthService.instance.loginUser(withEmail: email, andPassword: password, loginComplete: { (success, loginError) in
@@ -56,8 +69,10 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
                 }
             })
         }
-        
-        
+    }
+    
+    @IBAction func loginTransitionBtnPressed(_ sender: Any) {
+        loginUser()
     }
     
     @IBAction func noAccountBtnPressed(_ sender: Any) {
@@ -74,7 +89,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     
     
     
-    
+    // Second new account screen when already have an account button is pressed
     @IBAction func unwindToLoginVC(segue: UIStoryboardSegue) {
     }
     

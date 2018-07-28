@@ -99,7 +99,7 @@ class SideMenuVC: UIViewController {
     
     func setUserInfo(imageRef: String) {
         let dataRef = DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("profile_image")
-        if  dataRef != nil {
+            if  dataRef != nil {
             let imageUrl = URL(string: imageRef)
             profileImg.kf.setImage(with: imageUrl)
             

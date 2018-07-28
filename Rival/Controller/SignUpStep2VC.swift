@@ -11,7 +11,7 @@ import Motion
 import SimpleAnimation
 import TransitionButton
 
-class SignUpStep2VC: UIViewController {
+class SignUpStep2VC: UIViewController, UITextFieldDelegate {
 
     
     @IBOutlet weak var emailLbl: UILabel!
@@ -27,6 +27,8 @@ class SignUpStep2VC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        emailTxtField.delegate = self
+        passwordTxtField.delegate = self
         self.hideKeyboardWhenTappedAround()
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
@@ -37,16 +39,20 @@ class SignUpStep2VC: UIViewController {
         
     }
     
-    @IBAction func backBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+    //MARK: - Controlling the Keyboard
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        if textField == emailTxtField {
+            textField.resignFirstResponder()
+            passwordTxtField.becomeFirstResponder()
+        } else if textField == passwordTxtField {
+            textField.resignFirstResponder()
+            registerUser()
+        }
+        return true
     }
     
-    @IBAction func alreadyHaveAccPressed(_ sender: Any) {
-        performSegue(withIdentifier: "unwindToLoginVC", sender: self)
-    }
-    
-    
-    @IBAction func completeBtnPressed(_ sender: Any) {
+    func registerUser() {
         if  let email = emailTxtField.text, let password = passwordTxtField.text {
             completeBtn.startAnimation()
             AuthService.instance.registerUser(firstName: nameTxt, lastName: userTxt, withEmail: email, andPassword: password, userCreationComplete: { (success, signupError) in
@@ -66,6 +72,19 @@ class SignUpStep2VC: UIViewController {
                 }
             })
         }
+    }
+    
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func alreadyHaveAccPressed(_ sender: Any) {
+        performSegue(withIdentifier: "unwindToLoginVC", sender: self)
+    }
+    
+    
+    @IBAction func completeBtnPressed(_ sender: Any) {
+        registerUser()
     }
         
     
