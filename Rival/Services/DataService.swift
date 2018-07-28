@@ -35,19 +35,4 @@ class DataService {
         calendarEventRef.updateChildValues(userData)
     }
     
-//    func getUserInfo(uid: String, info: String) -> String {
-//        var returnString = "error"
-//        switch info {
-//        case "FullName":
-//             REF_USERS.child(uid).child(info).observe(.value, with: { (snapshot) in
-//                returnString = String(describing: snapshot.value)
-//                print return
-//            })
-//
-//        default:
-//            returnString = "Does not exist"
-//        }
-//        return returnString
-//    }
-    
 }

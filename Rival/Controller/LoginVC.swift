@@ -11,6 +11,7 @@ import TransitionButton
 import SimpleAnimation
 import Motion
 import RAMAnimatedTabBarController
+import Firebase
 
 class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     
@@ -80,6 +81,9 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
         self.loginErrorLabel.text = " "
     }
     
+    @IBAction func forgotPasswordPressed(_ sender: Any) {
+        Auth.auth().sendPasswordReset(withEmail: <#T##String#>, completion: <#T##SendPasswordResetCallback?##SendPasswordResetCallback?##(Error?) -> Void#>)
+    }
     
     
     
