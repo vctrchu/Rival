@@ -21,7 +21,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     @IBOutlet weak var lockIcon: UIImageView!
     @IBOutlet weak var loginErrorLabel: UILabel!
     
-    private var groupsVCTabBarController: RAMAnimatedTabBarController?
+    private var calendarVCTabBarController: RAMAnimatedTabBarController?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -66,14 +66,14 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
                 if success {
                     self.loginErrorLabel.text = " "
                     self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
-                        if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
-                            self.groupsVCTabBarController = groupsVCTabBarController
-                            groupsVCTabBarController.modalTransitionStyle = .crossDissolve
-                            if let groupsVC = groupsVCTabBarController.viewControllers?.first as? CalendarVC {
+                        if let calendarVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
+                            self.calendarVCTabBarController = calendarVCTabBarController
+                            calendarVCTabBarController.modalTransitionStyle = .crossDissolve
+                            if let groupsVC = calendarVCTabBarController.viewControllers?.first as? CalendarVC {
                                 groupsVC.delegate = self
                             }
-                            self.groupsVCTabBarController?.selectedIndex = 1
-                            self.present(groupsVCTabBarController, animated: true, completion: nil)
+                            self.calendarVCTabBarController?.selectedIndex = 1
+                            self.present(calendarVCTabBarController, animated: true, completion: nil)
                         }
                     })
                 } else {
@@ -123,7 +123,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     func onLogoutPressed() {
         emailaddressTxtField.text = nil
         passwordTxtField.text = nil
-        groupsVCTabBarController?.dismiss(animated: false, completion: nil)
+        calendarVCTabBarController?.dismiss(animated: false, completion: nil)
     }
 
 }
