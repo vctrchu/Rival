@@ -9,7 +9,6 @@
 import UIKit
 import TransitionButton
 import SimpleAnimation
-import Motion
 import RAMAnimatedTabBarController
 import Firebase
 
@@ -29,6 +28,10 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
         emailaddressTxtField.delegate = self
         passwordTxtField.delegate = self
         self.hideKeyboardWhenTappedAround()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
+            self.lockIcon.hop()
+        }
     }
     
     //MARK: - Controlling the Keyboard
@@ -42,6 +45,20 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
             loginUser()
         }
         return true
+    }
+    
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
+            
+        })
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
+            
+        })
     }
     
     
@@ -82,7 +99,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     }
     
     @IBAction func forgotPasswordPressed(_ sender: Any) {
-        Auth.auth().sendPasswordReset(withEmail: <#T##String#>, completion: <#T##SendPasswordResetCallback?##SendPasswordResetCallback?##(Error?) -> Void#>)
+        performSegue(withIdentifier: "toForgotPassword", sender: self)
     }
     
     
