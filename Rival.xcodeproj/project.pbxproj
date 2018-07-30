@@ -42,7 +42,7 @@
 		FBE673FB20ED78F10005ABAB /* RobotoCondensed-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280ABF2042975700EE1627 /* RobotoCondensed-Light.ttf */; };
 		FBE673FC20ED78F10005ABAB /* RobotoCondensed-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280AB12042975600EE1627 /* RobotoCondensed-LightItalic.ttf */; };
 		FBE673FD20ED78F10005ABAB /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280ABE2042975700EE1627 /* RobotoCondensed-Regular.ttf */; };
-		FBED60EA2044F74700136153 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60E92044F74600136153 /* HomeVC.swift */; };
+		FBED60EA2044F74700136153 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60E92044F74600136153 /* CalendarVC.swift */; };
 		FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */; };
 /* End PBXBuildFile section */
 
@@ -86,7 +86,7 @@
 		FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1VC.swift; sourceTree = "<group>"; };
 		FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2VC.swift; sourceTree = "<group>"; };
 		FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
-		FBED60E92044F74600136153 /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		FBED60E92044F74600136153 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayVC.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -212,7 +212,7 @@
 				FB0A4E5A210F71E700AE9016 /* ForgotPasswordVC.swift */,
 				FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */,
 				FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */,
-				FBED60E92044F74600136153 /* HomeVC.swift */,
+				FBED60E92044F74600136153 /* CalendarVC.swift */,
 				FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */,
 				FB3EACB62050E6380076A9AD /* EditProfileVC.swift */,
 			);
@@ -407,7 +407,7 @@
 				FB9BB05420433C8400698747 /* TextFieldTapped.swift in Sources */,
 				FB280AA02042951700EE1627 /* LoginVC.swift in Sources */,
 				FB151C4A204F8FE3009ADA4C /* CalendarCell.swift in Sources */,
-				FBED60EA2044F74700136153 /* HomeVC.swift in Sources */,
+				FBED60EA2044F74700136153 /* CalendarVC.swift in Sources */,
 				FB8426D82051C064005054BC /* User.swift in Sources */,
 				FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */,
 				FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */,

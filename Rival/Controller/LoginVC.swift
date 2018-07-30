@@ -29,9 +29,6 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
         passwordTxtField.delegate = self
         self.hideKeyboardWhenTappedAround()
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
-            self.lockIcon.hop()
-        }
     }
     
     //MARK: - Controlling the Keyboard
@@ -47,19 +44,19 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
         return true
     }
     
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
-            
-        })
-    }
-    
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
-            
-        })
-    }
+//    func textFieldDidBeginEditing(_ textField: UITextField) {
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
+//
+//        })
+//    }
+//
+//    func textFieldDidEndEditing(_ textField: UITextField) {
+//        UIView.animate(withDuration: 0.3, animations: {
+//            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
+//
+//        })
+//    }
     
     
     func loginUser() {
@@ -72,9 +69,10 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
                         if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                             self.groupsVCTabBarController = groupsVCTabBarController
                             groupsVCTabBarController.modalTransitionStyle = .crossDissolve
-                            if let groupsVC = groupsVCTabBarController.viewControllers?.first as? HomeVC {
+                            if let groupsVC = groupsVCTabBarController.viewControllers?.first as? CalendarVC {
                                 groupsVC.delegate = self
                             }
+                            self.groupsVCTabBarController?.selectedIndex = 1
                             self.present(groupsVCTabBarController, animated: true, completion: nil)
                         }
                     })

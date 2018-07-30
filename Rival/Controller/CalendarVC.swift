@@ -15,7 +15,7 @@ protocol GroupsVCDelegate: class {
     func onLogoutPressed()
 }
 
-class HomeVC: UIViewController, SideMenuVCDelegate {
+class CalendarVC: UIViewController, SideMenuVCDelegate {
     
     @IBOutlet weak var calendarView: JTAppleCalendarView!
     @IBOutlet weak var monthLabel: UILabel!
@@ -210,7 +210,7 @@ class HomeVC: UIViewController, SideMenuVCDelegate {
 
 // MARK: - JTAppleCalendar Source and Delgate Extensions
 
-extension HomeVC: JTAppleCalendarViewDataSource {
+extension CalendarVC: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         
         var dateComponent = DateComponents()
@@ -223,7 +223,7 @@ extension HomeVC: JTAppleCalendarViewDataSource {
     }
 }
 
-extension HomeVC: JTAppleCalendarViewDelegate {
+extension CalendarVC: JTAppleCalendarViewDelegate {
 
     func calendar(_ calendar: JTAppleCalendarView, cellForItemAt date: Date, cellState: CellState, indexPath: IndexPath) -> JTAppleCell {
 
