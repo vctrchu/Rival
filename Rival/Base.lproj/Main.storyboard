@@ -1315,54 +1315,11 @@
                     <connections>
                         <segue destination="zJw-cB-NV1" kind="relationship" relationship="viewControllers" id="fpQ-iG-YvL"/>
                         <segue destination="YXh-yc-dGj" kind="relationship" relationship="viewControllers" id="wzB-kC-DdX"/>
-                        <segue destination="bIc-ML-se7" kind="relationship" relationship="viewControllers" id="IOU-ME-nL4"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIc-Jc-ST7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2841" y="-742"/>
-        </scene>
-        <!--View Controller-->
-        <scene sceneID="mfc-x9-LIW">
-            <objects>
-                <viewController id="bIc-ML-se7" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="riw-yP-7rI">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.1647058824" green="0.1843137255" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <viewLayoutGuide key="safeArea" id="ZDx-q9-5WQ"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="" image="account-circle" selectedImage="account-circle" id="Wgh-hz-vFO" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <color key="badgeColor" red="0.97647058819999999" green="0.73333333329999995" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
-                                <real key="value" value="-5"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.97647058823529409" green="0.73333333333333328" blue="0.1803921568627451" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.97647058819999999" green="0.73333333329999995" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="SXZ-Re-Vtq" id="cyf-1O-09e"/>
-                        </connections>
-                    </tabBarItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="FK9-Vo-egw" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <customObject id="SXZ-Re-Vtq" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="color" keyPath="textSelectedColor">
-                            <color key="value" red="0.97647058819999999" green="0.73333333329999995" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="color" keyPath="iconSelectedColor">
-                            <color key="value" red="0.97647058819999999" green="0.73333333329999995" blue="0.18039215689999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </userDefinedRuntimeAttribute>
-                    </userDefinedRuntimeAttributes>
-                </customObject>
-            </objects>
-            <point key="canvasLocation" x="3586" y="-743"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="1wP-a0-20w">
@@ -1391,7 +1348,6 @@
     <resources>
         <image name="AlreadyhaveAccountBtn" width="148" height="9"/>
         <image name="Line Copy" width="220" height="1"/>
-        <image name="account-circle" width="25" height="25"/>
         <image name="backBtn" width="22" height="18"/>
         <image name="checkInBtn" width="31" height="28"/>
         <image name="completeBtn" width="220" height="38"/>
