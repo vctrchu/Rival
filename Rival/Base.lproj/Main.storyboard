@@ -793,29 +793,49 @@
                                             </label>
                                         </subviews>
                                     </stackView>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoU-Hi-4M7">
-                                        <rect key="frame" x="156.5" y="210" width="62" height="28"/>
-                                        <state key="normal" title="View Profile">
-                                            <attributedString key="attributedTitle">
-                                                <fragment content="View Profile">
-                                                    <attributes>
-                                                        <font key="NSFont" size="12" name="Roboto-Light"/>
-                                                        <integer key="NSUnderline" value="1"/>
-                                                    </attributes>
-                                                </fragment>
-                                            </attributedString>
-                                        </state>
-                                    </button>
+                                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="bBu-Lc-5xi">
+                                        <rect key="frame" x="115" y="210" width="146" height="28"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UoU-Hi-4M7">
+                                                <rect key="frame" x="0.0" y="0.0" width="68" height="28"/>
+                                                <state key="normal" title="View Profile">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="32 Following">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Roboto-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <integer key="NSUnderline" value="1"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="dsx-bh-4d1">
+                                                <rect key="frame" x="78" y="0.0" width="68" height="28"/>
+                                                <state key="normal" title="View Profile">
+                                                    <attributedString key="attributedTitle">
+                                                        <fragment content="11 Followers">
+                                                            <attributes>
+                                                                <font key="NSFont" size="12" name="Roboto-Light"/>
+                                                                <paragraphStyle key="NSParagraphStyle" alignment="natural" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                <integer key="NSUnderline" value="1"/>
+                                                            </attributes>
+                                                        </fragment>
+                                                    </attributedString>
+                                                </state>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                                 <color key="backgroundColor" red="0.14831149578094482" green="0.1677398681640625" blue="0.17719176411628723" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
+                                    <constraint firstItem="bBu-Lc-5xi" firstAttribute="top" secondItem="jJ9-dC-72W" secondAttribute="bottom" id="5KY-nY-7op"/>
                                     <constraint firstItem="jJ9-dC-72W" firstAttribute="top" secondItem="fkr-5g-78L" secondAttribute="bottom" constant="10" id="CIx-Al-hep"/>
+                                    <constraint firstItem="bBu-Lc-5xi" firstAttribute="centerX" secondItem="1Mj-dK-7No" secondAttribute="centerX" id="T1A-iw-1X4"/>
                                     <constraint firstAttribute="height" constant="250" id="Xrq-kl-NYZ"/>
                                     <constraint firstItem="fkr-5g-78L" firstAttribute="top" secondItem="1Mj-dK-7No" secondAttribute="top" constant="50" id="cBc-w6-dAg"/>
                                     <constraint firstItem="jJ9-dC-72W" firstAttribute="centerX" secondItem="1Mj-dK-7No" secondAttribute="centerX" id="dkE-jG-b6t"/>
-                                    <constraint firstItem="UoU-Hi-4M7" firstAttribute="centerX" secondItem="1Mj-dK-7No" secondAttribute="centerX" id="oec-0X-ecv"/>
                                     <constraint firstItem="fkr-5g-78L" firstAttribute="centerX" secondItem="1Mj-dK-7No" secondAttribute="centerX" id="u8r-bp-26K"/>
-                                    <constraint firstItem="UoU-Hi-4M7" firstAttribute="top" secondItem="jJ9-dC-72W" secondAttribute="bottom" id="wTT-NM-UfQ"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERSION 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIf-Ku-b5D">
