@@ -28,11 +28,14 @@ class SideMenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveUserInfo()
+        retrieveUserImage()
         retrieveDBFirstName()
         retrieveDBLastName()
         sideMenuCustomization()
         outletCustomization()
+        
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SideMenuVC.imgAction))
+        profileImg.addGestureRecognizer(tap)
     }
     
     func retrieveDBFirstName() {
@@ -57,7 +60,7 @@ class SideMenuVC: UIViewController {
         }
     }
     
-    func retrieveUserInfo() {
+    func retrieveUserImage() {
         let uid = Auth.auth().currentUser?.uid
         var imageRef: String!
         let dataBaseRefProf = DataService.instance.REF_USERS.child(uid!).child("profile_image")
@@ -144,6 +147,11 @@ class SideMenuVC: UIViewController {
         }))
         
         present(alert, animated: true, completion: nil)
+    }
+    
+    @objc func imgAction(){
+        print("hello")
+        // perform the action here when the image is pressed
     }
    
     @IBAction func editProfileBtnPressed(_ sender: Any) {
