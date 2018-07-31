@@ -33,9 +33,12 @@ class SideMenuVC: UIViewController {
         retrieveDBLastName()
         sideMenuCustomization()
         outletCustomization()
-        
-        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SideMenuVC.imgAction))
-        profileImg.addGestureRecognizer(tap)
+        addTapGestures()
+    }
+    
+    func addTapGestures() {
+        let imageTap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(SideMenuVC.imgAction))
+        profileImg.addGestureRecognizer(imageTap)
     }
     
     func retrieveDBFirstName() {

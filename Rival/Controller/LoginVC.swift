@@ -13,7 +13,7 @@ import RAMAnimatedTabBarController
 import Firebase
 
 class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
-    
+
     @IBOutlet weak var emailaddressTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var loginBtn: TransitionButton!
@@ -69,7 +69,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
                         if let calendarVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                             self.calendarVCTabBarController = calendarVCTabBarController
                             calendarVCTabBarController.modalTransitionStyle = .crossDissolve
-                            if let groupsVC = calendarVCTabBarController.viewControllers?.first as? CalendarVC {
+                            if let groupsVC = calendarVCTabBarController.viewControllers?[1] as? CalendarVC {
                                 groupsVC.delegate = self
                             }
                             self.calendarVCTabBarController?.selectedIndex = 1
