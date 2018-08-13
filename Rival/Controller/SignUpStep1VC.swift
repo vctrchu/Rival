@@ -65,8 +65,10 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toSignUp2") {
             let signupVC2 = segue.destination as! SignUpStep2VC
-            signupVC2.nameTxt = firstNameTxtField.text!
-            signupVC2.userTxt = lastNameTxtField.text!
+            var fullName = firstNameTxtField.text! + " " + lastNameTxtField.text!
+            signupVC2.fullNameTxt = fullName
+//            signupVC2.nameTxt = firstNameTxtField.text!
+//            signupVC2.userTxt = lastNameTxtField.text!
         }
     }
     
@@ -74,7 +76,7 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
         nextButton()
     }
     
-    //Name and user label simple animations
+    //Name and user label simple animation/Users/victorchu/Desktop/Rival/Pods/Pods.xcodeprojs
     
     @IBAction func nameTxtFieldPressed(_ sender: Any) {
         nameLbl.hop()

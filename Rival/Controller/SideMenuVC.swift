@@ -18,8 +18,7 @@ protocol SideMenuVCDelegate: class {
 class SideMenuVC: UIViewController {
 
     @IBOutlet weak var profileImg: UIImageView!
-    @IBOutlet weak var firstNameLbl: UILabel!
-    @IBOutlet weak var lastNameLabel: UILabel!
+    @IBOutlet weak var fullNameLbl: UILabel!
     @IBOutlet weak var editProfileBtn: UIButton!
     @IBOutlet weak var editPasswordBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
@@ -29,8 +28,7 @@ class SideMenuVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         retrieveUserImage()
-        retrieveDBFirstName()
-        retrieveDBLastName()
+        retrieveDBFullName()
         sideMenuCustomization()
         outletCustomization()
         addTapGestures()
@@ -41,27 +39,17 @@ class SideMenuVC: UIViewController {
         profileImg.addGestureRecognizer(imageTap)
     }
     
-    func retrieveDBFirstName() {
+    func retrieveDBFullName() {
         let uid = Auth.auth().currentUser?.uid
-        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("firstname")
+        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("fullname")
         dataBaseFirstName.observe(.value) { (snapshot) in
             
             let firstname = snapshot.value as! String
-            self.firstNameLbl.text = firstname.uppercased()
+            self.fullNameLbl.text = firstname.uppercased()
             
         }
     }
     
-    func retrieveDBLastName() {
-        let uid = Auth.auth().currentUser?.uid
-        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("lastname")
-        dataBaseFirstName.observe(.value) { (snapshot) in
-            
-            let lastname = snapshot.value as! String
-            self.lastNameLabel.text = lastname.uppercased()
-            
-        }
-    }
     
     func retrieveUserImage() {
         let uid = Auth.auth().currentUser?.uid
@@ -131,6 +119,10 @@ class SideMenuVC: UIViewController {
         let alert = UIAlertController(title: "Are you sure you want to log out of Rival?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
         let logoutFailure = UIAlertController(title: "Logout failed. Please try again or check your connection", message: nil, preferredStyle: .alert)
         
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
         alert.addAction(UIAlertAction(title: "Logout", style: UIAlertActionStyle.default, handler: { (action) in
             do {
                 try Auth.auth().signOut()
@@ -139,10 +131,6 @@ class SideMenuVC: UIViewController {
                 print(error)
                 self.present(logoutFailure, animated: true, completion: nil)
             }
-        }))
-        
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
         }))
         
         logoutFailure.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.default, handler: { (action) in

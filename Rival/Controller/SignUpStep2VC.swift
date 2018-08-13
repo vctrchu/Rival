@@ -10,6 +10,7 @@ import UIKit
 import Motion
 import SimpleAnimation
 import TransitionButton
+import RAMAnimatedTabBarController
 
 class SignUpStep2VC: UIViewController, UITextFieldDelegate {
 
@@ -22,8 +23,9 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var passwordIconImg: UIImageView!
     @IBOutlet weak var completeBtn: TransitionButton!
     
-    var nameTxt = ""
-    var userTxt = ""
+    private var calendarVCTabBarController: RAMAnimatedTabBarController?
+
+    var fullNameTxt = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -55,13 +57,21 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate {
     func registerUser() {
         if  let email = emailTxtField.text, let password = passwordTxtField.text {
             completeBtn.startAnimation()
-            AuthService.instance.registerUser(firstName: nameTxt, lastName: userTxt, withEmail: email, andPassword: password, userCreationComplete: { (success, signupError) in
+            AuthService.instance.registerUser(fullName: fullNameTxt, withEmail: email, andPassword: password, userCreationComplete: { (success, signupError) in
                 if success {
                     AuthService.instance.loginUser(withEmail: self.emailTxtField.text!, andPassword: self.passwordTxtField.text!, loginComplete: { (success, nil) in
                         self.completeBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
-                            let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-                            tabBarVC!.modalTransitionStyle = .crossDissolve
-                            self.present(tabBarVC!, animated: true, completion: nil)
+                            
+                            if let calendarVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
+                                self.calendarVCTabBarController = calendarVCTabBarController
+                                calendarVCTabBarController.modalTransitionStyle = .crossDissolve
+                                self.calendarVCTabBarController?.selectedIndex = 1
+                                self.present(calendarVCTabBarController, animated: true, completion: nil)
+                            }
+//                            let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
+//                            tabBarVC!.modalTransitionStyle = .crossDissolve
+//
+//                            self.present(tabBarVC!, animated: true, completion: nil)
                         })
                     })
                 } else {

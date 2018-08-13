@@ -150,7 +150,7 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
     
     func retrieveDBFirstName() {
         let uid = Auth.auth().currentUser?.uid
-        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("firstname")
+        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("fullname")
         dataBaseFirstName.observe(.value) { (snapshot) in
             
             let firstname = snapshot.value as! String

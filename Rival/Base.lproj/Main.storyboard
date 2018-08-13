@@ -769,7 +769,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1Mj-dK-7No">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="250"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fkr-5g-78L">
+                                    <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="fkr-5g-78L">
                                         <rect key="frame" x="137" y="50" width="100" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="4Kz-vE-zlB"/>
@@ -777,16 +777,10 @@
                                         </constraints>
                                     </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="jJ9-dC-72W">
-                                        <rect key="frame" x="130" y="160" width="116" height="50"/>
+                                        <rect key="frame" x="160" y="160" width="56.5" height="50"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="05S-9q-LEy">
                                                 <rect key="frame" x="0.0" y="0.0" width="56.5" height="50"/>
-                                                <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
-                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3GY-93-bzR">
-                                                <rect key="frame" x="59.5" y="0.0" width="56.5" height="50"/>
                                                 <fontDescription key="fontDescription" name="Roboto-Medium" family="Roboto" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
@@ -906,8 +900,7 @@
                     <connections>
                         <outlet property="editPasswordBtn" destination="oVB-NF-6Ym" id="cfs-TH-Mhh"/>
                         <outlet property="editProfileBtn" destination="5QR-So-PON" id="jsD-rR-zi9"/>
-                        <outlet property="firstNameLbl" destination="05S-9q-LEy" id="rt3-Os-B66"/>
-                        <outlet property="lastNameLabel" destination="3GY-93-bzR" id="DQd-vB-ti8"/>
+                        <outlet property="fullNameLbl" destination="05S-9q-LEy" id="rt3-Os-B66"/>
                         <outlet property="logoutBtn" destination="kZS-78-7uz" id="KRF-zp-55Y"/>
                         <outlet property="profileImg" destination="fkr-5g-78L" id="EJo-ft-sc4"/>
                     </connections>
