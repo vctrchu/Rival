@@ -14,6 +14,7 @@
 		FB280AA02042951700EE1627 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB280A9F2042951700EE1627 /* LoginVC.swift */; };
 		FB280AA32042951700EE1627 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA12042951700EE1627 /* Main.storyboard */; };
 		FB280AA52042951700EE1627 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB280AA42042951700EE1627 /* Assets.xcassets */; };
+		FB2C7BF4212204C0009842A4 /* ProfilePageVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB2C7BF3212204C0009842A4 /* ProfilePageVC.swift */; };
 		FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB62050E6380076A9AD /* EditProfileVC.swift */; };
 		FB3EACB92050EDB20076A9AD /* StorageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB3EACB82050EDB20076A9AD /* StorageService.swift */; };
 		FB8426D82051C064005054BC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB8426D72051C064005054BC /* User.swift */; };
@@ -76,6 +77,7 @@
 		FB280AC02042975700EE1627 /* Roboto-Thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Thin.ttf"; sourceTree = "<group>"; };
 		FB280AC12042975700EE1627 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
 		FB280AC22042975700EE1627 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
+		FB2C7BF3212204C0009842A4 /* ProfilePageVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePageVC.swift; sourceTree = "<group>"; };
 		FB3EACB62050E6380076A9AD /* EditProfileVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditProfileVC.swift; sourceTree = "<group>"; };
 		FB3EACB82050EDB20076A9AD /* StorageService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageService.swift; sourceTree = "<group>"; };
 		FB8426D72051C064005054BC /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
@@ -215,6 +217,7 @@
 				FBED60E92044F74600136153 /* CalendarVC.swift */,
 				FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */,
 				FB3EACB62050E6380076A9AD /* EditProfileVC.swift */,
+				FB2C7BF3212204C0009842A4 /* ProfilePageVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -409,6 +412,7 @@
 				FB151C4A204F8FE3009ADA4C /* CalendarCell.swift in Sources */,
 				FBED60EA2044F74700136153 /* CalendarVC.swift in Sources */,
 				FB8426D82051C064005054BC /* User.swift in Sources */,
+				FB2C7BF4212204C0009842A4 /* ProfilePageVC.swift in Sources */,
 				FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */,
 				FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */,
 				FBCB25BB2045ECA700D2B964 /* SideMenuVC.swift in Sources */,
