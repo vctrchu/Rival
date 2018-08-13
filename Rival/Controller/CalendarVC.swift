@@ -29,6 +29,8 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
     weak var delegate: GroupsVCDelegate?
     
+    let currentDate = Date()
+    
     let formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = Calendar.current.timeZone
@@ -213,12 +215,14 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
 extension CalendarVC: JTAppleCalendarViewDataSource {
     func configureCalendar(_ calendar: JTAppleCalendarView) -> ConfigurationParameters {
         
-        var dateComponent = DateComponents()
-        dateComponent.year = 1
-        let startDate = Date()
-        let endDate = Calendar.current.date(byAdding: dateComponent, to: startDate)
-        let parameters = ConfigurationParameters(startDate: startDate, endDate: endDate!)
-        
+        var startDateComponent = DateComponents()
+        var endDateComponent = DateComponents()
+        startDateComponent.year = -75
+        endDateComponent.year = 75
+        let startDate = Calendar.current.date(byAdding: startDateComponent, to: currentDate)
+        let endDate = Calendar.current.date(byAdding: endDateComponent, to: currentDate)
+        let parameters = ConfigurationParameters(startDate: startDate!, endDate: endDate!)
+
         return parameters
     }
 }
