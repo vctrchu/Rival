@@ -1150,6 +1150,97 @@
             </objects>
             <point key="canvasLocation" x="2840.8000000000002" y="696.7016491754124"/>
         </scene>
+        <!--Search FriendVC-->
+        <scene sceneID="4Bf-Oh-0x1">
+            <objects>
+                <viewController storyboardIdentifier="SearchFriendVC" id="Jt1-uO-VfP" customClass="SearchFriendVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="3bS-Tc-xxO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pHQ-Eb-bmU">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="barTintColor" red="0.13333333333333333" green="0.14901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <items>
+                                    <navigationItem id="Ds1-Ty-qYU">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="fXV-9c-t9m">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Pt6-Wr-P78">
+                                                <rect key="frame" x="16" y="11" width="22" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="backBtn"/>
+                                                <connections>
+                                                    <action selector="backBtnPressed:" destination="Jt1-uO-VfP" eventType="touchUpInside" id="Pa3-lL-Wka"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="l5l-WF-qzG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.14901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="j1J-Ho-ui0"/>
+                                </constraints>
+                            </view>
+                            <searchBar clipsSubviews="YES" contentMode="redraw" placeholder="Search Users" translucent="NO" backgroundImage="drawerIcon" translatesAutoresizingMaskIntoConstraints="NO" id="Ajd-8O-cxL">
+                                <rect key="frame" x="0.0" y="64" width="375" height="75"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="75" id="4fg-j2-W9B"/>
+                                </constraints>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="hrj-8Y-gok">
+                                <rect key="frame" x="0.0" y="139" width="375" height="528"/>
+                                <color key="backgroundColor" red="0.14509803921568629" green="0.16078431372549021" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iRv-Ou-lDI">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iRv-Ou-lDI" id="4Jf-TT-jR5">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1647058824" green="0.1843137255" blue="0.19215686269999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="hrj-8Y-gok" firstAttribute="leading" secondItem="Efu-Vl-uP1" secondAttribute="leading" id="BCA-BB-PZp"/>
+                            <constraint firstItem="pHQ-Eb-bmU" firstAttribute="trailing" secondItem="Efu-Vl-uP1" secondAttribute="trailing" id="CYo-EI-UO5"/>
+                            <constraint firstItem="pHQ-Eb-bmU" firstAttribute="top" secondItem="l5l-WF-qzG" secondAttribute="bottom" id="IoL-D8-pbr"/>
+                            <constraint firstItem="Ajd-8O-cxL" firstAttribute="top" secondItem="pHQ-Eb-bmU" secondAttribute="bottom" id="MTK-2n-cXb"/>
+                            <constraint firstItem="Efu-Vl-uP1" firstAttribute="bottom" secondItem="hrj-8Y-gok" secondAttribute="bottom" id="RdC-ys-vvp"/>
+                            <constraint firstAttribute="trailing" secondItem="l5l-WF-qzG" secondAttribute="trailing" id="UOH-wu-TaD"/>
+                            <constraint firstItem="Ajd-8O-cxL" firstAttribute="leading" secondItem="Efu-Vl-uP1" secondAttribute="leading" id="W6d-fk-t3I"/>
+                            <constraint firstItem="hrj-8Y-gok" firstAttribute="top" secondItem="Ajd-8O-cxL" secondAttribute="bottom" id="XY4-jr-FNz"/>
+                            <constraint firstItem="l5l-WF-qzG" firstAttribute="top" secondItem="3bS-Tc-xxO" secondAttribute="top" id="XhT-iH-LQZ"/>
+                            <constraint firstItem="hrj-8Y-gok" firstAttribute="trailing" secondItem="Efu-Vl-uP1" secondAttribute="trailing" id="a66-g6-o8U"/>
+                            <constraint firstItem="pHQ-Eb-bmU" firstAttribute="leading" secondItem="Efu-Vl-uP1" secondAttribute="leading" id="amh-gI-GhA"/>
+                            <constraint firstItem="Ajd-8O-cxL" firstAttribute="trailing" secondItem="Efu-Vl-uP1" secondAttribute="trailing" id="hB5-sA-qn6"/>
+                            <constraint firstItem="l5l-WF-qzG" firstAttribute="leading" secondItem="3bS-Tc-xxO" secondAttribute="leading" id="v9z-PO-qQ8"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="Efu-Vl-uP1"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="WbY-qw-xnu"/>
+                    <connections>
+                        <outlet property="searchBar" destination="Ajd-8O-cxL" id="4cG-c8-OEx"/>
+                        <outlet property="searchDisplayController" destination="yem-09-zfw" id="RHL-B8-yZr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TVH-Nl-7nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <searchDisplayController id="yem-09-zfw">
+                    <connections>
+                        <outlet property="delegate" destination="Jt1-uO-VfP" id="2Km-JB-dS6"/>
+                        <outlet property="searchContentsController" destination="Jt1-uO-VfP" id="nP5-iL-QYt"/>
+                        <outlet property="searchResultsDataSource" destination="Jt1-uO-VfP" id="TO5-n3-dUa"/>
+                        <outlet property="searchResultsDelegate" destination="Jt1-uO-VfP" id="D1x-jR-BcW"/>
+                    </connections>
+                </searchDisplayController>
+            </objects>
+            <point key="canvasLocation" x="3504.8000000000002" y="31.934032983508249"/>
+        </scene>
         <!--View Controller-->
         <scene sceneID="Woq-AF-X6M">
             <objects>
@@ -1190,7 +1281,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="3553" y="32"/>
+            <point key="canvasLocation" x="4209" y="28"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="QNS-ma-k1i">
@@ -1214,11 +1305,21 @@
                                     <navigationItem id="CO1-PA-1K4">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="D3X-BI-hL1">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nXA-8A-jN5">
-                                                <rect key="frame" x="16" y="11" width="67" height="22"/>
+                                                <rect key="frame" x="16" y="11" width="18" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 <state key="normal" image="drawerIcon"/>
                                                 <connections>
                                                     <segue destination="YXE-z5-SHm" kind="presentation" identifier="SideMenuVCSegue" id="UED-nP-uDY"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="9U7-QY-R3l">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="iTy-5m-FA8">
+                                                <rect key="frame" x="333" y="11" width="26" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="person-add"/>
+                                                <connections>
+                                                    <segue destination="Jt1-uO-VfP" kind="show" id="0Hq-jB-S9D"/>
                                                 </connections>
                                             </button>
                                         </barButtonItem>
@@ -1556,7 +1657,7 @@
         <image name="checkInBtn" width="31" height="28"/>
         <image name="completeBtn" width="220" height="38"/>
         <image name="defaultProfilePic" width="123" height="123"/>
-        <image name="drawerIcon" width="67" height="12"/>
+        <image name="drawerIcon" width="18" height="12"/>
         <image name="editprofileCell" width="341" height="44"/>
         <image name="emailIcon" width="18" height="21"/>
         <image name="emailIconYellow" width="90" height="100"/>
@@ -1570,6 +1671,7 @@
         <image name="passwordCell" width="341" height="44"/>
         <image name="passwordIcon" width="16" height="22"/>
         <image name="passwordIconYellow" width="74" height="99"/>
+        <image name="person-add" width="26" height="19"/>
         <image name="rivaIconWithText" width="168" height="99"/>
         <image name="rivalIcon" width="51" height="48"/>
         <image name="sendBtn" width="220" height="38"/>

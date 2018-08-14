@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		F8BA7E0463D36A3F797A7C23 /* Pods_Rival.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 66AEF92B5B31806115B04BE1 /* Pods_Rival.framework */; };
 		FB0A4E5B210F71E700AE9016 /* ForgotPasswordVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0A4E5A210F71E700AE9016 /* ForgotPasswordVC.swift */; };
+		FB12E19F21238CB200744DF4 /* SearchFriendVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB12E19E21238CB200744DF4 /* SearchFriendVC.swift */; };
 		FB151C4A204F8FE3009ADA4C /* CalendarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB151C49204F8FE3009ADA4C /* CalendarCell.swift */; };
 		FB280A9E2042951700EE1627 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB280A9D2042951700EE1627 /* AppDelegate.swift */; };
 		FB280AA02042951700EE1627 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB280A9F2042951700EE1627 /* LoginVC.swift */; };
@@ -52,6 +53,7 @@
 		66AEF92B5B31806115B04BE1 /* Pods_Rival.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Rival.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		AD9509B227003E771CFC7C3B /* Pods-Rival.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Rival.release.xcconfig"; path = "Pods/Target Support Files/Pods-Rival/Pods-Rival.release.xcconfig"; sourceTree = "<group>"; };
 		FB0A4E5A210F71E700AE9016 /* ForgotPasswordVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordVC.swift; sourceTree = "<group>"; };
+		FB12E19E21238CB200744DF4 /* SearchFriendVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchFriendVC.swift; sourceTree = "<group>"; };
 		FB151C49204F8FE3009ADA4C /* CalendarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCell.swift; sourceTree = "<group>"; };
 		FB280A9A2042951700EE1627 /* Rival.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Rival.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB280A9D2042951700EE1627 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -218,6 +220,7 @@
 				FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */,
 				FB3EACB62050E6380076A9AD /* EditProfileVC.swift */,
 				FB2C7BF3212204C0009842A4 /* ProfilePageVC.swift */,
+				FB12E19E21238CB200744DF4 /* SearchFriendVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -413,6 +416,7 @@
 				FBED60EA2044F74700136153 /* CalendarVC.swift in Sources */,
 				FB8426D82051C064005054BC /* User.swift in Sources */,
 				FB2C7BF4212204C0009842A4 /* ProfilePageVC.swift in Sources */,
+				FB12E19F21238CB200744DF4 /* SearchFriendVC.swift in Sources */,
 				FB3EACB72050E6390076A9AD /* EditProfileVC.swift in Sources */,
 				FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */,
 				FBCB25BB2045ECA700D2B964 /* SideMenuVC.swift in Sources */,

@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import SideMenu
 import JTAppleCalendar
+import SimpleAnimation
 
 protocol GroupsVCDelegate: class {
     func onLogoutPressed()
@@ -44,8 +45,8 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         setupCalendar()
         retrieveDBUserCalendarEvents()
         retrieveDBFirstName()
-        
     }
+    
     
     func setupCalendar() {
         calendarView.scrollToDate(Date(), animateScroll: false)
