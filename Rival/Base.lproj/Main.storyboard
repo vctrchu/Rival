@@ -1194,13 +1194,51 @@
                                 <rect key="frame" x="0.0" y="139" width="375" height="528"/>
                                 <color key="backgroundColor" red="0.14509803921568629" green="0.16078431372549021" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="iRv-Ou-lDI">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="userCell" rowHeight="72" id="iRv-Ou-lDI" customClass="UserCell" customModule="Rival" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="72"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="iRv-Ou-lDI" id="4Jf-TT-jR5">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="72"/>
                                             <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="bPo-J1-jmc">
+                                                    <rect key="frame" x="15" y="11" width="55" height="50"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="50" id="5GA-N5-Vfs"/>
+                                                        <constraint firstAttribute="width" constant="55" id="BcB-sb-5zP"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Karen Kong" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6gL-fc-bOn">
+                                                    <rect key="frame" x="78" y="26" width="179" height="21"/>
+                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="follow" translatesAutoresizingMaskIntoConstraints="NO" id="xhG-NE-Pbf">
+                                                    <rect key="frame" x="265" y="21" width="95" height="31"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="95" id="66K-pD-umm"/>
+                                                        <constraint firstAttribute="height" constant="31" id="Drw-jH-DRA"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="6gL-fc-bOn" firstAttribute="top" secondItem="4Jf-TT-jR5" secondAttribute="topMargin" constant="15" id="EE1-Tg-zzh"/>
+                                                <constraint firstItem="6gL-fc-bOn" firstAttribute="leading" secondItem="bPo-J1-jmc" secondAttribute="trailing" constant="8" id="IKz-CF-X3k"/>
+                                                <constraint firstItem="xhG-NE-Pbf" firstAttribute="top" secondItem="4Jf-TT-jR5" secondAttribute="topMargin" constant="10" id="Ig5-W3-Jf8"/>
+                                                <constraint firstItem="xhG-NE-Pbf" firstAttribute="leading" secondItem="6gL-fc-bOn" secondAttribute="trailing" constant="8" id="KZC-M2-Ein"/>
+                                                <constraint firstItem="xhG-NE-Pbf" firstAttribute="trailing" secondItem="4Jf-TT-jR5" secondAttribute="trailingMargin" id="NHa-xO-hqp"/>
+                                                <constraint firstItem="bPo-J1-jmc" firstAttribute="leading" secondItem="4Jf-TT-jR5" secondAttribute="leadingMargin" id="R1j-SP-JwJ"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="6gL-fc-bOn" secondAttribute="bottom" constant="14" id="bt6-tD-pod"/>
+                                                <constraint firstItem="bPo-J1-jmc" firstAttribute="top" secondItem="4Jf-TT-jR5" secondAttribute="topMargin" id="gJZ-X2-rnC"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                        <connections>
+                                            <outlet property="followImg" destination="xhG-NE-Pbf" id="nmz-vD-iHa"/>
+                                            <outlet property="fullNameLbl" destination="6gL-fc-bOn" id="lsT-kX-KmP"/>
+                                            <outlet property="profileImg" destination="bPo-J1-jmc" id="RVC-c8-fRC"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1227,6 +1265,7 @@
                     <connections>
                         <outlet property="searchBar" destination="Ajd-8O-cxL" id="4cG-c8-OEx"/>
                         <outlet property="searchDisplayController" destination="yem-09-zfw" id="RHL-B8-yZr"/>
+                        <outlet property="tableView" destination="hrj-8Y-gok" id="k6a-4F-wje"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVH-Nl-7nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1661,6 +1700,7 @@
         <image name="editprofileCell" width="341" height="44"/>
         <image name="emailIcon" width="18" height="21"/>
         <image name="emailIconYellow" width="90" height="100"/>
+        <image name="follow" width="132" height="38"/>
         <image name="forgotYourPWIcon" width="93" height="9"/>
         <image name="gradientBG Copy" width="375" height="534"/>
         <image name="logOutCell" width="341" height="44"/>
