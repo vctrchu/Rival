@@ -27,7 +27,7 @@ class SideMenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        retrieveUserImage()
+        setUserImage()
         retrieveDBFullName()
         sideMenuCustomization()
         outletCustomization()
@@ -50,54 +50,17 @@ class SideMenuVC: UIViewController {
         }
     }
     
-    
-    func retrieveUserImage() {
+    func setUserImage() {
         let uid = Auth.auth().currentUser?.uid
-        var imageRef: String!
-        let dataBaseRefProf = DataService.instance.REF_USERS.child(uid!).child("profile_image")
-        let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
-        
-        dataBaseRef.observe(.value) { (snapshot) in
-            
-            if snapshot.hasChild("profile_image") {
-                dataBaseRefProf.observe(.value, with: { (snapshot) in
-                
-                        let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
-                        
-                        // This group will keep track of the number of blocks still pending
-                        let group = DispatchGroup()
-                        
-                        for groupKey in groupKeys {
-                            group.enter()
-                            dataBaseRef.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
-                                group.leave()
-                            })
-                        }
-                        
-                        let snapShot = snapshot.value as! String
-                        imageRef = snapShot
-                        
-                        
-                        group.notify(queue: .main) {
-                            print("All callbacks are completed")
-                            self.setUserInfo(imageRef: imageRef)
-                        }
-                })
-            }
-                    else {
-                    
-                    print("no profile image")
-                }
+        DataService.instance.getUserImage(uid: uid!) { (url) in
+            self.CacheImage(imageRef: url)
         }
     }
     
-    func setUserInfo(imageRef: String) {
+    func CacheImage(imageRef: String) {
         let dataRef = DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("profile_image")
-            if  dataRef != nil {
             let imageUrl = URL(string: imageRef)
             profileImg.kf.setImage(with: imageUrl)
-            
-        }
     }
     
     func outletCustomization() {
