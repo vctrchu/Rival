@@ -15,8 +15,6 @@ class UserCell: UITableViewCell {
     
     @IBOutlet weak var fullNameLbl: UILabel!
     
-    @IBOutlet weak var followImg: UIImageView!
-    
     func configureCell(profileImage url: String, fullname: String) {
         
         profileImg.layer.cornerRadius = profileImg.frame.size.width / 2
@@ -34,8 +32,7 @@ class UserCell: UITableViewCell {
     
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+        
     }
 
 

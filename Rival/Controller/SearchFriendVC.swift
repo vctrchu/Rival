@@ -13,7 +13,7 @@ class SearchFriendVC: UIViewController {
     @IBOutlet weak var searchBar: UISearchBar!
     
     @IBOutlet weak var tableView: UITableView!
-    
+        
     var fullNameArray = [String]()
     var userDictionary = [String: String]()
     
@@ -47,11 +47,13 @@ extension SearchFriendVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UITableViewCell() }
         
-        let profileImage = UIImage(named: "defaultProfilePic")
-        //cell.configureCell(profileImage: profileImage!, fullname: fullNameArray[indexPath.row])
         cell.configureCell(profileImage: userDictionary[fullNameArray[indexPath.row]]!, fullname: fullNameArray[indexPath.row])
         
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
     }
 }
 
