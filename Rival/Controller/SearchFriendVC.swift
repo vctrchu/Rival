@@ -15,6 +15,7 @@ class SearchFriendVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     var fullNameArray = [String]()
+    var userDictionary = [String: String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,14 +41,15 @@ extension SearchFriendVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return fullNameArray.count
+        return userDictionary.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "userCell") as? UserCell else { return UITableViewCell() }
         
         let profileImage = UIImage(named: "defaultProfilePic")
-        cell.configureCell(profileImage: profileImage!, fullname: fullNameArray[indexPath.row])
+        //cell.configureCell(profileImage: profileImage!, fullname: fullNameArray[indexPath.row])
+        cell.configureCell(profileImage: userDictionary[fullNameArray[indexPath.row]]!, fullname: fullNameArray[indexPath.row])
         
         return cell
     }
@@ -57,10 +59,12 @@ extension SearchFriendVC: UISearchBarDelegate {
     
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
-            fullNameArray = []
+            userDictionary.removeAll()
+            //fullNameArray = []
             tableView.reloadData()
         } else {
-            DataService.instance.getFullName(forSearchQuery: searchBar.text!) { (returnFullNameArray) in
+            DataService.instance.getFullName(forSearchQuery: searchBar.text!) { (returnUserDict, returnFullNameArray) in
+                self.userDictionary = returnUserDict
                 self.fullNameArray = returnFullNameArray
                 self.tableView.reloadData()
             }

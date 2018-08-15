@@ -36,35 +36,6 @@ class DataService {
         calendarEventRef.updateChildValues(userData)
     }
     
-    func retrieveDBFullName() -> String {
-        let uid = Auth.auth().currentUser?.uid
-        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("fullname")
-        var fullname = ""
-
-        dataBaseFirstName.observe(.value, with: { (snapshot) in
-            
-            let groupKeys = snapshot.children.compactMap { $0 as? DataSnapshot }.map { $0.key }
-            
-            // This group will keep track of the number of blocks still pending
-            let group = DispatchGroup()
-            
-            for groupKey in groupKeys {
-                group.enter()
-                dataBaseFirstName.child("groups").child(groupKey).child("name").observeSingleEvent(of: .value, with: { snapshot in
-                    group.leave()
-                })
-            }
-            
-            let name = snapshot.value as! String
-            
-            group.notify(queue: .main) {
-                fullname = name
-            }
-        })
-        
-        return fullname
-    }
-    
     func getUserImage(uid: String, handler: @escaping (_ imageUrl: String) -> ()) {
         var imageUrls = [String]()
         var imageUrl = ""
@@ -75,29 +46,31 @@ class DataService {
                     imageUrl = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "profile_image").value as! String
                 }
             }
-//            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
-//            for user in snapshot {
-//                let imageUrl = user.childSnapshot(forPath: "profile_image").value as! String
-//
-//            }
             handler(imageUrl)
         }
     }
     
     
-    func getFullName(forSearchQuery query: String, handler: @escaping (_ fullNameArray: [String]) -> ()) {
+    func getFullName(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray:[String]) -> ()) {
+        var userDictionary = [String: String]()
         var fullNameArray = [String]()
         REF_USERS.observe(.value) { (userSnapshot) in
             guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in userSnapshot {
+                var url = "none"
                 let fullName = user.childSnapshot(forPath: "fullname").value as! String
                 let email = user.childSnapshot(forPath: "email").value as! String
                 
+                if user.hasChild("profile_image") {
+                    url = user.childSnapshot(forPath: "profile_image").value as! String
+                }
+                
                 if fullName.contains(query) == true && email != Auth.auth().currentUser?.email {
+                    userDictionary[fullName] = url
                     fullNameArray.append(fullName)
                 }
             }
-            handler(fullNameArray)
+            handler(userDictionary,fullNameArray)
         }
     }
     
