@@ -169,34 +169,8 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         
         DataService.instance.getCalendarEvents(uid: uid!) { (returnCalendarEventsDict) in
             self.calendarEventsDictionary = returnCalendarEventsDict
+            self.calendarView.reloadData()
         }
-//        let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
-//        let dataBaseCalendarEvents = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
-//
-//        dataBaseRef.observe(.value) { (snapshot) in
-//            if snapshot.hasChild("calendarEvents") {
-//                dataBaseCalendarEvents.observe(.value, with: { (snapshot) in
-//
-//                    for child in snapshot.children {
-//                        let snap = child as! DataSnapshot
-//                        let key = snap.key as String
-//                        let value = snap.value as! String
-//
-//                        let addedDate = key
-//                        self.formatter.dateFormat = "yyyy MM dd"
-//                        let date = self.formatter.date(from: addedDate)
-//
-//                        self.calendarEventsDictionary[date!] = value
-//
-//                    }
-//                    self.calendarView.reloadData()
-//                    print(self.calendarEventsDictionary)
-//                })
-//            }
-//            else {
-//                print("no calendar events")
-//            }
-//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

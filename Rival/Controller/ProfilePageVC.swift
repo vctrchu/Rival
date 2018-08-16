@@ -9,6 +9,7 @@
 import UIKit
 import JTAppleCalendar
 import Hero
+import Kingfisher
 
 class ProfilePageVC: UIViewController {
 
@@ -39,7 +40,7 @@ class ProfilePageVC: UIViewController {
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         setupCalendar()
-        setupCalendarEvents(uid: uid)
+        setupProfile(uid: uid)
         print(uid)
 
     }
@@ -50,12 +51,15 @@ class ProfilePageVC: UIViewController {
         
     }
     
-    func setupCalendarEvents(uid: String) {
+    func setupProfile(uid: String) {
         DataService.instance.getCalendarEvents(uid: uid) { (returnCalendarEventsDict) in
             self.calendarEventsDictionary = returnCalendarEventsDict
-            print("before")
-            print(self.calendarEventsDictionary)
             self.calendarView.reloadData()
+        }
+        DataService.instance.getUserImage(uid: uid) { (returnUrl) in
+            let imageUrl = URL(string: returnUrl)
+            self.userImage.layer.cornerRadius = self.userImage.frame.size.width/2
+            self.userImage.kf.setImage(with: imageUrl)
         }
     }
 

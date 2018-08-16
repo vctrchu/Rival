@@ -53,14 +53,9 @@ class SideMenuVC: UIViewController {
     func setUserImage() {
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.getUserImage(uid: uid!) { (url) in
-            self.CacheImage(imageRef: url)
+            let imageUrl = URL(string: url)
+            self.profileImg.kf.setImage(with: imageUrl)
         }
-    }
-    
-    func CacheImage(imageRef: String) {
-        let dataRef = DataService.instance.REF_USERS.child((Auth.auth().currentUser?.uid)!).child("profile_image")
-            let imageUrl = URL(string: imageRef)
-            profileImg.kf.setImage(with: imageUrl)
     }
     
     func outletCustomization() {
