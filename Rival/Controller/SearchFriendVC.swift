@@ -7,6 +7,8 @@
 //
 
 import UIKit
+import SimpleAnimation
+import Hero
 
 class SearchFriendVC: UIViewController {
 
@@ -16,6 +18,8 @@ class SearchFriendVC: UIViewController {
         
     var fullNameArray = [String]()
     var userDictionary = [String: String]()
+    var uidArray = [String]()
+    var destinationUID = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -29,7 +33,18 @@ class SearchFriendVC: UIViewController {
     }
 
     @IBAction func backBtnPressed(_ sender: Any) {
+        self.hero.modalAnimationType = .slide(direction: .right)
         dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SearchProfileSegue" {
+            if let destinationVC = segue.destination as? ProfilePageVC {
+                destinationVC.hero.isEnabled = true
+                destinationVC.hero.modalAnimationType = .slide(direction: .left)
+                destinationVC.uid = destinationUID
+            }
+        }
     }
     
 }
@@ -53,7 +68,8 @@ extension SearchFriendVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+        destinationUID = uidArray[indexPath.row]
+        performSegue(withIdentifier: "SearchProfileSegue", sender: self)
     }
 }
 
@@ -62,12 +78,14 @@ extension SearchFriendVC: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if searchBar.text == "" {
             userDictionary.removeAll()
-            //fullNameArray = []
+            fullNameArray = []
+            uidArray = []
             tableView.reloadData()
         } else {
-            DataService.instance.getFullName(forSearchQuery: searchBar.text!) { (returnUserDict, returnFullNameArray) in
+            DataService.instance.getFullNamePictureUID(forSearchQuery: searchBar.text!) { (returnUserDict, returnFullNameArray, returnUidArray) in
                 self.userDictionary = returnUserDict
                 self.fullNameArray = returnFullNameArray
+                self.uidArray = returnUidArray
                 self.tableView.reloadData()
             }
         }

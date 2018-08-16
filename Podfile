@@ -13,6 +13,7 @@ target 'Rival' do
   pod 'SideMenu'
   pod 'RAMAnimatedTabBarController'
   pod 'JTAppleCalendar'
+  pod 'Hero'
 
   # Firebase pods
   pod 'Firebase/Core'

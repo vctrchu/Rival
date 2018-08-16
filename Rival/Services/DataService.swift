@@ -25,6 +25,14 @@ class DataService {
         return _REF_USERS
     }
     
+    let formatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = Calendar.current.timeZone
+        dateFormatter.locale = Calendar.current.locale
+        dateFormatter.dateFormat = "yyyy MM dd"
+        return dateFormatter
+    }()
+    
     //Pushes users to firebase database
     func createDBUser(uid: String, userData: Dictionary <String, Any>) {
         REF_USERS.child(uid).updateChildValues(userData)
@@ -50,16 +58,38 @@ class DataService {
         }
     }
     
+    func getCalendarEvents(uid: String, handler: @escaping(_ calendarEventsDictionary: [Date: String]) -> ()) {
+        
+        var calendarEventsDictionary = [Date: String]()
+        
+        REF_USERS.child(uid).child("calendarEvents").observe(.value) { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key as String
+                let value = snap.value as! String
+                
+                let addedDate = key
+                self.formatter.dateFormat = "yyyy MM dd"
+                let date = self.formatter.date(from: addedDate)
+                
+                calendarEventsDictionary[date!] = value
+            }
+            handler(calendarEventsDictionary)
+        }
+    }
     
-    func getFullName(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray:[String]) -> ()) {
+    func getFullNamePictureUID(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray:[String], _ uidArray:[String]) -> ()) {
         var userDictionary = [String: String]()
         var fullNameArray = [String]()
+        var uidArray = [String]()
+        
         REF_USERS.observe(.value) { (userSnapshot) in
             guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in userSnapshot {
                 var url = "none"
                 let fullName = user.childSnapshot(forPath: "fullname").value as! String
                 let email = user.childSnapshot(forPath: "email").value as! String
+                let uid = user.key
                 
                 if user.hasChild("profile_image") {
                     url = user.childSnapshot(forPath: "profile_image").value as! String
@@ -68,9 +98,10 @@ class DataService {
                 if fullName.contains(query) == true && email != Auth.auth().currentUser?.email {
                     userDictionary[fullName] = url
                     fullNameArray.append(fullName)
+                    uidArray.append(uid)
                 }
             }
-            handler(userDictionary,fullNameArray)
+            handler(userDictionary,fullNameArray,uidArray)
         }
     }
     

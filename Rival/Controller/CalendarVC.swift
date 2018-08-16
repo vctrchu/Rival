@@ -111,6 +111,10 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         return date
     }
     
+    @IBAction func searchFriendPressed(_ sender: Any) {
+        performSegue(withIdentifier: "CalendarToSearch", sender: self)
+    }
+    
     @IBAction func checkInTapped(_ sender: Any) {
         
         let uid = Auth.auth().currentUser?.uid
@@ -162,33 +166,37 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
     
     func retrieveDBUserCalendarEvents() {
         let uid = Auth.auth().currentUser?.uid
-        let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
-        let dataBaseCalendarEvents = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
-
-        dataBaseRef.observe(.value) { (snapshot) in
-            if snapshot.hasChild("calendarEvents") {
-                dataBaseCalendarEvents.observe(.value, with: { (snapshot) in
-                    
-                    for child in snapshot.children {
-                        let snap = child as! DataSnapshot
-                        let key = snap.key as String
-                        let value = snap.value as! String
-                        
-                        let addedDate = key
-                        self.formatter.dateFormat = "yyyy MM dd"
-                        let date = self.formatter.date(from: addedDate)
-                        
-                        self.calendarEventsDictionary[date!] = value
-                        
-                    }
-                    self.calendarView.reloadData()
-                    print(self.calendarEventsDictionary)
-                })
-            }
-            else {
-                print("no calendar events")
-            }
+        
+        DataService.instance.getCalendarEvents(uid: uid!) { (returnCalendarEventsDict) in
+            self.calendarEventsDictionary = returnCalendarEventsDict
         }
+//        let dataBaseRef = DataService.instance.REF_USERS.child(uid!)
+//        let dataBaseCalendarEvents = DataService.instance.REF_USERS.child(uid!).child("calendarEvents")
+//
+//        dataBaseRef.observe(.value) { (snapshot) in
+//            if snapshot.hasChild("calendarEvents") {
+//                dataBaseCalendarEvents.observe(.value, with: { (snapshot) in
+//
+//                    for child in snapshot.children {
+//                        let snap = child as! DataSnapshot
+//                        let key = snap.key as String
+//                        let value = snap.value as! String
+//
+//                        let addedDate = key
+//                        self.formatter.dateFormat = "yyyy MM dd"
+//                        let date = self.formatter.date(from: addedDate)
+//
+//                        self.calendarEventsDictionary[date!] = value
+//
+//                    }
+//                    self.calendarView.reloadData()
+//                    print(self.calendarEventsDictionary)
+//                })
+//            }
+//            else {
+//                print("no calendar events")
+//            }
+//        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -201,7 +209,14 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
                     }
                 }
             }
+            else if identifier == "CalendarToSearch" {
+                if let destinationVC = segue.destination as? SearchFriendVC {
+                    destinationVC.hero.isEnabled = true
+                    destinationVC.hero.modalAnimationType = .slide(direction: .left)
+                }
+            }
         }
+        
     }
     
     func onLogoutPressed() {
