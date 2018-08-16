@@ -1050,8 +1050,8 @@
                                             <action selector="backButtonPressed:" destination="bB2-Qq-mPb" eventType="touchUpInside" id="b50-gj-Zac"/>
                                         </connections>
                                     </button>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VICTOR CHU" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uul-6u-NL6">
-                                        <rect key="frame" x="158" y="74.5" width="209" height="26.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uul-6u-NL6">
+                                        <rect key="frame" x="158" y="101" width="209" height="0.0"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="209" id="N1x-TM-i1w"/>
                                         </constraints>
@@ -1448,7 +1448,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientBG Copy" translatesAutoresizingMaskIntoConstraints="NO" id="jtm-Xa-h4i">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="gradientBG" translatesAutoresizingMaskIntoConstraints="NO" id="jtm-Xa-h4i">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
                             </imageView>
                             <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xtE-0Z-bd8">
@@ -1821,7 +1821,7 @@
         <image name="emailIconYellow" width="90" height="100"/>
         <image name="follow" width="132" height="38"/>
         <image name="forgotYourPWIcon" width="93" height="9"/>
-        <image name="gradientBG Copy" width="375" height="534"/>
+        <image name="gradientBG" width="375" height="534"/>
         <image name="logOutCell" width="341" height="44"/>
         <image name="loginBtn" width="220" height="38"/>
         <image name="missedBtn" width="31" height="28"/>
@@ -1838,7 +1838,7 @@
         <image name="today" width="23" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jHt-rE-cNt"/>
+        <segue reference="Mjq-SY-bFA"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98565095660000002" green="0.73649495840000001" blue="0.02826369368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

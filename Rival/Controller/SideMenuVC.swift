@@ -27,8 +27,7 @@ class SideMenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUserImage()
-        retrieveDBFullName()
+        setUser()
         sideMenuCustomization()
         outletCustomization()
         addTapGestures()
@@ -39,19 +38,12 @@ class SideMenuVC: UIViewController {
         profileImg.addGestureRecognizer(imageTap)
     }
     
-    func retrieveDBFullName() {
+    func setUser() {
         let uid = Auth.auth().currentUser?.uid
-        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("fullname")
-        dataBaseFirstName.observe(.value) { (snapshot) in
-            
-            let firstname = snapshot.value as! String
-            self.fullNameLbl.text = firstname.uppercased()
-            
+        
+        DataService.instance.getFullName(uid: uid!) { (name) in
+            self.fullNameLbl.text = name.uppercased()
         }
-    }
-    
-    func setUserImage() {
-        let uid = Auth.auth().currentUser?.uid
         DataService.instance.getUserImage(uid: uid!) { (url) in
             let imageUrl = URL(string: url)
             self.profileImg.kf.setImage(with: imageUrl)

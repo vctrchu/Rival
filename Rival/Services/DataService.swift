@@ -58,6 +58,15 @@ class DataService {
         }
     }
     
+    func getFullName(uid: String, handler: @escaping (_ fullName: String) -> ()) {
+        var fullName = ""
+        
+        REF_USERS.child(uid).child("fullname").observe(.value) { (snapshot) in
+            fullName = snapshot.value as! String
+            handler(fullName)
+        }
+    }
+    
     func getCalendarEvents(uid: String, handler: @escaping(_ calendarEventsDictionary: [Date: String]) -> ()) {
         
         var calendarEventsDictionary = [Date: String]()

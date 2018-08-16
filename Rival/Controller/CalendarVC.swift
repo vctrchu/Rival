@@ -43,8 +43,7 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCalendar()
-        retrieveDBUserCalendarEvents()
-        retrieveDBFirstName()
+        setNameAndCalendar()
     }
     
     
@@ -119,7 +118,7 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "check in"])
-        retrieveDBUserCalendarEvents()
+        setNameAndCalendar()
         
         /* Button Animation */
         checkInBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -137,7 +136,7 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "missed"])
-        retrieveDBUserCalendarEvents()
+        setNameAndCalendar()
         
         /* Button Animation */
         missedBtn.transform = CGAffineTransform(scaleX: 0.1, y: 0.1)
@@ -153,23 +152,16 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
     
     //MARK: FIREBASE RETRIEVAL
     
-    func retrieveDBFirstName() {
-        let uid = Auth.auth().currentUser?.uid
-        let dataBaseFirstName = DataService.instance.REF_USERS.child(uid!).child("fullname")
-        dataBaseFirstName.observe(.value) { (snapshot) in
-            
-            let firstname = snapshot.value as! String
-            self.firstNameLabel.text = firstname.uppercased()
-            
-        }
-    }
-    
-    func retrieveDBUserCalendarEvents() {
+    func setNameAndCalendar() {
         let uid = Auth.auth().currentUser?.uid
         
         DataService.instance.getCalendarEvents(uid: uid!) { (returnCalendarEventsDict) in
             self.calendarEventsDictionary = returnCalendarEventsDict
             self.calendarView.reloadData()
+        }
+        
+        DataService.instance.getFullName(uid: uid!) { (returnName) in
+            self.firstNameLabel.text = returnName.uppercased()
         }
     }
     

@@ -61,6 +61,10 @@ class ProfilePageVC: UIViewController {
             self.userImage.layer.cornerRadius = self.userImage.frame.size.width/2
             self.userImage.kf.setImage(with: imageUrl)
         }
+        DataService.instance.getFullName(uid: uid) { (returnName) in
+            print(returnName)
+            self.fullNameLbl.text = returnName.uppercased()
+        }
     }
 
     func setupCalendar() {
