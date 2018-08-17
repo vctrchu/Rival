@@ -20,6 +20,7 @@ class SearchFriendVC: UIViewController {
     var userDictionary = [String: String]()
     var uidArray = [String]()
     var destinationUID = ""
+    var destinationName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -43,6 +44,7 @@ class SearchFriendVC: UIViewController {
                 destinationVC.hero.isEnabled = true
                 destinationVC.hero.modalAnimationType = .slide(direction: .left)
                 destinationVC.uid = destinationUID
+                destinationVC.name = destinationName
             }
         }
     }
@@ -69,6 +71,7 @@ extension SearchFriendVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         destinationUID = uidArray[indexPath.row]
+        destinationName = fullNameArray[indexPath.row]
         performSegue(withIdentifier: "SearchProfileSegue", sender: self)
     }
 }

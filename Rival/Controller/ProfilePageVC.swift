@@ -10,6 +10,7 @@ import UIKit
 import JTAppleCalendar
 import Hero
 import Kingfisher
+import Firebase
 
 class ProfilePageVC: UIViewController {
 
@@ -22,10 +23,12 @@ class ProfilePageVC: UIViewController {
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
+    @IBOutlet weak var followBtn: UIButton!
     
     let currentDate = Date()
     var calendarEventsDictionary = [Date: String]()
     var uid = ""
+    var name = ""
     
     let formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -45,6 +48,18 @@ class ProfilePageVC: UIViewController {
 
     }
     
+    @IBAction func followButtonPressed(_ sender: Any) {
+        let currentUserUid = Auth.auth().currentUser?.uid
+        if followBtn.currentImage == UIImage(named: "follow.png") {
+            DataService.instance.uploadUserFollowing(uid: currentUserUid!, userData: [uid: name])
+            followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
+        } else if followBtn.currentImage == UIImage(named: "following.png") {
+            DataService.instance.deleteUserFromFollowing(uid: uid)
+            followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
+        }
+        
+    }
+    
     @IBAction func backButtonPressed(_ sender: Any) {
         self.hero.modalAnimationType = .slide(direction: .right)
         dismiss(animated: true, completion: nil)
@@ -57,13 +72,23 @@ class ProfilePageVC: UIViewController {
             self.calendarView.reloadData()
         }
         DataService.instance.getUserImage(uid: uid) { (returnUrl) in
-            let imageUrl = URL(string: returnUrl)
-            self.userImage.layer.cornerRadius = self.userImage.frame.size.width/2
-            self.userImage.kf.setImage(with: imageUrl)
+            if returnUrl != "none" {
+                let imageUrl = URL(string: returnUrl)
+                self.userImage.layer.cornerRadius = self.userImage.frame.size.width/2
+                self.userImage.kf.setImage(with: imageUrl)
+            }
         }
         DataService.instance.getFullName(uid: uid) { (returnName) in
             print(returnName)
             self.fullNameLbl.text = returnName.uppercased()
+        }
+        DataService.instance.checkIfFollowing(uid: uid) { (returnBool) in
+            if returnBool {
+                let image = UIImage(named: "following.png")
+                self.followBtn.setImage(image, for: UIControlState.normal)
+            } else {
+                self.followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
+            }
         }
     }
 

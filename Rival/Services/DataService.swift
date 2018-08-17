@@ -39,14 +39,23 @@ class DataService {
     }
     
     
+    //follow / unfollow functions
+    func uploadUserFollowing(uid: String, userData: Dictionary <String, Any>) {
+        REF_USERS.child(uid).child("following").updateChildValues(userData)
+    }
+    
+    func deleteUserFromFollowing(uid: String) {
+        let currentUserUID = Auth.auth().currentUser?.uid
+        REF_USERS.child(currentUserUID!).child("following").child(uid).removeValue()
+    }
+    
     func uploadDBUserCalendarEvent(uid: String, userData: Dictionary <String, Any>) {
         let calendarEventRef = REF_USERS.child(uid).child("calendarEvents")
         calendarEventRef.updateChildValues(userData)
     }
     
     func getUserImage(uid: String, handler: @escaping (_ imageUrl: String) -> ()) {
-        var imageUrls = [String]()
-        var imageUrl = ""
+        var imageUrl = "none"
         REF_USERS.observe(.value) { (snapshot) in
             
             if snapshot.hasChild(uid) {
@@ -64,6 +73,17 @@ class DataService {
         REF_USERS.child(uid).child("fullname").observe(.value) { (snapshot) in
             fullName = snapshot.value as! String
             handler(fullName)
+        }
+    }
+    
+    func checkIfFollowing(uid: String, handler: @escaping (_ check: Bool) -> ()) {
+        var check = false
+        
+        REF_USERS.child((Auth.auth().currentUser?.uid)!).child("following").observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.hasChild(uid) {
+                check = true
+            }
+            handler(check)
         }
     }
     
