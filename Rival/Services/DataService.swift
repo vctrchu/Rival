@@ -53,6 +53,10 @@ class DataService {
         let currentUserUID = Auth.auth().currentUser?.uid
         REF_USERS.child(currentUserUID!).child("following").child(uid).removeValue()
     }
+    func deleteUserFromFollower(uid: String) {
+        let currentUserUID = Auth.auth().currentUser?.uid
+        REF_USERS.child(uid).child("followers").child(currentUserUID!).removeValue()
+    }
  
     func uploadDBUserCalendarEvent(uid: String, userData: Dictionary <String, Any>) {
         let calendarEventRef = REF_USERS.child(uid).child("calendarEvents")

@@ -29,6 +29,7 @@ class ProfilePageVC: UIViewController {
     var calendarEventsDictionary = [Date: String]()
     var uid = ""
     var name = ""
+    var currentUserName = ""
     
     let formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -52,10 +53,11 @@ class ProfilePageVC: UIViewController {
         let currentUserUid = Auth.auth().currentUser?.uid
         if followBtn.currentImage == UIImage(named: "follow.png") {
             DataService.instance.uploadUserFollowing(uid: currentUserUid!, userData: [uid: name])
-            DataService.instance.uploadUserFollower(uid: uid, userData: [currentUserUid!: ""])
+            DataService.instance.uploadUserFollower(uid: uid, userData: [currentUserUid!: currentUserName])
             followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
         } else if followBtn.currentImage == UIImage(named: "following.png") {
             DataService.instance.deleteUserFromFollowing(uid: uid)
+            DataService.instance.deleteUserFromFollower(uid: uid)
             followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
         }
         
@@ -68,6 +70,7 @@ class ProfilePageVC: UIViewController {
     }
     
     func setupProfile(uid: String) {
+        fullNameLbl.text = name.uppercased()
         DataService.instance.getCalendarEvents(uid: uid) { (returnCalendarEventsDict) in
             self.calendarEventsDictionary = returnCalendarEventsDict
             self.calendarView.reloadData()
@@ -79,10 +82,14 @@ class ProfilePageVC: UIViewController {
                 self.userImage.kf.setImage(with: imageUrl)
             }
         }
-        DataService.instance.getFullName(uid: uid) { (returnName) in
-            print(returnName)
-            self.fullNameLbl.text = returnName.uppercased()
+//        DataService.instance.getFullName(uid: uid) { (returnName) in
+//            print(returnName)
+//            self.fullNameLbl.text = returnName.uppercased()
+//        }
+        DataService.instance.getFullName(uid: (Auth.auth().currentUser?.uid)!) { (returnName) in
+            self.currentUserName = returnName
         }
+        
         DataService.instance.checkIfFollowing(uid: uid) { (returnBool) in
             if returnBool {
                 let image = UIImage(named: "following.png")
