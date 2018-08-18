@@ -52,6 +52,7 @@ class ProfilePageVC: UIViewController {
         let currentUserUid = Auth.auth().currentUser?.uid
         if followBtn.currentImage == UIImage(named: "follow.png") {
             DataService.instance.uploadUserFollowing(uid: currentUserUid!, userData: [uid: name])
+            DataService.instance.uploadUserFollower(uid: uid, userData: [currentUserUid!: ""])
             followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
         } else if followBtn.currentImage == UIImage(named: "following.png") {
             DataService.instance.deleteUserFromFollowing(uid: uid)
