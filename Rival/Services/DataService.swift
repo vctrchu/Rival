@@ -38,6 +38,46 @@ class DataService {
         REF_USERS.child(uid).updateChildValues(userData)
     }
     
+    func numberOfFollowers(uid: String, handler: @escaping (_ numberOfFollowers: String) -> ()) {
+        var numberOfFollowers = "0"
+        
+        REF_USERS.child(uid).observe(.value) { (snapshot) in
+            if snapshot.hasChild("followers") {
+                numberOfFollowers = String(snapshot.childSnapshot(forPath: "followers").childrenCount)
+            }
+            print(numberOfFollowers)
+            handler(numberOfFollowers)
+        }
+    }
+    
+    func numberFollowing(uid: String, handler: @escaping (_ numberFollowing: String) -> ()) {
+        var numberFollowing = "0"
+        
+        REF_USERS.child(uid).observe(.value) { (snapshot) in
+            if snapshot.hasChild("following") {
+                numberFollowing = String(snapshot.childSnapshot(forPath: "following").childrenCount)
+            }
+            handler(numberFollowing)
+        }
+    }
+    
+    func numberOfCheckIns(uid: String, handler: @escaping (_ numberCheckIns: String) -> ()) {
+        var numberCheckIns = 0
+        
+        REF_USERS.child(uid).child("calendarEvents").observe(.value) { (snapshot) in
+            for child in snapshot.children {
+                let snap = child as! DataSnapshot
+                let key = snap.key as String
+                let value = snap.value as! String
+                
+                if value == "check in" {
+                    numberCheckIns += 1
+                }
+            }
+            handler(String(numberCheckIns))
+        }
+    }
+    
     
     //follow / unfollow functions
     func uploadUserFollowing(uid: String, userData: Dictionary <String, Any>) {

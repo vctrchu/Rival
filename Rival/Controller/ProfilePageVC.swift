@@ -71,10 +71,12 @@ class ProfilePageVC: UIViewController {
     
     func setupProfile(uid: String) {
         fullNameLbl.text = name.uppercased()
+        
         DataService.instance.getCalendarEvents(uid: uid) { (returnCalendarEventsDict) in
             self.calendarEventsDictionary = returnCalendarEventsDict
             self.calendarView.reloadData()
         }
+        
         DataService.instance.getUserImage(uid: uid) { (returnUrl) in
             if returnUrl != "none" {
                 let imageUrl = URL(string: returnUrl)
@@ -82,10 +84,19 @@ class ProfilePageVC: UIViewController {
                 self.userImage.kf.setImage(with: imageUrl)
             }
         }
-//        DataService.instance.getFullName(uid: uid) { (returnName) in
-//            print(returnName)
-//            self.fullNameLbl.text = returnName.uppercased()
-//        }
+        
+        DataService.instance.numberOfFollowers(uid: uid) { (returnNumberOfFollowers) in
+            self.followersLbl.text = returnNumberOfFollowers
+        }
+        
+        DataService.instance.numberFollowing(uid: uid) { (returnNumberFollowing) in
+            self.followingLbl.text = returnNumberFollowing
+        }
+        
+        DataService.instance.numberOfCheckIns(uid: uid) { (returnNumberCheckIns) in
+            self.checkInsLbl.text = returnNumberCheckIns
+        }
+        
         DataService.instance.getFullName(uid: (Auth.auth().currentUser?.uid)!) { (returnName) in
             self.currentUserName = returnName
         }
