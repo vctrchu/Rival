@@ -22,6 +22,8 @@ class SideMenuVC: UIViewController {
     @IBOutlet weak var editProfileBtn: UIButton!
     @IBOutlet weak var editPasswordBtn: UIButton!
     @IBOutlet weak var logoutBtn: UIButton!
+    @IBOutlet weak var followersBtn: UIButton!
+    @IBOutlet weak var followingBtn: UIButton!
         
     weak var delegate: SideMenuVCDelegate?
     
@@ -47,6 +49,18 @@ class SideMenuVC: UIViewController {
         DataService.instance.getUserImage(uid: uid!) { (url) in
             let imageUrl = URL(string: url)
             self.profileImg.kf.setImage(with: imageUrl)
+        }
+        
+        DataService.instance.numberFollowing(uid: uid!) { (returnNumber) in
+            let title = NSAttributedString(string: returnNumber + " Following", attributes:
+                [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+            self.followingBtn.setAttributedTitle(title, for: UIControlState.normal)
+        }
+        
+        DataService.instance.numberOfFollowers(uid: uid!) { (returnNumber) in
+            let title = NSAttributedString(string: returnNumber + " Followers", attributes:
+                [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
+            self.followersBtn.setAttributedTitle(title, for: UIControlState.normal)
         }
     }
     
@@ -97,8 +111,6 @@ class SideMenuVC: UIViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "SideMenuToProfile" {
             if let destinationVC = segue.destination as? ProfilePageVC {
-                print(fullNameLbl.text!)
-                print(Auth.auth().currentUser?.uid)
                 destinationVC.uid = (Auth.auth().currentUser?.uid)!
                 destinationVC.name = fullNameLbl.text!
                 destinationVC.typeOfProfile = "self"

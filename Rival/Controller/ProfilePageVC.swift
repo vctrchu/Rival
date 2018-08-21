@@ -19,7 +19,6 @@ class ProfilePageVC: UIViewController {
     @IBOutlet weak var followersLbl: UILabel!
     @IBOutlet weak var followingLbl: UILabel!
     @IBOutlet weak var checkInsLbl: UILabel!
-    @IBOutlet weak var missedLbl: UILabel!
     @IBOutlet weak var monthLabel: UILabel!
     @IBOutlet weak var yearLabel: UILabel!
     @IBOutlet weak var calendarView: JTAppleCalendarView!
