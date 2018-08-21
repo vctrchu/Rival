@@ -30,6 +30,7 @@ class ProfilePageVC: UIViewController {
     var uid = ""
     var name = ""
     var currentUserName = ""
+    var typeOfProfile = ""
     
     let formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -60,7 +61,6 @@ class ProfilePageVC: UIViewController {
             DataService.instance.deleteUserFromFollower(uid: uid)
             followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
         }
-        
     }
     
     @IBAction func backButtonPressed(_ sender: Any) {
@@ -101,14 +101,19 @@ class ProfilePageVC: UIViewController {
             self.currentUserName = returnName
         }
         
-        DataService.instance.checkIfFollowing(uid: uid) { (returnBool) in
-            if returnBool {
-                let image = UIImage(named: "following.png")
-                self.followBtn.setImage(image, for: UIControlState.normal)
-            } else {
-                self.followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
+        if typeOfProfile == "other" {
+            DataService.instance.checkIfFollowing(uid: uid) { (returnBool) in
+                if returnBool {
+                    let image = UIImage(named: "following.png")
+                    self.followBtn.setImage(image, for: UIControlState.normal)
+                } else {
+                    self.followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
+                }
             }
+        } else if typeOfProfile == "self" {
+            followBtn.isHidden = true
         }
+        
     }
 
     func setupCalendar() {

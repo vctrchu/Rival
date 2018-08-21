@@ -50,10 +50,11 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="MhI-ud-fLh"/>
                     </view>
+                    <navigationItem key="navigationItem" id="M8p-Fn-Siv"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1Mk-5i-woi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-679.20000000000005" y="29.23538230884558"/>
+            <point key="canvasLocation" x="25" y="15"/>
         </scene>
         <!--LoginVC-->
         <scene sceneID="tne-QT-ifu">
@@ -219,7 +220,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="31.934032983508249"/>
+            <point key="canvasLocation" x="930" y="15"/>
         </scene>
         <!--Forgot PasswordVC-->
         <scene sceneID="zgR-2c-MHQ">
@@ -354,7 +355,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xpk-LX-9WU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="24.800000000000001" y="807.34632683658174"/>
+            <point key="canvasLocation" x="929" y="-712"/>
         </scene>
         <!--Sign Up Step1VC-->
         <scene sceneID="4F1-FO-muz">
@@ -555,7 +556,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="q7i-pq-pRQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="727.20000000000005" y="31.03448275862069"/>
+            <point key="canvasLocation" x="930" y="791"/>
         </scene>
         <!--Sign Up Step2VC-->
         <scene sceneID="IAc-py-mUb">
@@ -762,7 +763,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uDf-T6-TBQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="PDn-ki-yBz" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="1438" y="32"/>
+            <point key="canvasLocation" x="929" y="1510"/>
         </scene>
         <!--Side MenuVC-->
         <scene sceneID="jI4-Nb-wUN">
@@ -839,7 +840,7 @@
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="VERSION 1.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NIf-Ku-b5D">
-                                <rect key="frame" x="167.5" y="643.5" width="40.5" height="9.5"/>
+                                <rect key="frame" x="168" y="643.5" width="40.5" height="9.5"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="7"/>
                                 <color key="textColor" red="0.98561900849999995" green="0.76878386740000004" blue="0.015243058090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -909,11 +910,12 @@
                         <outlet property="fullNameLbl" destination="05S-9q-LEy" id="rt3-Os-B66"/>
                         <outlet property="logoutBtn" destination="kZS-78-7uz" id="KRF-zp-55Y"/>
                         <outlet property="profileImg" destination="fkr-5g-78L" id="EJo-ft-sc4"/>
+                        <segue destination="bB2-Qq-mPb" kind="presentation" identifier="SideMenuToProfile" id="Htr-YT-Aix"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GlH-qh-lbR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2125.5999999999999" y="31.934032983508249"/>
+            <point key="canvasLocation" x="1777" y="27"/>
         </scene>
         <!--Edit ProfileVC-->
         <scene sceneID="NDV-rZ-Z1C">
@@ -978,7 +980,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KTL-oj-ktV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2130" y="697"/>
+            <point key="canvasLocation" x="1777" y="828"/>
         </scene>
         <!--Profile PageVC-->
         <scene sceneID="gPC-Be-89V">
@@ -1255,12 +1257,11 @@
                         <outlet property="monthLabel" destination="d05-uu-WmE" id="Qdp-fw-XIV"/>
                         <outlet property="userImage" destination="LPE-kR-kUs" id="LhE-9j-RG4"/>
                         <outlet property="yearLabel" destination="yEM-YY-vtm" id="Bh5-z0-ReU"/>
-                        <segue destination="Jt1-uO-VfP" kind="show" identifier="BackToSearchSegue" id="jHt-rE-cNt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yPo-D0-38v" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2840.8000000000002" y="696.7016491754124"/>
+            <point key="canvasLocation" x="3113" y="789"/>
         </scene>
         <!--Search FriendVC-->
         <scene sceneID="4Bf-Oh-0x1">
@@ -1367,7 +1368,7 @@
                         <outlet property="searchBar" destination="Ajd-8O-cxL" id="4cG-c8-OEx"/>
                         <outlet property="searchDisplayController" destination="yem-09-zfw" id="RHL-B8-yZr"/>
                         <outlet property="tableView" destination="hrj-8Y-gok" id="k6a-4F-wje"/>
-                        <segue destination="bB2-Qq-mPb" kind="show" identifier="SearchProfileSegue" id="JtA-RC-wdz"/>
+                        <segue destination="bB2-Qq-mPb" kind="presentation" identifier="SearchProfileSegue" id="JtA-RC-wdz"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVH-Nl-7nj" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1380,7 +1381,7 @@
                     </connections>
                 </searchDisplayController>
             </objects>
-            <point key="canvasLocation" x="3504.8000000000002" y="31.934032983508249"/>
+            <point key="canvasLocation" x="4626" y="27"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="Woq-AF-X6M">
@@ -1422,7 +1423,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="4209" y="28"/>
+            <point key="canvasLocation" x="6644" y="27.436281859070466"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="QNS-ma-k1i">
@@ -1700,24 +1701,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="S8C-U4-lfF"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="today" selectedImage="today" id="E5c-xM-Ya9" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
-                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
-                        <color key="badgeColor" red="0.98561900849999995" green="0.76878386740000004" blue="0.015243058090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
-                                <color key="value" red="0.98565095660000002" green="0.73649495840000001" blue="0.02826369368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
-                                <color key="value" red="0.98561900849999995" green="0.76878386740000004" blue="0.015243058090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
-                                <real key="value" value="-5"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <outlet property="animation" destination="zDq-Nq-vl7" id="Z5x-fZ-Nft"/>
-                        </connections>
-                    </tabBarItem>
+                    <navigationItem key="navigationItem" id="zvs-oG-Obt"/>
                     <connections>
                         <outlet property="calendarView" destination="zNy-Kr-eeV" id="5Qa-bb-LRs"/>
                         <outlet property="checkInBtn" destination="hhW-ec-UNo" id="l9L-C7-6BZ"/>
@@ -1725,7 +1709,7 @@
                         <outlet property="missedBtn" destination="DDq-gb-ePo" id="sE4-UI-Afc"/>
                         <outlet property="monthLabel" destination="uFO-25-1ht" id="Zwb-ik-c2c"/>
                         <outlet property="yearLabel" destination="CTH-AR-6tI" id="XwU-kN-G8z"/>
-                        <segue destination="Jt1-uO-VfP" kind="show" identifier="CalendarToSearch" id="Mjq-SY-bFA"/>
+                        <segue destination="Jt1-uO-VfP" kind="presentation" identifier="CalendarToSearch" id="Mjq-SY-bFA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1qr-tT-1WL" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1740,7 +1724,7 @@
                     </userDefinedRuntimeAttributes>
                 </customObject>
             </objects>
-            <point key="canvasLocation" x="2840.8000000000002" y="28.335832083958024"/>
+            <point key="canvasLocation" x="3524" y="15"/>
         </scene>
         <!--Animated Tab Bar Controller-->
         <scene sceneID="ziC-ah-Gvb">
@@ -1761,12 +1745,12 @@
                     </tabBar>
                     <connections>
                         <segue destination="zJw-cB-NV1" kind="relationship" relationship="viewControllers" id="fpQ-iG-YvL"/>
-                        <segue destination="YXh-yc-dGj" kind="relationship" relationship="viewControllers" id="wzB-kC-DdX"/>
+                        <segue destination="ozu-yr-ufQ" kind="relationship" relationship="viewControllers" id="wzB-kC-DdX"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PIc-Jc-ST7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2841" y="-742"/>
+            <point key="canvasLocation" x="2537" y="-902"/>
         </scene>
         <!--Side Menu Navigation Controller-->
         <scene sceneID="1wP-a0-20w">
@@ -1789,7 +1773,46 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vph-JF-nyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2126" y="-743"/>
+            <point key="canvasLocation" x="1777" y="-713"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="aoJ-dc-hsB">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ozu-yr-ufQ" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="" image="today" selectedImage="today" id="E5c-xM-Ya9" customClass="RAMAnimatedTabBarItem" customModule="RAMAnimatedTabBarController">
+                        <inset key="imageInsets" minX="0.0" minY="6" maxX="0.0" maxY="-6"/>
+                        <color key="badgeColor" red="0.98561900849999995" green="0.76878386740000004" blue="0.015243058090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="color" keyPath="textColor">
+                                <color key="value" red="0.98565095660000002" green="0.73649495840000001" blue="0.02826369368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="color" keyPath="iconColor">
+                                <color key="value" red="0.98561900849999995" green="0.76878386740000004" blue="0.015243058090000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </userDefinedRuntimeAttribute>
+                            <userDefinedRuntimeAttribute type="number" keyPath="yOffSet">
+                                <real key="value" value="-5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                        <connections>
+                            <outlet property="animation" destination="SJX-3a-6Dw" id="6sZ-QL-1Pi"/>
+                        </connections>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="pZ4-5C-ItD">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <toolbar key="toolbar" opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dqs-pv-7nB">
+                        <autoresizingMask key="autoresizingMask"/>
+                    </toolbar>
+                    <connections>
+                        <segue destination="YXh-yc-dGj" kind="relationship" relationship="rootViewController" id="hAH-2d-Czt"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="peS-Fe-sKm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <customObject id="SJX-3a-6Dw" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController"/>
+            </objects>
+            <point key="canvasLocation" x="2537" y="15"/>
         </scene>
     </scenes>
     <resources>
@@ -1821,7 +1844,7 @@
         <image name="today" width="23" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="jHt-rE-cNt"/>
+        <segue reference="JtA-RC-wdz"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98565095660000002" green="0.73649495840000001" blue="0.02826369368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

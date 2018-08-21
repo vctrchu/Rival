@@ -45,7 +45,6 @@ class DataService {
             if snapshot.hasChild("followers") {
                 numberOfFollowers = String(snapshot.childSnapshot(forPath: "followers").childrenCount)
             }
-            print(numberOfFollowers)
             handler(numberOfFollowers)
         }
     }

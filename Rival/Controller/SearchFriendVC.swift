@@ -45,6 +45,7 @@ class SearchFriendVC: UIViewController {
                 destinationVC.hero.modalAnimationType = .slide(direction: .left)
                 destinationVC.uid = destinationUID
                 destinationVC.name = destinationName
+                destinationVC.typeOfProfile = "other"
             }
         }
     }

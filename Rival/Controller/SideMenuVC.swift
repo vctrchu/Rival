@@ -91,8 +91,19 @@ class SideMenuVC: UIViewController {
     }
     
     @objc func imgAction(){
-        print("hello")
-        // perform the action here when the image is pressed
+        performSegue(withIdentifier: "SideMenuToProfile", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "SideMenuToProfile" {
+            if let destinationVC = segue.destination as? ProfilePageVC {
+                print(fullNameLbl.text!)
+                print(Auth.auth().currentUser?.uid)
+                destinationVC.uid = (Auth.auth().currentUser?.uid)!
+                destinationVC.name = fullNameLbl.text!
+                destinationVC.typeOfProfile = "self"
+            }
+        }
     }
    
     @IBAction func editProfileBtnPressed(_ sender: Any) {
