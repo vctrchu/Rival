@@ -125,23 +125,6 @@ class SideMenuVC: UIViewController {
         } else if segue.identifier == "SideMenuToFollowerFollowing" {
             if let destinationVC = segue.destination as? FollowerFollowingVC {
                 destinationVC.typeOfVC = typeOfVC
-//                DataService.instance.getAllFollowers(uid: (Auth.auth().currentUser?.uid)!) { (uidArray, nameArray, userDict) in
-//
-//                    self.userDict = userDict
-//                    self.uidArray = uidArray
-//                    self.nameArray = nameArray
-//
-//                    DataService.instance.getAllUserImages(uidArray: uidArray) { (imageDict) in
-//                        self.imageDict = imageDict
-//
-//                    }
-//                }
-//
-//                destinationVC.userDict = userDict
-//                destinationVC.uidArray = uidArray
-//                destinationVC.nameArray = nameArray
-//                destinationVC.imageDict = imageDict
-//
             }
         }
     }

@@ -177,8 +177,6 @@ class DataService {
         
     }
     
-    // *********** FIX THIS FUNCTION **********///////
-    
     func getAllFollowerFollowing(uid: String, type: String, handler: @escaping (_ uidArray: [String], _ fullNameArray: [String], _ userDict: [String:String]) -> ()) {
         
         var fullNameArray = [String]()
