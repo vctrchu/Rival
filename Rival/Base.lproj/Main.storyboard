@@ -1374,10 +1374,10 @@
             </objects>
             <point key="canvasLocation" x="4577" y="15"/>
         </scene>
-        <!--View Controller-->
+        <!--FeedVC-->
         <scene sceneID="Woq-AF-X6M">
             <objects>
-                <viewController id="zJw-cB-NV1" sceneMemberID="viewController">
+                <viewController id="zJw-cB-NV1" customClass="FeedVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="z0j-v0-VhA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="618"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1417,33 +1417,81 @@
                                     <constraint firstAttribute="height" constant="20" id="GZM-cI-Rm3"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KFC-w0-aKI">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="109" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="KFC-w0-aKI">
                                 <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" red="0.14509803921568629" green="0.16078431372549021" blue="0.16862745098039217" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="backgroundColor" red="0.13333333333333333" green="0.14901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="100" id="fhb-I7-LCn">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="100"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="feedCell" rowHeight="109" id="fhb-I7-LCn" customClass="FeedCell" customModule="Rival" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="109"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fhb-I7-LCn" id="7Bf-Hj-kVR">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="100"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aye-3Q-2TH">
-                                                    <rect key="frame" x="15" y="25" width="50" height="50"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qLN-xg-sFk">
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
+                                                    <subviews>
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="aye-3Q-2TH">
+                                                            <rect key="frame" x="15" y="12" width="50" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" constant="50" id="bYd-ax-MYl"/>
+                                                                <constraint firstAttribute="width" constant="50" id="hqc-Vo-8ng"/>
+                                                            </constraints>
+                                                        </imageView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="has checked in 5 days in a row!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-dB-Bxe">
+                                                            <rect key="frame" x="16" y="69" width="153.5" height="15"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="11"/>
+                                                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 week ago" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OX7-AK-Cxy">
+                                                            <rect key="frame" x="76" y="44" width="59" height="16"/>
+                                                            <fontDescription key="fontDescription" name="Roboto-Thin" family="Roboto" pointSize="12"/>
+                                                            <color key="textColor" red="0.80000000000000004" green="0.80000000000000004" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Iuz-KX-n1u">
+                                                            <rect key="frame" x="74" y="12" width="71" height="32"/>
+                                                            <state key="normal">
+                                                                <attributedString key="attributedTitle">
+                                                                    <fragment content="Victor Chu">
+                                                                        <attributes>
+                                                                            <font key="NSFont" size="15" name="Roboto-Regular"/>
+                                                                            <paragraphStyle key="NSParagraphStyle" alignment="left" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
+                                                                            <integer key="NSUnderline" value="1"/>
+                                                                        </attributes>
+                                                                    </fragment>
+                                                                </attributedString>
+                                                            </state>
+                                                        </button>
+                                                    </subviews>
+                                                    <color key="backgroundColor" red="0.10588235294117647" green="0.11764705882352941" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="50" id="bYd-ax-MYl"/>
-                                                        <constraint firstAttribute="width" constant="50" id="hqc-Vo-8ng"/>
+                                                        <constraint firstItem="aye-3Q-2TH" firstAttribute="leading" secondItem="qLN-xg-sFk" secondAttribute="leading" constant="15" id="3U5-wo-NJd"/>
+                                                        <constraint firstItem="OX7-AK-Cxy" firstAttribute="leading" secondItem="aye-3Q-2TH" secondAttribute="trailing" constant="11" id="Bah-jK-mbc"/>
+                                                        <constraint firstItem="Iuz-KX-n1u" firstAttribute="top" secondItem="qLN-xg-sFk" secondAttribute="top" constant="12" id="Jh4-fB-Cqv"/>
+                                                        <constraint firstItem="OX7-AK-Cxy" firstAttribute="top" secondItem="Iuz-KX-n1u" secondAttribute="bottom" id="O5i-Tw-12U"/>
+                                                        <constraint firstItem="Dbt-dB-Bxe" firstAttribute="leading" secondItem="qLN-xg-sFk" secondAttribute="leading" constant="16" id="Ujp-pM-ekc"/>
+                                                        <constraint firstItem="Dbt-dB-Bxe" firstAttribute="top" secondItem="aye-3Q-2TH" secondAttribute="bottom" constant="7" id="ee9-xC-9wc"/>
+                                                        <constraint firstItem="Iuz-KX-n1u" firstAttribute="leading" secondItem="aye-3Q-2TH" secondAttribute="trailing" constant="9" id="hbj-mz-o9Q"/>
+                                                        <constraint firstItem="aye-3Q-2TH" firstAttribute="top" secondItem="qLN-xg-sFk" secondAttribute="top" constant="12" id="sd1-re-Fd5"/>
                                                     </constraints>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NMY-6y-eaO">
-                                                    <rect key="frame" x="73" y="40" width="287" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
-                                                    <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
+                                                </view>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="qLN-xg-sFk" secondAttribute="trailing" id="RmR-dy-dUe"/>
+                                                <constraint firstItem="qLN-xg-sFk" firstAttribute="leading" secondItem="7Bf-Hj-kVR" secondAttribute="leading" id="WXm-XM-zu5"/>
+                                                <constraint firstAttribute="bottom" secondItem="qLN-xg-sFk" secondAttribute="bottom" constant="10" id="gFJ-e2-kgt"/>
+                                                <constraint firstItem="qLN-xg-sFk" firstAttribute="top" secondItem="7Bf-Hj-kVR" secondAttribute="top" id="hKs-np-XiI"/>
+                                            </constraints>
                                         </tableViewCellContentView>
+                                        <color key="backgroundColor" red="0.13333333333333333" green="0.14901960784313725" blue="0.15686274509803921" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <outlet property="checkInTimeLbl" destination="OX7-AK-Cxy" id="5Wa-n9-g0f"/>
+                                            <outlet property="descriptionLbl" destination="Dbt-dB-Bxe" id="8kF-BJ-cVO"/>
+                                            <outlet property="nameBtn" destination="Iuz-KX-n1u" id="EIu-o4-3kh"/>
+                                            <outlet property="profileImg" destination="aye-3Q-2TH" id="iaR-gP-Xfy"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -1489,6 +1537,9 @@
                             <outlet property="animation" destination="pVE-hD-nbs" id="bte-Ey-fme"/>
                         </connections>
                     </tabBarItem>
+                    <connections>
+                        <outlet property="tableView" destination="KFC-w0-aKI" id="S1O-r6-gJg"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eW7-Ao-hQ5" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <customObject id="pVE-hD-nbs" customClass="RAMBounceAnimation" customModule="RAMAnimatedTabBarController">
