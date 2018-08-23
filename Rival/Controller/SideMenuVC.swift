@@ -27,6 +27,13 @@ class SideMenuVC: UIViewController {
         
     weak var delegate: SideMenuVCDelegate?
     
+    var typeOfVC = ""
+    
+    var nameArray = [String]()
+    var uidArray = [String]()
+    var userDict = [String: String]()
+    var imageDict = [String: String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         setUser()
@@ -115,9 +122,39 @@ class SideMenuVC: UIViewController {
                 destinationVC.name = fullNameLbl.text!
                 destinationVC.typeOfProfile = "self"
             }
+        } else if segue.identifier == "SideMenuToFollowerFollowing" {
+            if let destinationVC = segue.destination as? FollowerFollowingVC {
+                destinationVC.typeOfVC = typeOfVC
+//                DataService.instance.getAllFollowers(uid: (Auth.auth().currentUser?.uid)!) { (uidArray, nameArray, userDict) in
+//
+//                    self.userDict = userDict
+//                    self.uidArray = uidArray
+//                    self.nameArray = nameArray
+//
+//                    DataService.instance.getAllUserImages(uidArray: uidArray) { (imageDict) in
+//                        self.imageDict = imageDict
+//
+//                    }
+//                }
+//
+//                destinationVC.userDict = userDict
+//                destinationVC.uidArray = uidArray
+//                destinationVC.nameArray = nameArray
+//                destinationVC.imageDict = imageDict
+//
+            }
         }
     }
-   
+    @IBAction func followersBtnPressed(_ sender: Any) {
+        typeOfVC = "followers"
+        performSegue(withIdentifier: "SideMenuToFollowerFollowing", sender: self)
+    }
+    
+    @IBAction func followingBtnPressed(_ sender: Any) {
+        typeOfVC = "following"
+        performSegue(withIdentifier: "SideMenuToFollowerFollowing", sender: self)
+    }
+    
     @IBAction func editProfileBtnPressed(_ sender: Any) {
         let editProfileVC = storyboard?.instantiateViewController(withIdentifier: "EditProfileVC")
         present(editProfileVC!, animated: true, completion: nil)

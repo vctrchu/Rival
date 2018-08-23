@@ -155,7 +155,53 @@ class DataService {
         }
     }
     
-    func getFullNamePictureUID(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray:[String], _ uidArray:[String]) -> ()) {
+    func getAllUserImages(uidArray: [String], handler: @escaping(_ imageDict: [String: String]) -> ()) {
+        var imageDict = [String: String]()
+        
+        
+        REF_USERS.observe(.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for user in snapshot {
+                var url = "none"
+                if uidArray.contains(user.key) && user.hasChild("profile_image") {
+                    url = user.childSnapshot(forPath: "profile_image").value as! String
+                    imageDict[user.key] = url
+                } else if uidArray.contains(user.key) && user.hasChild("profile_image") == false {
+                    imageDict[user.key] = url
+                }
+                
+            }
+            handler(imageDict)
+        }
+        
+        
+    }
+    
+    // *********** FIX THIS FUNCTION **********///////
+    
+    func getAllFollowerFollowing(uid: String, type: String, handler: @escaping (_ uidArray: [String], _ fullNameArray: [String], _ userDict: [String:String]) -> ()) {
+        
+        var fullNameArray = [String]()
+        var uidArray = [String]()
+        var userDict = [String: String]()
+        
+        REF_USERS.child(uid).child(type).observe(.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            for child in snapshot {
+                let name = child.value as! String
+                let uid = child.key
+
+                userDict[name] = uid
+                uidArray.append(uid)
+                fullNameArray.append(name)
+            }
+            
+            handler(uidArray,fullNameArray,userDict)
+        }
+        
+    }
+    
+    func getFullNamePictureUID(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray: [String], _ uidArray:[String]) -> ()) {
         var userDictionary = [String: String]()
         var fullNameArray = [String]()
         var uidArray = [String]()
