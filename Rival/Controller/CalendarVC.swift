@@ -118,6 +118,7 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         
         let uid = Auth.auth().currentUser?.uid
         DataService.instance.uploadDBUserCalendarEvent(uid: uid!, userData: [getTimeStamp(): "check in"])
+        
         setNameAndCalendar()
         
         /* Button Animation */

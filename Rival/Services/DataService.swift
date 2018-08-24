@@ -16,6 +16,7 @@ class DataService {
     
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("users")
+    private var _REF_FEED = DB_BASE.child("feed")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -25,6 +26,10 @@ class DataService {
         return _REF_USERS
     }
     
+    var REF_FEED: DatabaseReference {
+        return _REF_FEED
+    }
+    
     let formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
         dateFormatter.timeZone = Calendar.current.timeZone
@@ -32,6 +37,11 @@ class DataService {
         dateFormatter.dateFormat = "yyyy MM dd"
         return dateFormatter
     }()
+    
+    func uploadPost(withMessage message: String, forUID uid: String, sendComplete: @escaping(_ status: Bool) -> ()) {
+        REF_FEED.childByAutoId().updateChildValues(["content": message, "senderID": uid])
+        sendComplete(true)
+    }
     
     //Pushes users to firebase database
     func createDBUser(uid: String, userData: Dictionary <String, Any>) {
@@ -81,7 +91,6 @@ class DataService {
     //follow / unfollow functions
     func uploadUserFollowing(uid: String, userData: Dictionary <String, Any>) {
         REF_USERS.child(uid).child("following").updateChildValues(userData)
-        
     }
     
     func uploadUserFollower(uid: String, userData: Dictionary <String, Any>) {
@@ -92,6 +101,7 @@ class DataService {
         let currentUserUID = Auth.auth().currentUser?.uid
         REF_USERS.child(currentUserUID!).child("following").child(uid).removeValue()
     }
+    
     func deleteUserFromFollower(uid: String) {
         let currentUserUID = Auth.auth().currentUser?.uid
         REF_USERS.child(uid).child("followers").child(currentUserUID!).removeValue()

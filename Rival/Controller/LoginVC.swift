@@ -106,8 +106,6 @@ class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
     
     
     
-    
-    
     // Second new account screen when already have an account button is pressed
     @IBAction func unwindToLoginVC(segue: UIStoryboardSegue) {
     }

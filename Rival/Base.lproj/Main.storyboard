@@ -1393,15 +1393,19 @@
                                     <navigationItem id="2RF-dS-fFK">
                                         <barButtonItem key="leftBarButtonItem" style="plain" id="H3S-jh-jcT">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ffa-lN-B8r">
-                                                <rect key="frame" x="16" y="5" width="30" height="34"/>
+                                                <rect key="frame" x="16" y="11" width="20" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="create"/>
+                                                <connections>
+                                                    <segue destination="Ptv-eJ-8kj" kind="presentation" id="1Ue-Qy-J4Y"/>
+                                                </connections>
                                             </button>
                                         </barButtonItem>
                                         <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="5TF-5F-Faa">
                                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="KPf-oF-Ixe">
                                                 <rect key="frame" x="333" y="11" width="26" height="22"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <state key="normal" image="notifications"/>
+                                                <state key="normal" image="create"/>
                                                 <connections>
                                                     <action selector="searchFriendPressed:" destination="YXh-yc-dGj" eventType="touchUpInside" id="dGM-pD-2dg"/>
                                                 </connections>
@@ -1554,6 +1558,121 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="3524" y="-792.05397301349331"/>
+        </scene>
+        <!--Create PostVC-->
+        <scene sceneID="RZs-3H-Unx">
+            <objects>
+                <viewController id="Ptv-eJ-8kj" customClass="CreatePostVC" customModule="Rival" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="daE-AA-qA9">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translucent="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IOu-Wf-9Cl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                                <color key="backgroundColor" red="0.12941176469999999" green="0.14901960780000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <color key="barTintColor" red="0.14901960780000001" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <textAttributes key="titleTextAttributes">
+                                    <color key="textColor" red="0.98565095660000002" green="0.73649495840000001" blue="0.02826369368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </textAttributes>
+                                <items>
+                                    <navigationItem id="Ata-PN-rBf">
+                                        <barButtonItem key="leftBarButtonItem" style="plain" id="xw4-LA-i53">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Odo-7L-bxC">
+                                                <rect key="frame" x="16" y="11" width="22" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="backBtn"/>
+                                                <connections>
+                                                    <action selector="backBtnPressed:" destination="Ptv-eJ-8kj" eventType="touchUpInside" id="iX9-2v-Jbf"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                        <barButtonItem key="rightBarButtonItem" title="Item" style="plain" id="AYN-Fy-Rex">
+                                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="zhQ-1E-FH4">
+                                                <rect key="frame" x="333" y="11" width="26" height="22"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <state key="normal" image="notifications"/>
+                                                <connections>
+                                                    <action selector="searchFriendPressed:" destination="YXh-yc-dGj" eventType="touchUpInside" id="YB4-bg-DBZ"/>
+                                                </connections>
+                                            </button>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uFC-5d-12A">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="20"/>
+                                <color key="backgroundColor" red="0.14901960780000001" green="0.16862745100000001" blue="0.1764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="tgt-Bg-DhK"/>
+                                </constraints>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-h9-l9x">
+                                <rect key="frame" x="16" y="84" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="Ec6-n9-Vyd"/>
+                                    <constraint firstAttribute="width" constant="50" id="gYa-q4-Y2l"/>
+                                </constraints>
+                            </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say somthing here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="of4-3T-Q4g">
+                                <rect key="frame" x="16" y="148" width="343" height="457"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6V-m5-LYg">
+                                <rect key="frame" x="0.0" y="613" width="375" height="54"/>
+                                <color key="backgroundColor" red="0.12156862745098039" green="0.13333333333333333" blue="0.14117647058823529" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="54" id="xNA-fH-u6q"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
+                                <state key="normal" title="  POST" image="send">
+                                    <color key="titleColor" red="0.98431372549999996" green="0.70196078429999997" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="postBtnPressed:" destination="Ptv-eJ-8kj" eventType="touchUpInside" id="QHx-xf-jo5"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victor Chu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhU-yT-Z4V">
+                                <rect key="frame" x="74" y="98" width="80" height="23"/>
+                                <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
+                                <color key="textColor" red="0.98431372549999996" green="0.70196078429999997" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1333333333" green="0.14901960780000001" blue="0.15686274510000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="F6V-m5-LYg" firstAttribute="leading" secondItem="d0o-VO-kDO" secondAttribute="leading" id="0Mc-nf-p6a"/>
+                            <constraint firstItem="Acz-h9-l9x" firstAttribute="top" secondItem="IOu-Wf-9Cl" secondAttribute="bottom" constant="20" id="0X8-bH-KnU"/>
+                            <constraint firstItem="HhU-yT-Z4V" firstAttribute="centerY" secondItem="Acz-h9-l9x" secondAttribute="centerY" id="2Q4-hN-G9P"/>
+                            <constraint firstItem="uFC-5d-12A" firstAttribute="top" secondItem="daE-AA-qA9" secondAttribute="top" id="BaE-kN-DdA"/>
+                            <constraint firstItem="IOu-Wf-9Cl" firstAttribute="leading" secondItem="d0o-VO-kDO" secondAttribute="leading" id="CMW-Ld-zo7"/>
+                            <constraint firstItem="d0o-VO-kDO" firstAttribute="bottom" secondItem="F6V-m5-LYg" secondAttribute="bottom" id="E9V-VB-Cxj"/>
+                            <constraint firstAttribute="trailing" secondItem="uFC-5d-12A" secondAttribute="trailing" id="HN0-kN-Elp"/>
+                            <constraint firstItem="IOu-Wf-9Cl" firstAttribute="trailing" secondItem="d0o-VO-kDO" secondAttribute="trailing" id="Hjz-fy-9Oc"/>
+                            <constraint firstItem="HhU-yT-Z4V" firstAttribute="leading" secondItem="Acz-h9-l9x" secondAttribute="trailing" constant="8" id="Oj2-eQ-RBv"/>
+                            <constraint firstItem="F6V-m5-LYg" firstAttribute="top" secondItem="of4-3T-Q4g" secondAttribute="bottom" constant="8" id="OmU-r8-bDt"/>
+                            <constraint firstItem="uFC-5d-12A" firstAttribute="leading" secondItem="daE-AA-qA9" secondAttribute="leading" id="Stw-mr-PXg"/>
+                            <constraint firstItem="d0o-VO-kDO" firstAttribute="trailing" secondItem="F6V-m5-LYg" secondAttribute="trailing" id="a2Z-Ns-s9C"/>
+                            <constraint firstItem="of4-3T-Q4g" firstAttribute="top" secondItem="Acz-h9-l9x" secondAttribute="bottom" constant="14" id="dk2-8B-dBs"/>
+                            <constraint firstItem="Acz-h9-l9x" firstAttribute="leading" secondItem="d0o-VO-kDO" secondAttribute="leading" constant="16" id="g80-jY-Nbu"/>
+                            <constraint firstItem="of4-3T-Q4g" firstAttribute="leading" secondItem="d0o-VO-kDO" secondAttribute="leading" constant="16" id="ktV-ns-ekM"/>
+                            <constraint firstItem="IOu-Wf-9Cl" firstAttribute="top" secondItem="uFC-5d-12A" secondAttribute="bottom" id="rv6-I7-GXV"/>
+                            <constraint firstItem="d0o-VO-kDO" firstAttribute="trailing" secondItem="of4-3T-Q4g" secondAttribute="trailing" constant="16" id="yK5-3a-YPB"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="d0o-VO-kDO"/>
+                    </view>
+                    <connections>
+                        <outlet property="nameLbl" destination="HhU-yT-Z4V" id="m5n-lA-Ah7"/>
+                        <outlet property="postBtn" destination="F6V-m5-LYg" id="TZE-Oa-bXU"/>
+                        <outlet property="profileImg" destination="Acz-h9-l9x" id="LXn-p3-8ae"/>
+                        <outlet property="textView" destination="of4-3T-Q4g" id="Cf1-XQ-YEZ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6bi-63-RGD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4228" y="-792.05397301349331"/>
         </scene>
         <!--Ib Calendar Data Source-->
         <scene sceneID="QNS-ma-k1i">
@@ -2068,6 +2187,7 @@
         <image name="backBtn" width="22" height="18"/>
         <image name="checkInBtn" width="31" height="28"/>
         <image name="completeBtn" width="220" height="38"/>
+        <image name="create" width="20" height="18"/>
         <image name="defaultProfilePic" width="123" height="123"/>
         <image name="drawerIcon" width="18" height="12"/>
         <image name="editprofileCell" width="341" height="44"/>
@@ -2087,6 +2207,7 @@
         <image name="person-add" width="26" height="19"/>
         <image name="rivaIconWithText" width="168" height="99"/>
         <image name="rivalIcon" width="51" height="48"/>
+        <image name="send" width="28" height="28"/>
         <image name="sendBtn" width="220" height="38"/>
         <image name="signUpBtn" width="140" height="8"/>
         <image name="today" width="23" height="25"/>
