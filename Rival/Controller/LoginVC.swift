@@ -12,7 +12,7 @@ import SimpleAnimation
 import RAMAnimatedTabBarController
 import Firebase
 
-class LoginVC: UIViewController, UITextFieldDelegate, GroupsVCDelegate {
+class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
 
     @IBOutlet weak var emailaddressTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!

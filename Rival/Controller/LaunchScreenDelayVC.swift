@@ -11,7 +11,7 @@ import Firebase
 import Motion
 import RAMAnimatedTabBarController
 
-class LaunchScreenDelayVC: UIViewController, GroupsVCDelegate {
+class LaunchScreenDelayVC: UIViewController, CalendarVCDelegate {
 
     private var groupsVCTabBarController: RAMAnimatedTabBarController?
     

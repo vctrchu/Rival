@@ -12,7 +12,7 @@ import SideMenu
 import JTAppleCalendar
 import SimpleAnimation
 
-protocol GroupsVCDelegate: class {
+protocol CalendarVCDelegate: class {
     func onLogoutPressed()
 }
 
@@ -28,7 +28,7 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
     var calendarEventsDictionary = [Date: String]()
     
     private var sideMenuVCNavigationController: UISideMenuNavigationController?
-    weak var delegate: GroupsVCDelegate?
+    weak var delegate: CalendarVCDelegate?
     
     let currentDate = Date()
     

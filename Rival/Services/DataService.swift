@@ -38,9 +38,27 @@ class DataService {
         return dateFormatter
     }()
     
-    func uploadPost(withMessage message: String, forUID uid: String, sendComplete: @escaping(_ status: Bool) -> ()) {
-        REF_FEED.childByAutoId().updateChildValues(["content": message, "senderID": uid])
+    func uploadPost(withMessage message: String, forUID uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
+        REF_FEED.childByAutoId().updateChildValues(["content": message, "senderID": uid, "name": name, "profileUrl": profileUrl])
         sendComplete(true)
+    }
+    
+    func getAllFeedMessage(handler: @escaping(_ messages: [Message]) -> ()) {
+        var messageArray = [Message]()
+        REF_FEED.observeSingleEvent(of: .value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for message in snapshot {
+                let content = message.childSnapshot(forPath: "content").value as! String
+                let senderId = message.childSnapshot(forPath: "senderID").value as! String
+                let senderName = message.childSnapshot(forPath: "name").value as! String
+                let profileUrl = message.childSnapshot(forPath: "profileUrl").value as! String
+                
+                let message = Message(content: content, senderId: senderId, senderName: senderName, senderProfielUrl: profileUrl)
+                messageArray.append(message)
+            }
+            handler(messageArray)
+        }
     }
     
     //Pushes users to firebase database
@@ -146,7 +164,6 @@ class DataService {
     }
     
     func getCalendarEvents(uid: String, handler: @escaping(_ calendarEventsDictionary: [Date: String]) -> ()) {
-        
         var calendarEventsDictionary = [Date: String]()
         
         REF_USERS.child(uid).child("calendarEvents").observe(.value) { (snapshot) in
