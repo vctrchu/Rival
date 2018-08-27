@@ -20,14 +20,20 @@ class GroupCell: UITableViewCell {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
         profileImage.layer.masksToBounds = true
         
+        if isSelected {
+            self.checkmarkImage.isHidden = false
+        } else {
+            self.checkmarkImage.isHidden = true
+        }
+        
         if url == "none" {
             let image = UIImage(named: "defaultProfilePic")
             self.profileImage.image = image
-            self.NameLabel = name
+            self.NameLabel.text = name
         } else {
             let imageUrl = URL(string: url)
-            self.profileImg.kf.setImage(with: imageUrl)
-            self.NameLabel = name
+            self.profileImage.kf.setImage(with: imageUrl)
+            self.NameLabel.text = name
         }
     }
     

@@ -14,7 +14,6 @@ target 'Rival' do
   pod 'RAMAnimatedTabBarController'
   pod 'JTAppleCalendar'
   pod 'Hero'
-  pod 'MessengerKit'
 
   # Firebase pods
   pod 'Firebase/Core'
