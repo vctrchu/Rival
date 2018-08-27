@@ -2428,6 +2428,7 @@
                     <connections>
                         <outlet property="searchDisplayController" destination="yem-09-zfw" id="sa1-9L-mmz"/>
                         <outlet property="tableView" destination="fMH-Mv-Sg1" id="fDx-n0-Dhb"/>
+                        <segue destination="bB2-Qq-mPb" kind="presentation" identifier="FollowerFollowingToProfilePage" id="L22-3Y-8X7"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xfe-jc-HaB" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2476,7 +2477,7 @@
         <image name="today" width="23" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="JtA-RC-wdz"/>
+        <segue reference="L22-3Y-8X7"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="0.98565095660000002" green="0.73649495840000001" blue="0.02826369368" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
 </document>

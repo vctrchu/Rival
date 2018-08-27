@@ -30,6 +30,8 @@ class ProfilePageVC: UIViewController {
     var name = ""
     var currentUserName = ""
     var typeOfProfile = ""
+    var profileUrl = ""
+    var currentUserProfileUrl = ""
     
     let formatter: DateFormatter = {
         let dateFormatter = DateFormatter()
@@ -55,12 +57,35 @@ class ProfilePageVC: UIViewController {
     @IBAction func followButtonPressed(_ sender: Any) {
         let currentUserUid = Auth.auth().currentUser?.uid
         if followBtn.currentImage == UIImage(named: "follow.png") {
-            DataService.instance.uploadUserFollowing(uid: currentUserUid!, userData: [uid: name])
-            DataService.instance.uploadUserFollower(uid: uid, userData: [currentUserUid!: currentUserName])
-            followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
+            
+            DataService.instance.getUserImage(uid: uid) { (returnUrl) in
+                self.profileUrl = returnUrl
+                DataService.instance.updateFollowing(uid: self.uid, name: self.name, profileUrl: self.profileUrl, sendComplete: { (isComplete) in
+                    if isComplete {
+                        self.followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
+                    } else {
+                        print("there was an error updating the following")
+                    }
+                })
+            }
+            
+            DataService.instance.getUserImage(uid: currentUserUid!) { (returnUrl) in
+                self.currentUserProfileUrl = returnUrl
+                DataService.instance.updateFollowers(uid: self.uid, name: self.currentUserName, profileUrl: self.currentUserProfileUrl, sendComplete: { (isComplete) in
+                    if isComplete {
+                        self.followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
+                    } else {
+                        print("there was an error with updating the follower")
+                    }
+                })
+            }
+            
         } else if followBtn.currentImage == UIImage(named: "following.png") {
             DataService.instance.deleteUserFromFollowing(uid: uid)
             DataService.instance.deleteUserFromFollower(uid: uid)
+            DataService.instance.numberOfFollowers(uid: uid) { (returnNumberOfFollowers) in
+                self.followersLbl.text = returnNumberOfFollowers
+            }
             followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
         }
     }

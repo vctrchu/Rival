@@ -34,6 +34,7 @@
 		FB9BB05D20437BFB00698747 /* SignUpStep1VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */; };
 		FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */; };
 		FBCB25BB2045ECA700D2B964 /* SideMenuVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */; };
+		FBDC2B8A21339B8200E74633 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC2B8921339B8200E74633 /* Follower.swift */; };
 		FBE673EC20ED78F10005ABAB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280AB92042975600EE1627 /* Roboto-Black.ttf */; };
 		FBE673ED20ED78F10005ABAB /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280ABD2042975700EE1627 /* Roboto-BlackItalic.ttf */; };
 		FBE673EE20ED78F10005ABAB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280AC22042975700EE1627 /* Roboto-Bold.ttf */; };
@@ -108,6 +109,7 @@
 		FB9BB05C20437BFB00698747 /* SignUpStep1VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep1VC.swift; sourceTree = "<group>"; };
 		FBC5261A2044C9AF0079C24F /* SignUpStep2VC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpStep2VC.swift; sourceTree = "<group>"; };
 		FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
+		FBDC2B8921339B8200E74633 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		FBED60E92044F74600136153 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayVC.swift; sourceTree = "<group>"; };
 		FBFA81CF213393D900555816 /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
@@ -228,6 +230,7 @@
 			children = (
 				FB8426D72051C064005054BC /* User.swift */,
 				FB98A5B52130C86200415183 /* Messages.swift */,
+				FBDC2B8921339B8200E74633 /* Follower.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				FB9BB05B2043656D00698747 /* AuthService.swift in Sources */,
 				FB98A5B82130DEB700415183 /* MessagesVC.swift in Sources */,
 				FB98A5B62130C86200415183 /* Messages.swift in Sources */,
+				FBDC2B8A21339B8200E74633 /* Follower.swift in Sources */,
 				FB98A5AE212F2F4100415183 /* FeedVC.swift in Sources */,
 				FBFA81D0213393D900555816 /* CreateGroupVC.swift in Sources */,
 				FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */,

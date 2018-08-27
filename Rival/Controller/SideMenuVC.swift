@@ -54,8 +54,13 @@ class SideMenuVC: UIViewController {
             self.fullNameLbl.text = name.uppercased()
         }
         DataService.instance.getUserImage(uid: uid!) { (url) in
-            let imageUrl = URL(string: url)
-            self.profileImg.kf.setImage(with: imageUrl)
+            if url == "none" {
+                let image = UIImage(named: "defaultProfilePic")
+                self.profileImg.image = image
+            } else {
+                let imageUrl = URL(string: url)
+                self.profileImg.kf.setImage(with: imageUrl)
+            }
         }
         
         DataService.instance.numberFollowing(uid: uid!) { (returnNumber) in

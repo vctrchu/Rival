@@ -45,6 +45,7 @@ class DataService {
     
     func getAllFeedMessage(handler: @escaping(_ messages: [Message]) -> ()) {
         var messageArray = [Message]()
+        var url = "none"
         REF_FEED.observeSingleEvent(of: .value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             
@@ -52,9 +53,12 @@ class DataService {
                 let content = message.childSnapshot(forPath: "content").value as! String
                 let senderId = message.childSnapshot(forPath: "senderID").value as! String
                 let senderName = message.childSnapshot(forPath: "name").value as! String
-                let profileUrl = message.childSnapshot(forPath: "profileUrl").value as! String
                 
-                let message = Message(content: content, senderId: senderId, senderName: senderName, senderProfielUrl: profileUrl)
+                if message.hasChild("profileUrl") {
+                    url = message.childSnapshot(forPath: "profileUrl").value as! String
+                }
+                
+                let message = Message(content: content, senderId: senderId, senderName: senderName, senderProfielUrl: url)
                 messageArray.append(message)
             }
             handler(messageArray)
@@ -105,13 +109,15 @@ class DataService {
         }
     }
     
-    //follow / unfollow functions
-    func uploadUserFollowing(uid: String, userData: Dictionary <String, Any>) {
-        REF_USERS.child(uid).child("following").updateChildValues(userData)
+    //******* new follow functions
+    func updateFollowing(uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
+        REF_USERS.child((Auth.auth().currentUser?.uid)!).child("following").child(uid).updateChildValues(["name": name, "profileUrl": profileUrl])
+        sendComplete(true)
     }
     
-    func uploadUserFollower(uid: String, userData: Dictionary <String, Any>) {
-        REF_USERS.child(uid).child("followers").updateChildValues(userData)
+    func updateFollowers(uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
+        REF_USERS.child(uid).child("followers").child((Auth.auth().currentUser?.uid)!).updateChildValues(["name": name, "profileUrl": profileUrl])
+        sendComplete(true)
     }
     
     func deleteUserFromFollowing(uid: String) {
@@ -131,15 +137,14 @@ class DataService {
     
     func getUserImage(uid: String, handler: @escaping (_ imageUrl: String) -> ()) {
         var imageUrl = "none"
-        REF_USERS.observe(.value) { (snapshot) in
-            
+        REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(uid) {
                 if snapshot.childSnapshot(forPath: uid).hasChild("profile_image") {
                     imageUrl = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "profile_image").value as! String
                 }
             }
             handler(imageUrl)
-        }
+        })
     }
     
     func getFullName(uid: String, handler: @escaping (_ fullName: String) -> ()) {
@@ -184,7 +189,6 @@ class DataService {
     func getAllUserImages(uidArray: [String], handler: @escaping(_ imageDict: [String: String]) -> ()) {
         var imageDict = [String: String]()
         
-        
         REF_USERS.observe(.value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in snapshot {
@@ -203,26 +207,22 @@ class DataService {
         
     }
     
-    func getAllFollowerFollowing(uid: String, type: String, handler: @escaping (_ uidArray: [String], _ fullNameArray: [String], _ userDict: [String:String]) -> ()) {
-        
-        var fullNameArray = [String]()
-        var uidArray = [String]()
-        var userDict = [String: String]()
+    func getAllFollowerFollowing(uid: String, type: String, handler: @escaping(_ followerArray: [Follower]) -> ()) {
+        var followerArray = [Follower]()
         
         REF_USERS.child(uid).child(type).observe(.value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
-            for child in snapshot {
-                let name = child.value as! String
-                let uid = child.key
-
-                userDict[name] = uid
-                uidArray.append(uid)
-                fullNameArray.append(name)
-            }
             
-            handler(uidArray,fullNameArray,userDict)
+            for child in snapshot {
+                let uid = child.key
+                let name = child.childSnapshot(forPath: "name").value as! String
+                let profileUrl = child.childSnapshot(forPath: "profileUrl").value as! String
+                
+                let follower = Follower(senderId: uid, senderName: name, senderProfielUrl: profileUrl)
+                followerArray.append(follower)
+            }
+            handler(followerArray)
         }
-        
     }
     
     func getFullNamePictureUID(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray: [String], _ uidArray:[String]) -> ()) {
@@ -251,5 +251,32 @@ class DataService {
             handler(userDictionary,fullNameArray,uidArray)
         }
     }
+    
+//    func searchQueryFollowing(forSearchQuery query: String, handler: @escaping(_ followerArray: [Follower]) -> ()) {
+//        var followerArray = [Follower]()
+//        var url = "none"
+//
+//        REF_USERS.child((Auth.auth().currentUser?.uid)!).child("following").observe(.value) { (snapshot) in
+//
+//            for child in snapshot.children {
+//                let snap = child as! DataSnapshot
+//                let uid = snap.key
+//                let name = snap.value as! String
+//
+//                if user.hasChild("profile_image") {
+//                    url = user.childSnapshot(forPath: "profile_image").value as! String
+//                }
+//
+//                if fullName.contains(query) == true && email != Auth.auth().currentUser?.email {
+//                    userDictionary[fullName] = url
+//                    fullNameArray.append(fullName)
+//                    uidArray.append(uid)
+//                }
+//
+//
+//            }
+//
+//        }
+//    }
     
 }
