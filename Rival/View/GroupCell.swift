@@ -1,0 +1,40 @@
+//
+//  GroupCellTableViewCell.swift
+//  Rival
+//
+//  Created by VICTOR CHU on 2018-08-26.
+//  Copyright © 2018 Victor Chu. All rights reserved.
+//
+
+import UIKit
+
+class GroupCell: UITableViewCell {
+
+
+    @IBOutlet weak var profileImage: UIImageView!
+    
+    @IBOutlet weak var checkmarkImage: UIImageView!
+    @IBOutlet weak var NameLabel: UILabel!
+    
+    func configureCell(profileImage url: String, name: String, isSelected: Bool) {
+        profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
+        profileImage.layer.masksToBounds = true
+        
+        if url == "none" {
+            let image = UIImage(named: "defaultProfilePic")
+            self.profileImage.image = image
+            self.NameLabel = name
+        } else {
+            let imageUrl = URL(string: url)
+            self.profileImg.kf.setImage(with: imageUrl)
+            self.NameLabel = name
+        }
+    }
+    
+    override func setSelected(_ selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+
+        // Configure the view for the selected state
+    }
+
+}

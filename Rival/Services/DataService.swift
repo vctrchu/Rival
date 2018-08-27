@@ -105,7 +105,6 @@ class DataService {
         }
     }
     
-    
     //follow / unfollow functions
     func uploadUserFollowing(uid: String, userData: Dictionary <String, Any>) {
         REF_USERS.child(uid).child("following").updateChildValues(userData)

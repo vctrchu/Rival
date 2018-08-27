@@ -51,8 +51,6 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         
         cell.configureCell(profileImage: message.senderProfileUrl, fullname: message.senderName, checkInNumber: "0", message: message.content)
         
-//      cell.configureCell(profileImage: imageDict[userDict[nameArray[indexPath.row]]!]!, fullname: nameArray[indexPath.row])
-        
         return cell
     }
     

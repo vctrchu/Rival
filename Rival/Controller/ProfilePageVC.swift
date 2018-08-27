@@ -44,9 +44,12 @@ class ProfilePageVC: UIViewController {
         calendarView.calendarDelegate = self
         calendarView.calendarDataSource = self
         setupCalendar()
-        setupProfile(uid: uid)
-        print(uid)
 
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setupProfile(uid: uid)
     }
     
     @IBAction func followButtonPressed(_ sender: Any) {

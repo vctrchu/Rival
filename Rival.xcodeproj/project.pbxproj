@@ -54,6 +54,8 @@
 		FBE673FD20ED78F10005ABAB /* RobotoCondensed-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280ABE2042975700EE1627 /* RobotoCondensed-Regular.ttf */; };
 		FBED60EA2044F74700136153 /* CalendarVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60E92044F74600136153 /* CalendarVC.swift */; };
 		FBED60EE2045178500136153 /* LaunchScreenDelayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */; };
+		FBFA81D0213393D900555816 /* CreateGroupVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA81CF213393D900555816 /* CreateGroupVC.swift */; };
+		FBFA81D2213396C800555816 /* GroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBFA81D1213396C800555816 /* GroupCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -108,6 +110,8 @@
 		FBCB25BA2045ECA700D2B964 /* SideMenuVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuVC.swift; sourceTree = "<group>"; };
 		FBED60E92044F74600136153 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayVC.swift; sourceTree = "<group>"; };
+		FBFA81CF213393D900555816 /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
+		FBFA81D1213396C800555816 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -145,6 +149,7 @@
 				FB151C49204F8FE3009ADA4C /* CalendarCell.swift */,
 				FB12E1A021239A8E00744DF4 /* UserCell.swift */,
 				FB98A5AF212F354F00415183 /* FeedCell.swift */,
+				FBFA81D1213396C800555816 /* GroupCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -244,6 +249,7 @@
 				FB98A5AD212F2F4100415183 /* FeedVC.swift */,
 				FB98A5B12130BD9B00415183 /* CreatePostVC.swift */,
 				FB98A5B72130DEB700415183 /* MessagesVC.swift */,
+				FBFA81CF213393D900555816 /* CreateGroupVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -386,6 +392,7 @@
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/MessengerKit/MessengerKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
 				"${BUILT_PRODUCTS_DIR}/RAMAnimatedTabBarController/RAMAnimatedTabBarController.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
@@ -401,6 +408,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MessengerKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RAMAnimatedTabBarController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
@@ -452,9 +460,11 @@
 				FB98A5B82130DEB700415183 /* MessagesVC.swift in Sources */,
 				FB98A5B62130C86200415183 /* Messages.swift in Sources */,
 				FB98A5AE212F2F4100415183 /* FeedVC.swift in Sources */,
+				FBFA81D0213393D900555816 /* CreateGroupVC.swift in Sources */,
 				FBC5261B2044C9AF0079C24F /* SignUpStep2VC.swift in Sources */,
 				FB98A5B42130C07500415183 /* ButtonPushUp.swift in Sources */,
 				FB98A5B0212F354F00415183 /* FeedCell.swift in Sources */,
+				FBFA81D2213396C800555816 /* GroupCell.swift in Sources */,
 				FB3EACB92050EDB20076A9AD /* StorageService.swift in Sources */,
 				FB0A4E5B210F71E700AE9016 /* ForgotPasswordVC.swift in Sources */,
 				FB12E1A121239A8E00744DF4 /* UserCell.swift in Sources */,
