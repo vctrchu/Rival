@@ -12,9 +12,10 @@ class GroupCell: UITableViewCell {
 
 
     @IBOutlet weak var profileImage: UIImageView!
-    
     @IBOutlet weak var checkmarkImage: UIImageView!
     @IBOutlet weak var NameLabel: UILabel!
+    
+    var showing = false
     
     func configureCell(profileImage url: String, name: String, isSelected: Bool) {
         profileImage.layer.cornerRadius = profileImage.frame.size.width / 2
@@ -40,7 +41,15 @@ class GroupCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        // Configure the view for the selected state
+        if selected {
+            if showing == false {
+                checkmarkImage.isHidden = false
+                showing = true
+            } else {
+                checkmarkImage.isHidden = true
+                showing = false
+            }
+        }
     }
 
 }

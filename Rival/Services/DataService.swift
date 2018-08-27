@@ -98,7 +98,6 @@ class DataService {
         REF_USERS.child(uid).child("calendarEvents").observe(.value) { (snapshot) in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
-                let key = snap.key as String
                 let value = snap.value as! String
                 
                 if value == "check in" {
@@ -252,31 +251,24 @@ class DataService {
         }
     }
     
-//    func searchQueryFollowing(forSearchQuery query: String, handler: @escaping(_ followerArray: [Follower]) -> ()) {
-//        var followerArray = [Follower]()
-//        var url = "none"
-//
-//        REF_USERS.child((Auth.auth().currentUser?.uid)!).child("following").observe(.value) { (snapshot) in
-//
-//            for child in snapshot.children {
-//                let snap = child as! DataSnapshot
-//                let uid = snap.key
-//                let name = snap.value as! String
-//
-//                if user.hasChild("profile_image") {
-//                    url = user.childSnapshot(forPath: "profile_image").value as! String
-//                }
-//
-//                if fullName.contains(query) == true && email != Auth.auth().currentUser?.email {
-//                    userDictionary[fullName] = url
-//                    fullNameArray.append(fullName)
-//                    uidArray.append(uid)
-//                }
-//
-//
-//            }
-//
-//        }
-//    }
+    func searchQueryFollowing(forSearchQuery query: String, handler: @escaping(_ followerArray: [Follower]) -> ()) {
+        var followerArray = [Follower]()
+        
+        REF_USERS.child((Auth.auth().currentUser?.uid)!).child("following").observe(.value) { (snapshot) in
+            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for child in snapshot {
+                let uid = child.key
+                let name = child.childSnapshot(forPath: "name").value as! String
+                let profileUrl = child.childSnapshot(forPath: "profileUrl").value as! String
+                
+                if name.contains(query.capitalized) == true || name.contains(query.lowercased()) {
+                    let follower = Follower(senderId: uid, senderName: name, senderProfielUrl: profileUrl)
+                    followerArray.append(follower)
+                }
+            }
+            handler(followerArray)
+        }
+    }
     
 }
