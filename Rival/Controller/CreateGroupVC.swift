@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class CreateGroupVC: UIViewController {
 
@@ -19,6 +20,7 @@ class CreateGroupVC: UIViewController {
     
     var followerArray = [Follower]()
     var chosenUserArray = [String]()
+    var chosenUidArray = [String]()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +53,16 @@ class CreateGroupVC: UIViewController {
     }
     
     @IBAction func doneBtnPressed(_ sender: Any) {
+        if titleTextField.text != "" && descriptionTextField.text != "" {
+            chosenUidArray.append((Auth.auth().currentUser?.uid)!)
+            DataService.instance.createGroup(withTitle: titleTextField.text!, andDescription: descriptionTextField.text!, forUserIds: chosenUidArray) { (groupCreated) in
+                if groupCreated {
+                    self.dismiss(animated: true, completion: nil)
+                } else {
+                    print("Group could not be created")
+                }
+            }
+        }
     }
     
 }
@@ -82,10 +94,12 @@ extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {
         guard let cell = tableView.cellForRow(at: indexPath) as? GroupCell else { return }
         if !chosenUserArray.contains(cell.NameLabel.text!) {
             chosenUserArray.append(cell.NameLabel.text!)
+            chosenUidArray.append(followerArray[indexPath.row].senderId)
             groupMemberLabel.text = chosenUserArray.joined(separator: ", ")
             doneBtn.isHidden = false
         } else {
             chosenUserArray = chosenUserArray.filter({ $0 != cell.NameLabel.text! })
+            chosenUidArray = chosenUidArray.filter({ $0 != followerArray[indexPath.row].senderId})
             if chosenUserArray.count >= 1 {
                 groupMemberLabel.text = chosenUserArray.joined(separator: ", ")
             } else {

@@ -17,6 +17,7 @@ class DataService {
     private var _REF_BASE = DB_BASE
     private var _REF_USERS = DB_BASE.child("users")
     private var _REF_FEED = DB_BASE.child("feed")
+    private var _REF_GROUPS = DB_BASE.child("groups")
     
     var REF_BASE: DatabaseReference {
         return _REF_BASE
@@ -28,6 +29,10 @@ class DataService {
     
     var REF_FEED: DatabaseReference {
         return _REF_FEED
+    }
+    
+    var REF_GROUPS: DatabaseReference {
+        return _REF_GROUPS
     }
     
     let formatter: DateFormatter = {
@@ -268,6 +273,30 @@ class DataService {
                 }
             }
             handler(followerArray)
+        }
+    }
+    
+    func createGroup(withTitle title: String, andDescription description: String, forUserIds ids: [String], handler: @escaping(_ groupCreated: Bool) ->()){
+        REF_GROUPS.childByAutoId().updateChildValues(["title": title, "description": description, "members": ids])
+        handler(true)
+    }
+    
+    func getAllGroups(handler: @escaping(_ groupsArray: [Group]) ->()) {
+        var groupsArray = [Group]()
+        
+        REF_GROUPS.observeSingleEvent(of: .value) { (groupSnapshot) in
+            guard let groupSnapshot = groupSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for group in groupSnapshot {
+                let memberArray = group.childSnapshot(forPath: "members").value as! [String]
+                if memberArray.contains((Auth.auth().currentUser?.uid)!) {
+                    let title = group.childSnapshot(forPath: "title").value as! String
+                    let description = group.childSnapshot(forPath: "description").value as! String
+                    let group = Group(title: title, description: description, key: group.key, memberCount: memberArray.count, members: memberArray)
+                    groupsArray.append(group)
+                }
+            }
+            handler(groupsArray)
         }
     }
     
