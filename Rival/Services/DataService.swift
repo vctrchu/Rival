@@ -43,9 +43,25 @@ class DataService {
         return dateFormatter
     }()
     
-    func uploadPost(withMessage message: String, forUID uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
-        REF_FEED.childByAutoId().updateChildValues(["content": message, "senderID": uid, "name": name, "profileUrl": profileUrl])
-        sendComplete(true)
+    func uploadPost(withMessage message: String, forUID uid: String, name: String, profileUrl: String, withGroupKey groupKey: String?, sendComplete: @escaping(_ status: Bool) -> ()) {
+        if groupKey != nil {
+            REF_GROUPS.child(groupKey!).child("messages").observeSingleEvent(of: .value) { (messageSnapshot) in
+                guard let messageSnapshot = messageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+                
+                for message in messageSnapshot {
+                    let messageKey = message.key
+                    let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                    if senderId == uid {
+                        self.REF_GROUPS.child(groupKey!).child("messages").child(messageKey).updateChildValues(["profileUrl": profileUrl])
+                    }
+                }
+                sendComplete(true)
+            }
+            REF_GROUPS.child(groupKey!).child("messages").childByAutoId().updateChildValues(["content": message, "senderId": uid, "name": name, "profileUrl": profileUrl])
+        } else {
+            REF_FEED.childByAutoId().updateChildValues(["content": message, "senderID": uid, "name": name, "profileUrl": profileUrl])
+            sendComplete(true)
+        }
     }
     
     func getAllFeedMessage(handler: @escaping(_ messages: [Message]) -> ()) {
@@ -67,6 +83,25 @@ class DataService {
                 messageArray.append(message)
             }
             handler(messageArray)
+        }
+    }
+    
+    func getAllMessagesFor(desiredGroup: Group, handler: @escaping(_ messagesArray: [Message]) ->()) {
+        var groupMessageArray = [Message]()
+        
+        REF_GROUPS.child(desiredGroup.key).child("messages").observeSingleEvent(of: .value) { (groupMessageSnapshot) in
+            guard let groupMessageSnapshot = groupMessageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for groupMessage in groupMessageSnapshot {
+                let content = groupMessage.childSnapshot(forPath: "content").value as! String
+                let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
+                let name = groupMessage.childSnapshot(forPath: "name").value as! String
+                let profileUrl = groupMessage.childSnapshot(forPath: "profileUrl").value as! String
+                let groupMessage = Message(content: content, senderId: senderId, senderName: name, senderProfielUrl: profileUrl)
+                
+                groupMessageArray.append(groupMessage)
+            }
+            handler(groupMessageArray)
         }
     }
     
@@ -193,7 +228,7 @@ class DataService {
     func getAllUserImages(uidArray: [String], handler: @escaping(_ imageDict: [String: String]) -> ()) {
         var imageDict = [String: String]()
         
-        REF_USERS.observe(.value) { (snapshot) in
+        REF_USERS.observeSingleEvent(of: .value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in snapshot {
                 var url = "none"
@@ -207,8 +242,6 @@ class DataService {
             }
             handler(imageDict)
         }
-        
-        
     }
     
     func getAllFollowerFollowing(uid: String, type: String, handler: @escaping(_ followerArray: [Follower]) -> ()) {
@@ -229,7 +262,7 @@ class DataService {
         }
     }
     
-    func getFullNamePictureUID(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray: [String], _ uidArray:[String]) -> ()) {
+    func searchQueryForAllUsers(forSearchQuery query: String, handler: @escaping (_ userDictionary: [String: String],_ fullNameArray: [String], _ uidArray:[String]) -> ()) {
         var userDictionary = [String: String]()
         var fullNameArray = [String]()
         var uidArray = [String]()
@@ -297,6 +330,22 @@ class DataService {
                 }
             }
             handler(groupsArray)
+        }
+    }
+    
+    func getNamesFor(group: Group, handler: @escaping(_ NameArray: [String]) -> ()) {
+        var nameArray = [String]()
+        
+        REF_USERS.observeSingleEvent(of: .value) { (userSnapshot) in
+            guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for user in userSnapshot {
+                if group.members.contains(user.key) {
+                    let name = user.childSnapshot(forPath: "fullname").value as! String
+                    nameArray.append(name)
+                }
+            }
+            handler(nameArray)
         }
     }
     

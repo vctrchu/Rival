@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Hero
 
 class MessagesVC: UIViewController {
     
@@ -46,10 +47,18 @@ extension MessagesVC: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell = tableView.dequeueReusableCell(withIdentifier: "messageGroupCell") as?MessageGroupCell else { return UITableViewCell() }
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "messageGroupCell") as? MessageGroupCell else { return UITableViewCell() }
         let group = groupsArray[indexPath.row]
         cell.configureCell(title: group.groupTitle, description: group.groupDesc, memberCount: group.memberCount)
         return cell
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let groupFeedVC = storyboard?.instantiateViewController(withIdentifier: "GroupMessagesVC") as? GroupMessagesVC else { return }
+        groupFeedVC.hero.isEnabled = true
+        groupFeedVC.hero.modalAnimationType = .slide(direction: .left)
+        groupFeedVC.initData(forGroup: groupsArray[indexPath.row])
+        present(groupFeedVC, animated: true, completion: nil)
     }
     
 }

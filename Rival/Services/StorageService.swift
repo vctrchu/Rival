@@ -32,7 +32,7 @@ class StorageService {
                 return
             }
             let profileImageUrl = metadata.downloadURL()?.absoluteString
-            let userData = ["profile_image": profileImageUrl]
+            let userData = ["profile_image": profileImageUrl!]
             DataService.instance.createDBUser(uid: Auth.auth().currentUser!.uid , userData: userData)
         }
     }

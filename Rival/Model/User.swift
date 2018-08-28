@@ -22,7 +22,7 @@ struct User {
         ref = snapshot.ref
         fullName = (snapshot.value! as! NSDictionary)["fullname"] as! String
         email = (snapshot.value! as! NSDictionary)["email"] as! String
-        photoUrl = (snapshot.value! as! NSDictionary)["profile_image"] as! String
+        photoUrl = ((snapshot.value! as! NSDictionary)["profile_image"] as! String)
 
     }
 }

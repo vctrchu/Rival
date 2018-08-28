@@ -65,7 +65,7 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if (segue.identifier == "toSignUp2") {
             let signupVC2 = segue.destination as! SignUpStep2VC
-            var fullName = firstNameTxtField.text!.capitalized + " " + lastNameTxtField.text!.capitalized
+            let fullName = firstNameTxtField.text!.capitalized + " " + lastNameTxtField.text!.capitalized
             signupVC2.fullNameTxt = fullName
         }
     }

@@ -14,6 +14,7 @@ target 'Rival' do
   pod 'RAMAnimatedTabBarController'
   pod 'JTAppleCalendar'
   pod 'Hero'
+  pod 'IHKeyboardAvoiding'
 
   # Firebase pods
   pod 'Firebase/Core'

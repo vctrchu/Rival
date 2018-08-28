@@ -86,7 +86,7 @@ extension SearchFriendVC: UISearchBarDelegate {
             uidArray = []
             tableView.reloadData()
         } else {
-            DataService.instance.getFullNamePictureUID(forSearchQuery: searchBar.text!) { (returnUserDict, returnFullNameArray, returnUidArray) in
+            DataService.instance.searchQueryForAllUsers(forSearchQuery: searchBar.text!) { (returnUserDict, returnFullNameArray, returnUidArray) in
                 self.userDictionary = returnUserDict
                 self.fullNameArray = returnFullNameArray
                 self.uidArray = returnUidArray

@@ -37,6 +37,8 @@
 		FBDC2B8A21339B8200E74633 /* Follower.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC2B8921339B8200E74633 /* Follower.swift */; };
 		FBDC2B8C2134BA5700E74633 /* MessageGroupCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC2B8B2134BA5700E74633 /* MessageGroupCell.swift */; };
 		FBDC2B8E2134BD4600E74633 /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC2B8D2134BD4600E74633 /* Group.swift */; };
+		FBDC2B902134C38C00E74633 /* GroupMessagesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC2B8F2134C38C00E74633 /* GroupMessagesCell.swift */; };
+		FBDC2B922134C40400E74633 /* GroupMessagesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FBDC2B912134C40400E74633 /* GroupMessagesVC.swift */; };
 		FBE673EC20ED78F10005ABAB /* Roboto-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280AB92042975600EE1627 /* Roboto-Black.ttf */; };
 		FBE673ED20ED78F10005ABAB /* Roboto-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280ABD2042975700EE1627 /* Roboto-BlackItalic.ttf */; };
 		FBE673EE20ED78F10005ABAB /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = FB280AC22042975700EE1627 /* Roboto-Bold.ttf */; };
@@ -114,6 +116,8 @@
 		FBDC2B8921339B8200E74633 /* Follower.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Follower.swift; sourceTree = "<group>"; };
 		FBDC2B8B2134BA5700E74633 /* MessageGroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MessageGroupCell.swift; sourceTree = "<group>"; };
 		FBDC2B8D2134BD4600E74633 /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
+		FBDC2B8F2134C38C00E74633 /* GroupMessagesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesCell.swift; sourceTree = "<group>"; };
+		FBDC2B912134C40400E74633 /* GroupMessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesVC.swift; sourceTree = "<group>"; };
 		FBED60E92044F74600136153 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayVC.swift; sourceTree = "<group>"; };
 		FBFA81CF213393D900555816 /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
@@ -157,6 +161,7 @@
 				FB98A5AF212F354F00415183 /* FeedCell.swift */,
 				FBFA81D1213396C800555816 /* GroupCell.swift */,
 				FBDC2B8B2134BA5700E74633 /* MessageGroupCell.swift */,
+				FBDC2B8F2134C38C00E74633 /* GroupMessagesCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -259,6 +264,7 @@
 				FB98A5B12130BD9B00415183 /* CreatePostVC.swift */,
 				FB98A5B72130DEB700415183 /* MessagesVC.swift */,
 				FBFA81CF213393D900555816 /* CreateGroupVC.swift */,
+				FBDC2B912134C40400E74633 /* GroupMessagesVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -399,6 +405,7 @@
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Hero/Hero.framework",
+				"${BUILT_PRODUCTS_DIR}/IHKeyboardAvoiding/IHKeyboardAvoiding.framework",
 				"${BUILT_PRODUCTS_DIR}/JTAppleCalendar/JTAppleCalendar.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/Motion/Motion.framework",
@@ -414,6 +421,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hero.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IHKeyboardAvoiding.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/JTAppleCalendar.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Motion.framework",
@@ -457,6 +465,7 @@
 				FBDC2B8E2134BD4600E74633 /* Group.swift in Sources */,
 				FB98A5AC212CA81D00415183 /* FollowerFollowingVC.swift in Sources */,
 				FB151C4A204F8FE3009ADA4C /* CalendarCell.swift in Sources */,
+				FBDC2B922134C40400E74633 /* GroupMessagesVC.swift in Sources */,
 				FBED60EA2044F74700136153 /* CalendarVC.swift in Sources */,
 				FB8426D82051C064005054BC /* User.swift in Sources */,
 				FBDC2B8C2134BA5700E74633 /* MessageGroupCell.swift in Sources */,
@@ -475,6 +484,7 @@
 				FB98A5B42130C07500415183 /* ButtonPushUp.swift in Sources */,
 				FB98A5B0212F354F00415183 /* FeedCell.swift in Sources */,
 				FBFA81D2213396C800555816 /* GroupCell.swift in Sources */,
+				FBDC2B902134C38C00E74633 /* GroupMessagesCell.swift in Sources */,
 				FB3EACB92050EDB20076A9AD /* StorageService.swift in Sources */,
 				FB0A4E5B210F71E700AE9016 /* ForgotPasswordVC.swift in Sources */,
 				FB12E1A121239A8E00744DF4 /* UserCell.swift in Sources */,
