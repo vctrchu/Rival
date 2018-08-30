@@ -7,12 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class FeedVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
     var messageArray = [Message]()
+    var destinationUid = ""
+    var destinationName = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -26,20 +29,26 @@ class FeedVC: UIViewController {
             self.messageArray = returnMessagesArray.reversed()
             self.tableView.reloadData()
         }
-//        DataService.instance.updateAllFeedMessage(forGroupKey: nil) { (isComplete) in
-//            if isComplete {
-//                DataService.instance.getAllFeedMessage { (returnMessagesArray) in
-//                    self.messageArray = returnMessagesArray.reversed()
-//                    self.tableView.reloadData()
-//                }
-//            } else {
-//                print("fail to update feed")
-//            }
-//        }
     }
     
-
-
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "FeedToProfile" {
+            if let destinationVC = segue.destination as? ProfilePageVC {
+                destinationVC.hero.isEnabled = true
+                destinationVC.hero.modalAnimationType = .slide(direction: .left)
+                if destinationUid == Auth.auth().currentUser?.uid {
+                    destinationVC.uid = destinationUid
+                    destinationVC.name = destinationName
+                    destinationVC.typeOfProfile = "self"
+                } else {
+                    destinationVC.uid = destinationUid
+                    destinationVC.name = destinationName
+                    destinationVC.typeOfProfile = "other"
+                }
+            }
+        }
+    }
+    
 }
 
 extension FeedVC: UITableViewDelegate, UITableViewDataSource {
@@ -58,14 +67,14 @@ extension FeedVC: UITableViewDelegate, UITableViewDataSource {
         
         let message = messageArray[indexPath.row]
         
-        cell.configureCell(profileImage: message.senderProfileUrl, fullname: message.senderName, checkInNumber: "0", message: message.content)
+        cell.configureCell(profileImage: message.senderProfileUrl, fullname: message.senderName, message: message.content)
         
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //destinationUID = uidArray[indexPath.row]
-        //destinationName = fullNameArray[indexPath.row]
-        //performSegue(withIdentifier: "SearchProfileSegue", sender: self)
+        destinationUid = messageArray[indexPath.row].senderId
+        destinationName = messageArray[indexPath.row].senderName
+        performSegue(withIdentifier: "FeedToProfile", sender: self)
     }
 }

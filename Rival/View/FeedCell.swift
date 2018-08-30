@@ -13,10 +13,9 @@ class FeedCell: UITableViewCell {
 
     @IBOutlet weak var profileImg: UIImageView!
     @IBOutlet weak var descriptionLbl: UILabel!
-    @IBOutlet weak var checkInTimeLbl: UILabel!
     @IBOutlet weak var nameLbl: UILabel!
     
-    func configureCell(profileImage url: String, fullname: String, checkInNumber: String, message: String) {
+    func configureCell(profileImage url: String, fullname: String, message: String) {
         
         profileImg.layer.cornerRadius = profileImg.frame.size.width / 2
         profileImg.layer.masksToBounds = true

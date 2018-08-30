@@ -111,6 +111,5 @@ extension GroupMessagesVC: UITableViewDelegate, UITableViewDataSource {
     }
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         self.view.endEditing(true)
-        print("lol")
     }
 }

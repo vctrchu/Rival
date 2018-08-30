@@ -24,7 +24,7 @@ class CreateGroupVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.hideKeyboardWhenTappedAround()
         tableView.delegate = self
         tableView.dataSource = self
         emailSearchTextfield.delegate = self

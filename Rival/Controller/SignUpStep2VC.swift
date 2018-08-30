@@ -68,10 +68,6 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate {
                                 self.calendarVCTabBarController?.selectedIndex = 1
                                 self.present(calendarVCTabBarController, animated: true, completion: nil)
                             }
-//                            let tabBarVC = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC")
-//                            tabBarVC!.modalTransitionStyle = .crossDissolve
-//
-//                            self.present(tabBarVC!, animated: true, completion: nil)
                         })
                     })
                 } else {

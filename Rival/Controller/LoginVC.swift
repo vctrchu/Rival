@@ -44,20 +44,6 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
         return true
     }
     
-//    func textFieldDidBeginEditing(_ textField: UITextField) {
-//        UIView.animate(withDuration: 0.3, animations: {
-//            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y - 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
-//
-//        })
-//    }
-//
-//    func textFieldDidEndEditing(_ textField: UITextField) {
-//        UIView.animate(withDuration: 0.3, animations: {
-//            self.view.frame = CGRect(x:self.view.frame.origin.x, y:self.view.frame.origin.y + 30, width:self.view.frame.size.width, height:self.view.frame.size.height);
-//
-//        })
-//    }
-    
     
     func loginUser() {
         if let email = emailaddressTxtField.text, let password = passwordTxtField.text {
