@@ -1430,7 +1430,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qLN-xg-sFk">
-                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="109"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="375" height="104"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="aye-3Q-2TH">
                                                             <rect key="frame" x="15" y="12" width="50" height="50"/>
@@ -1439,8 +1439,8 @@
                                                                 <constraint firstAttribute="width" constant="50" id="hqc-Vo-8ng"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="has checked in 5 days in a row!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-dB-Bxe">
-                                                            <rect key="frame" x="16" y="69" width="195.5" height="18.5"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Dbt-dB-Bxe">
+                                                            <rect key="frame" x="16" y="69" width="48.5" height="19"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1466,7 +1466,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="trailing" secondItem="qLN-xg-sFk" secondAttribute="trailing" id="RmR-dy-dUe"/>
                                                 <constraint firstItem="qLN-xg-sFk" firstAttribute="leading" secondItem="7Bf-Hj-kVR" secondAttribute="leading" id="WXm-XM-zu5"/>
-                                                <constraint firstAttribute="bottom" secondItem="qLN-xg-sFk" secondAttribute="bottom" id="gFJ-e2-kgt"/>
+                                                <constraint firstAttribute="bottom" secondItem="qLN-xg-sFk" secondAttribute="bottom" constant="5" id="gFJ-e2-kgt"/>
                                                 <constraint firstItem="qLN-xg-sFk" firstAttribute="top" secondItem="7Bf-Hj-kVR" secondAttribute="top" id="hKs-np-XiI"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -1585,22 +1585,22 @@
                                     <constraint firstAttribute="height" constant="20" id="tgt-Bg-DhK"/>
                                 </constraints>
                             </view>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultProfilePic" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-h9-l9x">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Acz-h9-l9x">
                                 <rect key="frame" x="16" y="84" width="50" height="50"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="50" id="Ec6-n9-Vyd"/>
                                     <constraint firstAttribute="width" constant="50" id="gYa-q4-Y2l"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Victor Chu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhU-yT-Z4V">
-                                <rect key="frame" x="74" y="98" width="80" height="23"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HhU-yT-Z4V">
+                                <rect key="frame" x="74" y="109.5" width="0.0" height="0.0"/>
                                 <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="17"/>
                                 <color key="textColor" red="0.98431372549999996" green="0.70196078429999997" blue="0.043137254899999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="Say somthing here..." textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="of4-3T-Q4g">
                                 <rect key="frame" x="16" y="148" width="343" height="457"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" red="0.11372549019607843" green="0.12156862745098039" blue="0.12549019607843137" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="Roboto-Light" family="Roboto" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -2062,7 +2062,7 @@
                                                                 <constraint firstAttribute="height" constant="50" id="e1S-K5-ey5"/>
                                                             </constraints>
                                                         </imageView>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bPp-iO-rQh">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message content" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="bPp-iO-rQh">
                                                             <rect key="frame" x="73" y="43" width="109.5" height="18.5"/>
                                                             <fontDescription key="fontDescription" name="Roboto-Regular" family="Roboto" pointSize="14"/>
                                                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -2078,8 +2078,8 @@
                                                     <color key="backgroundColor" red="0.1058823529" green="0.1176470588" blue="0.12549019610000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstItem="drG-9c-e6I" firstAttribute="top" secondItem="7zT-zV-ahH" secondAttribute="top" constant="12" id="9wM-kR-qVc"/>
-                                                        <constraint firstItem="bPp-iO-rQh" firstAttribute="top" secondItem="V12-K4-tOa" secondAttribute="bottom" constant="8.5" id="EXV-gY-FVf"/>
-                                                        <constraint firstItem="bPp-iO-rQh" firstAttribute="leading" secondItem="drG-9c-e6I" secondAttribute="trailing" constant="8" id="IVV-Y6-HPH"/>
+                                                        <constraint firstItem="bPp-iO-rQh" firstAttribute="top" secondItem="V12-K4-tOa" secondAttribute="bottom" constant="8" id="EXV-gY-FVf"/>
+                                                        <constraint firstItem="bPp-iO-rQh" firstAttribute="leading" secondItem="drG-9c-e6I" secondAttribute="trailing" constant="8.5" id="IVV-Y6-HPH"/>
                                                         <constraint firstItem="drG-9c-e6I" firstAttribute="leading" secondItem="7zT-zV-ahH" secondAttribute="leading" constant="15" id="JGh-Fy-mxq"/>
                                                         <constraint firstItem="V12-K4-tOa" firstAttribute="leading" secondItem="drG-9c-e6I" secondAttribute="trailing" constant="8" id="U3e-6I-T5l"/>
                                                         <constraint firstItem="V12-K4-tOa" firstAttribute="top" secondItem="7zT-zV-ahH" secondAttribute="top" constant="12" id="ipF-Ha-3Re"/>

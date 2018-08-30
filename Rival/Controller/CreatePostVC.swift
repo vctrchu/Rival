@@ -30,9 +30,19 @@ class CreatePostVC: UIViewController {
         super.viewDidAppear(animated)
         DataService.instance.getFullName(uid: (Auth.auth().currentUser?.uid)!) { (returnName) in
             self.name = returnName
+            self.nameLbl.text = returnName
         }
         DataService.instance.getUserImage(uid: (Auth.auth().currentUser?.uid)!) { (returnUrl) in
             self.url = returnUrl
+            self.profileImg.layer.cornerRadius = self.profileImg.frame.size.width / 2
+            self.profileImg.layer.masksToBounds = true
+            if returnUrl == "none" {
+                let image = UIImage(named: "defaultProfilePic")
+                self.profileImg.image = image
+            } else {
+                let imageUrl = URL(string: returnUrl)
+                self.profileImg.kf.setImage(with: imageUrl)
+            }
         }
     }
 

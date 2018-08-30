@@ -44,14 +44,21 @@ class GroupMessagesVC: UIViewController {
         }
         
         DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
-            DataService.instance.getAllMessagesFor(desiredGroup: self.group!, handler: { (returnedGroupMessages) in
-                self.groupMessages = returnedGroupMessages
-                self.tableView.reloadData()
-                
-                if self.groupMessages.count > 0 {
-                    self.tableView.scrollToRow(at: IndexPath(row: self.groupMessages.count - 1, section: 0), at: .none, animated: true)
+            DataService.instance.updateAllFeedMessage(forGroupKey: self.group?.key, handler: { (isComplete) in
+                if isComplete {
+                    DataService.instance.getAllMessagesFor(desiredGroup: self.group!, handler: { (returnedGroupMessages) in
+                        self.groupMessages = returnedGroupMessages
+                        self.tableView.reloadData()
+                        
+                        if self.groupMessages.count > 0 {
+                            self.tableView.scrollToRow(at: IndexPath(row: self.groupMessages.count - 1, section: 0), at: .none, animated: true)
+                        }
+                    })
+                } else {
+                    print("failed to update group feed.")
                 }
             })
+            
         }
     }
     

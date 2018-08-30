@@ -46,6 +46,16 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         setNameAndCalendar()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        DataService.instance.updateAllFeedMessage(forGroupKey: nil) { (isComplete) in
+            if isComplete {
+                print("updating feed complete.")
+            } else {
+                print("fail to update feed.")
+            }
+        }
+    }
     
     func setupCalendar() {
         calendarView.scrollToDate(Date(), animateScroll: false)

@@ -64,9 +64,41 @@ class DataService {
         }
     }
     
+    func updateAllFeedMessage(forGroupKey key: String?, handler: @escaping(_ status: Bool) ->()) {
+        if key != nil {
+            REF_GROUPS.child(key!).child("messages").observeSingleEvent(of: .value) { (messageSnapshot) in
+                guard let messageSnapshot = messageSnapshot.children.allObjects as? [DataSnapshot] else { return }
+                
+                for message in messageSnapshot {
+                    let senderId = message.childSnapshot(forPath: "senderId").value as! String
+                    
+                    self.getUserImage(uid: senderId, handler: { (returnedUrl) in
+                        self.REF_GROUPS.child(key!).child("messages").child(message.key).updateChildValues(["profileUrl": returnedUrl])
+                    })
+                }
+                handler(true)
+            }
+            
+        } else {
+            REF_FEED.observeSingleEvent(of: .value) { (postSnapshot) in
+                guard let postSnapshot = postSnapshot.children.allObjects as? [DataSnapshot] else { return }
+                
+                for post in postSnapshot {
+                    
+                    let name = post.childSnapshot(forPath: "name").value as! String
+                    let senderId = post.childSnapshot(forPath: "senderID").value as! String
+                    
+                    self.getUserImage(uid: senderId, handler: { (returnedUrl) in
+                        self.REF_FEED.child(post.key).updateChildValues(["profileUrl": returnedUrl])
+                    })
+                }
+                handler(true)
+            }
+        }
+    }
+    
     func getAllFeedMessage(handler: @escaping(_ messages: [Message]) -> ()) {
         var messageArray = [Message]()
-        var url = "none"
         REF_FEED.observeSingleEvent(of: .value) { (snapshot) in
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             
@@ -74,10 +106,7 @@ class DataService {
                 let content = message.childSnapshot(forPath: "content").value as! String
                 let senderId = message.childSnapshot(forPath: "senderID").value as! String
                 let senderName = message.childSnapshot(forPath: "name").value as! String
-                
-                if message.hasChild("profileUrl") {
-                    url = message.childSnapshot(forPath: "profileUrl").value as! String
-                }
+                let url = message.childSnapshot(forPath: "profileUrl").value as! String
                 
                 let message = Message(content: content, senderId: senderId, senderName: senderName, senderProfielUrl: url)
                 messageArray.append(message)
@@ -244,13 +273,28 @@ class DataService {
         }
     }
     
+    func updateAllFollowerFollowing(uid: String, type: String, handler: @escaping(_ status: Bool) -> ()) {
+        
+        REF_USERS.child(uid).child(type).observeSingleEvent(of: .value) { (followerSnapshot) in
+            guard let followerSnapshot = followerSnapshot.children.allObjects as? [DataSnapshot] else { return }
+            
+            for follower in followerSnapshot {
+                
+                self.getUserImage(uid: follower.key, handler: { (returnedUrl) in
+                    self.REF_USERS.child(uid).child(type).child(follower.key).updateChildValues(["profileUrl": returnedUrl])
+                })
+            }
+            handler(true)
+        }
+    }
+    
     func getAllFollowerFollowing(uid: String, type: String, handler: @escaping(_ followerArray: [Follower]) -> ()) {
         var followerArray = [Follower]()
         
-        REF_USERS.child(uid).child(type).observe(.value) { (snapshot) in
-            guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
+        REF_USERS.child(uid).child(type).observeSingleEvent(of: .value) { (followerSnapshot) in
+            guard let followerSnapshot = followerSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
-            for child in snapshot {
+            for child in followerSnapshot {
                 let uid = child.key
                 let name = child.childSnapshot(forPath: "name").value as! String
                 let profileUrl = child.childSnapshot(forPath: "profileUrl").value as! String

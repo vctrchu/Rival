@@ -18,7 +18,6 @@ class FeedVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -27,6 +26,16 @@ class FeedVC: UIViewController {
             self.messageArray = returnMessagesArray.reversed()
             self.tableView.reloadData()
         }
+//        DataService.instance.updateAllFeedMessage(forGroupKey: nil) { (isComplete) in
+//            if isComplete {
+//                DataService.instance.getAllFeedMessage { (returnMessagesArray) in
+//                    self.messageArray = returnMessagesArray.reversed()
+//                    self.tableView.reloadData()
+//                }
+//            } else {
+//                print("fail to update feed")
+//            }
+//        }
     }
     
 

@@ -23,21 +23,39 @@ class FollowerFollowingVC: UIViewController {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-        setupVC()
     }
     
-    func setupVC() {
-        
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        followerArray = []
         let uid = Auth.auth().currentUser?.uid
-        
         if typeOfVC == "followers" {
-            DataService.instance.getAllFollowerFollowing(uid: uid!, type: "followers") { (returnFollowerArray) in
-                self.followerArray = returnFollowerArray
+            let type = "followers"
+            DataService.instance.updateAllFollowerFollowing(uid: uid!, type: type) { (isComplete) in
+                if isComplete {
+                    DataService.instance.getAllFollowerFollowing(uid: uid!, type: type) { (returnFollowerArray) in
+                        self.followerArray = returnFollowerArray
+                        self.tableView.reloadData()
+                        
+                    }
+                } else {
+                    print("failed to update followers list.")
+                }
             }
         } else if typeOfVC == "following" {
-            DataService.instance.getAllFollowerFollowing(uid: uid!, type: "following") { (returnFollowerArray) in
-                self.followerArray = returnFollowerArray
+            let type = "following"
+            DataService.instance.updateAllFollowerFollowing(uid: uid!, type: type) { (isComplete) in
+                if isComplete {
+                    DataService.instance.getAllFollowerFollowing(uid: uid!, type: "following") { (returnFollowerArray) in
+                        //self.followerArray = []
+                        self.followerArray = returnFollowerArray
+                        self.tableView.reloadData()
+                    }
+                } else {
+                    print("failed to update following list.")
+                }
             }
+            
         }
     }
     
