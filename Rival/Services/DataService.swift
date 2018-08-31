@@ -164,7 +164,7 @@ class DataService {
     func numberOfCheckIns(uid: String, handler: @escaping (_ numberCheckIns: String) -> ()) {
         var numberCheckIns = 0
         
-        REF_USERS.child(uid).child("calendarEvents").observe(.value) { (snapshot) in
+        REF_USERS.child(uid).child("calendarEvents").observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let value = snap.value as! String
@@ -218,7 +218,7 @@ class DataService {
     func getFullName(uid: String, handler: @escaping (_ fullName: String) -> ()) {
         var fullName = ""
         
-        REF_USERS.child(uid).child("fullname").observe(.value) { (snapshot) in
+        REF_USERS.child(uid).child("fullname").observeSingleEvent(of: .value) { (snapshot) in
             fullName = snapshot.value as! String
             handler(fullName)
         }
@@ -238,7 +238,7 @@ class DataService {
     func getCalendarEvents(uid: String, handler: @escaping(_ calendarEventsDictionary: [Date: String]) -> ()) {
         var calendarEventsDictionary = [Date: String]()
         
-        REF_USERS.child(uid).child("calendarEvents").observe(.value) { (snapshot) in
+        REF_USERS.child(uid).child("calendarEvents").observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children {
                 let snap = child as! DataSnapshot
                 let key = snap.key as String

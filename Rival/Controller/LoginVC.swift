@@ -12,7 +12,7 @@ import SimpleAnimation
 import RAMAnimatedTabBarController
 import Firebase
 
-class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
+class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate, SignUpVC1Delegate {
 
     @IBOutlet weak var emailaddressTxtField: UITextField!
     @IBOutlet weak var passwordTxtField: UITextField!
@@ -22,28 +22,14 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
     @IBOutlet weak var loginErrorLabel: UILabel!
     
     private var calendarVCTabBarController: RAMAnimatedTabBarController?
+    private var signUpVC1: SignUpStep1VC?
 
     override func viewDidLoad() {
         super.viewDidLoad()
         emailaddressTxtField.delegate = self
         passwordTxtField.delegate = self
         self.hideKeyboardWhenTappedAround()
-        
     }
-    
-    //MARK: - Controlling the Keyboard
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if textField == emailaddressTxtField {
-            textField.resignFirstResponder()
-            passwordTxtField.becomeFirstResponder()
-        } else if textField == passwordTxtField {
-            textField.resignFirstResponder()
-            loginUser()
-        }
-        return true
-    }
-    
     
     func loginUser() {
         if let email = emailaddressTxtField.text, let password = passwordTxtField.text {
@@ -55,8 +41,10 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
                         if let calendarVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                             self.calendarVCTabBarController = calendarVCTabBarController
                             calendarVCTabBarController.modalTransitionStyle = .crossDissolve
-                            if let groupsVC = calendarVCTabBarController.viewControllers?[1] as? CalendarVC {
-                                groupsVC.delegate = self
+                            if let navController = calendarVCTabBarController.viewControllers?[1] as? UINavigationController {
+                                if let groupsVC = navController.viewControllers[0] as? CalendarVC {
+                                    groupsVC.delegate = self
+                                }
                             }
                             self.calendarVCTabBarController?.selectedIndex = 1
                             self.present(calendarVCTabBarController, animated: true, completion: nil)
@@ -86,17 +74,20 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
         performSegue(withIdentifier: "toForgotPassword", sender: self)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSignUp1" {
+            if let signUpVC1 = segue.destination as? SignUpStep1VC {
+                self.signUpVC1 = signUpVC1
+                signUpVC1.delegate = self
+            }
+        }
+    }
     
-    
-    
-    
-    
-    
-    // Second new account screen when already have an account button is pressed
+    // Second new account screen when "already have an account" button is pressed.
     @IBAction func unwindToLoginVC(segue: UIStoryboardSegue) {
     }
     
-    //User and Lock image animations in textfield
+    // User and lock image animations in textfield.
     @IBAction func emailaddressTxtFieldTapped(_ sender: Any) {
         userIcon.hop()
     }
@@ -104,9 +95,22 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
         lockIcon.hop()
     }
     
+    // Pressing return tabs to the next textfield or performs login.
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailaddressTxtField {
+            textField.resignFirstResponder()
+            passwordTxtField.becomeFirstResponder()
+        } else if textField == passwordTxtField {
+            textField.resignFirstResponder()
+            loginUser()
+        }
+        return true
+    }
+    
     func onLogoutPressed() {
         emailaddressTxtField.text = nil
         passwordTxtField.text = nil
+        signUpVC1?.dismiss(animated: false, completion: nil)
         calendarVCTabBarController?.dismiss(animated: false, completion: nil)
     }
 

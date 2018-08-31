@@ -11,7 +11,11 @@ import SimpleAnimation
 import Motion
 import TransitionButton
 
-class SignUpStep1VC: UIViewController, UITextFieldDelegate {
+protocol SignUpVC1Delegate: class {
+    func onLogoutPressed()
+}
+
+class SignUpStep1VC: UIViewController, UITextFieldDelegate, SignUpVC2Delegate {
     
     @IBOutlet weak var nameLbl: UILabel!
     @IBOutlet weak var userLbl: UILabel!
@@ -20,6 +24,9 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var emailIconImg: UIImageView!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nextBtn: TransitionButton!
+    
+    private var signUpStep2Controller: SignUpStep2VC?
+    weak var delegate: SignUpVC1Delegate?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,7 +43,7 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
     
     //MARK: - Controlling the Keyboard
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+    
         if textField == firstNameTxtField {
             textField.resignFirstResponder()
             lastNameTxtField.becomeFirstResponder()
@@ -45,6 +52,17 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
             nextButton()
         }
         return true
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "toSignUp2" {
+            if let signupVC2 = segue.destination as? SignUpStep2VC {
+                self.signUpStep2Controller = signupVC2
+                signupVC2.delegate = self
+                let fullName = firstNameTxtField.text!.capitalized + " " + lastNameTxtField.text!.capitalized
+                signupVC2.fullNameTxt = fullName
+            }
+        }
     }
     
     func nextButton() {
@@ -56,26 +74,16 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
             performSegue(withIdentifier: "toSignUp2", sender: self)
         }
     }
-
-
-    @IBAction func backBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if (segue.identifier == "toSignUp2") {
-            let signupVC2 = segue.destination as! SignUpStep2VC
-            let fullName = firstNameTxtField.text!.capitalized + " " + lastNameTxtField.text!.capitalized
-            signupVC2.fullNameTxt = fullName
-        }
-    }
     
     @IBAction func nextBtnPressed(_ sender: Any) {
         nextButton()
     }
     
-    //Name and user label simple animation/Users/victorchu/Desktop/Rival/Pods/Pods.xcodeprojs
+    @IBAction func backBtnPressed(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     
+    // Name and user label simple animations.
     @IBAction func nameTxtFieldPressed(_ sender: Any) {
         nameLbl.hop()
     }
@@ -84,6 +92,12 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate {
         userLbl.hop()
     }
     
+    func onLogoutPressed() {
+        firstNameTxtField.text = nil
+        lastNameTxtField.text = nil
+        signUpStep2Controller?.dismiss(animated: false, completion: {
+            self.delegate?.onLogoutPressed()
+        })
+    }
 
-    
 }

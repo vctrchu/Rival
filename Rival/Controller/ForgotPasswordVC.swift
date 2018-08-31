@@ -28,15 +28,6 @@ class ForgotPasswordVC: UIViewController, UITextFieldDelegate {
         }
     }
     
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        if textField == emailTextfield {
-            textField.resignFirstResponder()
-            resetPassword()
-        }
-        return true
-    }
-    
     func resetPassword() {
         if let email = emailTextfield.text {
             sendButton.startAnimation()
@@ -63,5 +54,13 @@ class ForgotPasswordVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func sendButtonPressed(_ sender: Any) {
         resetPassword()
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if textField == emailTextfield {
+            textField.resignFirstResponder()
+            resetPassword()
+        }
+        return true
     }
 }

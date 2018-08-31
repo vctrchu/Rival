@@ -12,8 +12,11 @@ import SimpleAnimation
 import TransitionButton
 import RAMAnimatedTabBarController
 
-class SignUpStep2VC: UIViewController, UITextFieldDelegate {
+protocol SignUpVC2Delegate: class {
+    func onLogoutPressed()
+}
 
+class SignUpStep2VC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
     
     @IBOutlet weak var emailLbl: UILabel!
     @IBOutlet weak var passwordLbl: UILabel!
@@ -24,8 +27,13 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var completeBtn: TransitionButton!
     
     private var calendarVCTabBarController: RAMAnimatedTabBarController?
+    weak var delegate: SignUpVC2Delegate?
 
     var fullNameTxt = ""
+    
+    func initData(forFullName fullName: String) {
+        self.fullNameTxt = fullName
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,6 +72,11 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate {
                             
                             if let calendarVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                                 self.calendarVCTabBarController = calendarVCTabBarController
+                                if let navController = calendarVCTabBarController.viewControllers?[1] as? UINavigationController {
+                                    if let groupsVC = navController.viewControllers[0] as? CalendarVC {
+                                        groupsVC.delegate = self
+                                    }
+                                }
                                 calendarVCTabBarController.modalTransitionStyle = .crossDissolve
                                 self.calendarVCTabBarController?.selectedIndex = 1
                                 self.present(calendarVCTabBarController, animated: true, completion: nil)
@@ -78,6 +91,14 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate {
                 }
             })
         }
+    }
+    
+    func onLogoutPressed() {
+        emailTxtField.text = nil
+        passwordTxtField.text = nil
+        calendarVCTabBarController?.dismiss(animated: false, completion: {
+            self.delegate?.onLogoutPressed()
+        })
     }
     
     @IBAction func backBtnPressed(_ sender: Any) {
