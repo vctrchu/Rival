@@ -22,12 +22,14 @@ class LaunchScreenDelayVC: UIViewController, CalendarVCDelegate {
             if Auth.auth().currentUser == nil {
                 self.presentLoginScreen()
             } else {
+
                 if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                     self.groupsVCTabBarController = groupsVCTabBarController
                     groupsVCTabBarController.modalTransitionStyle = .crossDissolve
                     if let groupsVC = groupsVCTabBarController.viewControllers?.first as? CalendarVC {
                         groupsVC.delegate = self
                     }
+                    
                     self.groupsVCTabBarController?.selectedIndex = 1
                     self.present(groupsVCTabBarController, animated: true, completion: nil)
                 }

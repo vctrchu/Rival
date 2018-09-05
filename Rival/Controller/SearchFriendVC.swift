@@ -13,7 +13,6 @@ import Hero
 class SearchFriendVC: UIViewController {
 
     @IBOutlet weak var searchBar: UISearchBar!
-    
     @IBOutlet weak var tableView: UITableView!
         
     var fullNameArray = [String]()

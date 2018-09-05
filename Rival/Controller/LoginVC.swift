@@ -45,6 +45,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate, SignUp
                 if success {
                     self.loginErrorLabel.text = " "
                     self.loginBtn.stopAnimation(animationStyle: .expand, revertAfterDelay: 1, completion: {
+                        
                         if let calendarVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                             self.calendarVCTabBarController = calendarVCTabBarController
                             calendarVCTabBarController.modalTransitionStyle = .crossDissolve
@@ -53,6 +54,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate, SignUp
                                     groupsVC.delegate = self
                                 }
                             }
+                            
                             self.calendarVCTabBarController?.selectedIndex = 1
                             self.present(calendarVCTabBarController, animated: true, completion: nil)
                         }

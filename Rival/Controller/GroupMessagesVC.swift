@@ -22,7 +22,6 @@ class GroupMessagesVC: UIViewController {
     
     var group: Group?
     var groupMessages = [Message]()
-    var offsetY:CGFloat = 0
     
     func initData(forGroup group: Group) {
         self.group = group

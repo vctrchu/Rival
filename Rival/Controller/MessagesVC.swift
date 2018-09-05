@@ -32,9 +32,6 @@ class MessagesVC: UIViewController {
         }
     }
 
-
-
-
 }
 
 extension MessagesVC: UITableViewDelegate, UITableViewDataSource {
