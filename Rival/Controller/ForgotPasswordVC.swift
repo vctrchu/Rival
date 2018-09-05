@@ -10,6 +10,7 @@ import UIKit
 import SimpleAnimation
 import Firebase
 import TransitionButton
+import IHKeyboardAvoiding
 
 class ForgotPasswordVC: UIViewController, UITextFieldDelegate {
     
@@ -22,10 +23,14 @@ class ForgotPasswordVC: UIViewController, UITextFieldDelegate {
         super.viewDidLoad()
         emailTextfield.delegate = self
         self.hideKeyboardWhenTappedAround()
-        
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.35) {
             self.lockImage.hop()
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        KeyboardAvoiding.avoidingView = self.sendButton
     }
     
     func resetPassword() {

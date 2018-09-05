@@ -36,10 +36,15 @@ class SideMenuVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        setUser()
+        //setUser()
         sideMenuCustomization()
         outletCustomization()
         addTapGestures()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        setUser()
     }
     
     func addTapGestures() {

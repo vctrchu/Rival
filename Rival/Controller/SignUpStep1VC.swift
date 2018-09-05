@@ -10,6 +10,8 @@ import UIKit
 import SimpleAnimation
 import Motion
 import TransitionButton
+import IHKeyboardAvoiding
+
 
 protocol SignUpVC1Delegate: class {
     func onLogoutPressed()
@@ -39,6 +41,11 @@ class SignUpStep1VC: UIViewController, UITextFieldDelegate, SignUpVC2Delegate {
         }
         
         self.motionTransitionType = .autoReverse(presenting: MotionTransitionAnimationType.slide(direction: MotionTransitionAnimationType.Direction.left))
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        KeyboardAvoiding.avoidingView = self.nextBtn
     }
     
     //MARK: - Controlling the Keyboard

@@ -11,6 +11,7 @@ import TransitionButton
 import SimpleAnimation
 import RAMAnimatedTabBarController
 import Firebase
+import IHKeyboardAvoiding
 
 class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate, SignUpVC1Delegate {
 
@@ -20,6 +21,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate, SignUp
     @IBOutlet weak var userIcon: UIImageView!
     @IBOutlet weak var lockIcon: UIImageView!
     @IBOutlet weak var loginErrorLabel: UILabel!
+    @IBOutlet weak var forgotYourPWBtn: UIButton!
     
     private var calendarVCTabBarController: RAMAnimatedTabBarController?
     private var signUpVC1: SignUpStep1VC?
@@ -29,6 +31,11 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate, SignUp
         emailaddressTxtField.delegate = self
         passwordTxtField.delegate = self
         self.hideKeyboardWhenTappedAround()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        KeyboardAvoiding.avoidingView = self.forgotYourPWBtn
     }
     
     func loginUser() {

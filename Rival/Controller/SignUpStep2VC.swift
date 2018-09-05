@@ -11,6 +11,7 @@ import Motion
 import SimpleAnimation
 import TransitionButton
 import RAMAnimatedTabBarController
+import IHKeyboardAvoiding
 
 protocol SignUpVC2Delegate: class {
     func onLogoutPressed()
@@ -31,10 +32,6 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
 
     var fullNameTxt = ""
     
-    func initData(forFullName fullName: String) {
-        self.fullNameTxt = fullName
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         emailTxtField.delegate = self
@@ -46,7 +43,11 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
         }
         
         self.motionTransitionType = .autoReverse(presenting: MotionTransitionAnimationType.slide(direction: MotionTransitionAnimationType.Direction.left))
-        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        KeyboardAvoiding.avoidingView = self.completeBtn
     }
     
     //MARK: - Controlling the Keyboard
@@ -77,6 +78,7 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
                                         groupsVC.delegate = self
                                     }
                                 }
+                                
                                 calendarVCTabBarController.modalTransitionStyle = .crossDissolve
                                 self.calendarVCTabBarController?.selectedIndex = 1
                                 self.present(calendarVCTabBarController, animated: true, completion: nil)
