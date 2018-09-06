@@ -10,6 +10,7 @@ import UIKit
 import Firebase
 import Kingfisher
 import IHKeyboardAvoiding
+import SVProgressHUD
 
 class EditProfileVC: UIViewController {
 
@@ -25,14 +26,11 @@ class EditProfileVC: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         profileImage.layer.cornerRadius = profileImage.frame.size.width/2
+        
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(EditProfileVC.handleSelectProfileImageView))
         profileImage.addGestureRecognizer(tapGesture)
         profileImage.isUserInteractionEnabled = true
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        KeyboardAvoiding.avoidingView = self.lowerSV
+        
         emailTxtField.text = Auth.auth().currentUser?.email
         DataService.instance.getUserImage(uid: (Auth.auth().currentUser?.uid)!) { (returnedUrl) in
             if returnedUrl == "none" {
@@ -43,6 +41,11 @@ class EditProfileVC: UIViewController {
                 self.profileImage.kf.setImage(with: imageUrl)
             }
         }
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        KeyboardAvoiding.avoidingView = self.lowerSV
     }
     
     @IBAction func changeProfilePhotoPressed(_ sender: Any) {
@@ -63,33 +66,45 @@ class EditProfileVC: UIViewController {
     
     @IBAction func doneBtnPressed(_ sender: Any) {
         
-        //let credential = EmailAuthProvider.credential(withEmail: <#T##String#>, password: <#T##String#>)
+        let alert = UIAlertController(title: "Please enter your password to continue.", message: nil, preferredStyle: .alert)
+        alert.addTextField { (textField) in
+            textField.isSecureTextEntry = true
+        }
         
-        if selectedImage == nil && emailTxtField.text != Auth.auth().currentUser?.email! {
-            Auth.auth().currentUser?.updateEmail(to: emailTxtField.text!, completion: { (error) in
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: { [weak alert] (_) in
+            let textField = alert?.textFields![0] // Force unwrapping because we know it exists.
+            SVProgressHUD.show()
+            let credential = EmailAuthProvider.credential(withEmail: (Auth.auth().currentUser?.email)!, password: (textField?.text!)!)
+            Auth.auth().currentUser?.reauthenticate(with: credential, completion: { (error) in
                 if let error = error {
+                    print("error with credentials")
                     self.errorLabel.text = String(describing: error.localizedDescription)
                 } else {
-                    self.dismiss(animated: true, completion: nil)
+                    if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+                        StorageService.instance.uploadProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
+                    }
+                    Auth.auth().currentUser?.updateEmail(to: self.emailTxtField.text!, completion: { (error) in
+                        if let error = error {
+                            self.errorLabel.text = String(describing: error.localizedDescription)
+                            SVProgressHUD.dismiss()
+                        } else {
+                            SVProgressHUD.dismiss()
+                            self.dismiss(animated: true, completion: nil)
+                        }
+                    })
                 }
             })
+        }))
+        
+        if selectedImage == nil && emailTxtField.text != Auth.auth().currentUser?.email! {
+            self.present(alert, animated: true, completion: nil)
         } else if selectedImage != nil && emailTxtField.text == Auth.auth().currentUser?.email! {
             if let profileImg = selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
                 StorageService.instance.uploadProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
                 dismiss(animated: true, completion: nil)
             }
         } else {
-            if let profileImg = selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
-                StorageService.instance.uploadProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
-            }
-            Auth.auth().currentUser?.updateEmail(to: emailTxtField.text!, completion: { (error) in
-                if let error = error {
-                    print(String(describing: error.localizedDescription))
-                    self.errorLabel.text = String(describing: error.localizedDescription)
-                } else {
-                    self.dismiss(animated: true, completion: nil)
-                }
-            })
+            present(alert, animated: true, completion: nil)
         }
     }
 }

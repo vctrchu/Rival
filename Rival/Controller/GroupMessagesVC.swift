@@ -86,6 +86,7 @@ class GroupMessagesVC: UIViewController {
     
     @IBAction func backButtonPressed(_ sender: Any) {
         self.hero.modalAnimationType = .slide(direction: .right)
+        SVProgressHUD.dismiss()
         dismiss(animated: true, completion: nil)
     }
     
