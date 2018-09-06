@@ -11,6 +11,7 @@ import Firebase
 import SideMenu
 import JTAppleCalendar
 import SimpleAnimation
+import SVProgressHUD
 
 protocol CalendarVCDelegate: class {
     func onLogoutPressed()
@@ -42,19 +43,13 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
         setupCalendar()
         setNameAndCalendar()
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DataService.instance.updateAllFeedMessage(forGroupKey: nil) { (isComplete) in
-            if isComplete {
-                print("updating feed complete.")
-            } else {
-                print("fail to update feed.")
-            }
-        }
     }
     
     func setupCalendar() {
@@ -65,6 +60,18 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
         
         calendarView.visibleDates { (visibleDates) in
             self.setupViewsOfCalendar(from: visibleDates)
+        }
+    }
+    
+    func setNameAndCalendar() {
+        let uid = Auth.auth().currentUser?.uid
+        DataService.instance.getFullName(uid: uid!) { (returnName) in
+            self.firstNameLabel.text = returnName.uppercased()
+            DataService.instance.getCalendarEvents(uid: uid!) { (returnCalendarEventsDict) in
+                self.calendarEventsDictionary = returnCalendarEventsDict
+                self.calendarView.reloadData()
+                SVProgressHUD.dismiss()
+            }
         }
     }
     
@@ -159,21 +166,6 @@ class CalendarVC: UIViewController, SideMenuVCDelegate {
                        animations: { [weak self] in
                         self?.missedBtn.transform = .identity},
                        completion: nil)
-    }
-    
-    //MARK: FIREBASE RETRIEVAL
-    
-    func setNameAndCalendar() {
-        let uid = Auth.auth().currentUser?.uid
-        
-        DataService.instance.getCalendarEvents(uid: uid!) { (returnCalendarEventsDict) in
-            self.calendarEventsDictionary = returnCalendarEventsDict
-            self.calendarView.reloadData()
-        }
-        
-        DataService.instance.getFullName(uid: uid!) { (returnName) in
-            self.firstNameLabel.text = returnName.uppercased()
-        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import SVProgressHUD
 
 class FeedVC: UIViewController {
 
@@ -25,10 +26,19 @@ class FeedVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        DataService.instance.getAllFeedMessage { (returnMessagesArray) in
-            self.messageArray = returnMessagesArray.reversed()
-            self.tableView.reloadData()
+        SVProgressHUD.show()
+        DataService.instance.updateAllFeedMessage(forGroupKey: nil) { (isComplete) in
+            if isComplete {
+                DataService.instance.getAllFeedMessage { (returnMessagesArray) in
+                    self.messageArray = returnMessagesArray.reversed()
+                    self.tableView.reloadData()
+                    SVProgressHUD.dismiss()
+                }
+            } else {
+                print("fail to update feed.")
+            }
         }
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

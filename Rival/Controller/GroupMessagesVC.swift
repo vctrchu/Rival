@@ -10,6 +10,7 @@ import UIKit
 import Hero
 import Firebase
 import IHKeyboardAvoiding
+import SVProgressHUD
 
 class GroupMessagesVC: UIViewController {
 
@@ -29,6 +30,7 @@ class GroupMessagesVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        SVProgressHUD.show()
         tableView.delegate = self
         tableView.dataSource = self
     }
@@ -47,6 +49,7 @@ class GroupMessagesVC: UIViewController {
                 if isComplete {
                     DataService.instance.getAllMessagesFor(desiredGroup: self.group!, handler: { (returnedGroupMessages) in
                         self.groupMessages = returnedGroupMessages
+                        SVProgressHUD.dismiss()
                         self.tableView.reloadData()
                         
                         if self.groupMessages.count > 0 {

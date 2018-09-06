@@ -15,6 +15,7 @@ target 'Rival' do
   pod 'JTAppleCalendar'
   pod 'Hero'
   pod 'IHKeyboardAvoiding'
+  pod 'SVProgressHUD'
 
   # Firebase pods
   pod 'Firebase/Core'

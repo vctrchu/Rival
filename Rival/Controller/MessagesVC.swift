@@ -8,6 +8,7 @@
 
 import UIKit
 import Hero
+import SVProgressHUD
 
 class MessagesVC: UIViewController {
     
@@ -24,10 +25,12 @@ class MessagesVC: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+        SVProgressHUD.show()
         DataService.instance.REF_GROUPS.observe(.value) { (snapshot) in
             DataService.instance.getAllGroups { (returnedGroupsArray) in
                 self.groupsArray = returnedGroupsArray
                 self.tableView.reloadData()
+                SVProgressHUD.dismiss()
             }
         }
     }

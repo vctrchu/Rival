@@ -85,7 +85,6 @@ class DataService {
                 
                 for post in postSnapshot {
                     
-                    let name = post.childSnapshot(forPath: "name").value as! String
                     let senderId = post.childSnapshot(forPath: "senderID").value as! String
                     
                     self.getUserImage(uid: senderId, handler: { (returnedUrl) in
@@ -176,6 +175,11 @@ class DataService {
             handler(String(numberCheckIns))
         }
     }
+    
+//    func updateFullName(name: String, handler: @escaping(_ status: Bool) -> ()) {
+//        REF_USERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(["fullname": name])
+//        handler(true)
+//    }
     
     //******* new follow functions
     func updateFollowing(uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
