@@ -61,6 +61,8 @@ class EditProfileVC: UIViewController {
     }
 
     @IBAction func cancelBtnPressed(_ sender: Any) {
+        SVProgressHUD.dismiss()
+        
         dismiss(animated: true, completion: nil)
     }
     
@@ -79,6 +81,7 @@ class EditProfileVC: UIViewController {
                 if let error = error {
                     print("error with credentials")
                     self.errorLabel.text = String(describing: error.localizedDescription)
+                    SVProgressHUD.dismiss()
                 } else {
                     if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
                         StorageService.instance.uploadProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)

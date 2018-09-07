@@ -154,6 +154,8 @@ class SideMenuVC: UIViewController {
     }
     
     @IBAction func editPasswordBtnPressed(_ sender: Any) {
+        let editPasswordVC = storyboard?.instantiateViewController(withIdentifier: "EditPasswordVC")
+        present(editPasswordVC!, animated: true, completion: nil)
     }
     
     @IBAction func logoutBtnPressed(_ sender: Any) {
