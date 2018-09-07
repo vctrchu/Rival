@@ -26,8 +26,10 @@ class LaunchScreenDelayVC: UIViewController, CalendarVCDelegate {
                 if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                     self.groupsVCTabBarController = groupsVCTabBarController
                     groupsVCTabBarController.modalTransitionStyle = .crossDissolve
-                    if let groupsVC = groupsVCTabBarController.viewControllers?.first as? CalendarVC {
-                        groupsVC.delegate = self
+                    if let navController = groupsVCTabBarController.viewControllers?[1] as? UINavigationController {
+                        if let groupsVC = navController.viewControllers[0] as? CalendarVC {
+                            groupsVC.delegate = self
+                        }
                     }
                     
                     self.groupsVCTabBarController?.selectedIndex = 1

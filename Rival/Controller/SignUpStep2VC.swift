@@ -111,12 +111,9 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
         performSegue(withIdentifier: "unwindToLoginVC", sender: self)
     }
     
-    
     @IBAction func completeBtnPressed(_ sender: Any) {
         registerUser()
     }
-        
-    
     
     @IBAction func emailTxtFieldPressed(_ sender: Any) {
         emailLbl.hop()

@@ -64,7 +64,6 @@ class CreateGroupVC: UIViewController {
             }
         }
     }
-    
 }
 
 extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {

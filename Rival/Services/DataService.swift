@@ -133,7 +133,6 @@ class DataService {
         }
     }
     
-    //Pushes users to firebase database
     func createDBUser(uid: String, userData: Dictionary <String, Any>) {
         REF_USERS.child(uid).updateChildValues(userData)
     }
@@ -176,12 +175,6 @@ class DataService {
         }
     }
     
-//    func updateFullName(name: String, handler: @escaping(_ status: Bool) -> ()) {
-//        REF_USERS.child((Auth.auth().currentUser?.uid)!).updateChildValues(["fullname": name])
-//        handler(true)
-//    }
-    
-    //******* new follow functions
     func updateFollowing(uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
         REF_USERS.child((Auth.auth().currentUser?.uid)!).child("following").child(uid).updateChildValues(["name": name, "profileUrl": profileUrl])
         sendComplete(true)
