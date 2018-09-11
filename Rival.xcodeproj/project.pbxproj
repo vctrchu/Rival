@@ -122,6 +122,7 @@
 		FBDC2B912134C40400E74633 /* GroupMessagesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupMessagesVC.swift; sourceTree = "<group>"; };
 		FBED60E92044F74600136153 /* CalendarVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarVC.swift; sourceTree = "<group>"; };
 		FBED60ED2045178500136153 /* LaunchScreenDelayVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchScreenDelayVC.swift; sourceTree = "<group>"; };
+		FBF4F5AE21472876003735F5 /* Rival.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Rival.entitlements; sourceTree = "<group>"; };
 		FBFA81CF213393D900555816 /* CreateGroupVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateGroupVC.swift; sourceTree = "<group>"; };
 		FBFA81D1213396C800555816 /* GroupCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -189,6 +190,7 @@
 		FB280A9C2042951700EE1627 /* Rival */ = {
 			isa = PBXGroup;
 			children = (
+				FBF4F5AE21472876003735F5 /* Rival.entitlements */,
 				FB280A9D2042951700EE1627 /* AppDelegate.swift */,
 				FB9BB055204363D200698747 /* Services */,
 				FB9BB05020433BB800698747 /* Extensions */,
@@ -327,6 +329,11 @@
 					FB280A992042951700EE1627 = {
 						CreatedOnToolsVersion = 9.2;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -626,16 +633,17 @@
 			baseConfigurationReference = 3D1F4675BE2F1195ADA68E7B /* Pods-Rival.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Rival/Rival.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZ967DRVJD;
 				INFOPLIST_FILE = Rival/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.victorchu.-rival";
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorchu.rival;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -644,16 +652,17 @@
 			baseConfigurationReference = AD9509B227003E771CFC7C3B /* Pods-Rival.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = Rival/Rival.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = BZ967DRVJD;
 				INFOPLIST_FILE = Rival/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.victorchu.-rival";
+				PRODUCT_BUNDLE_IDENTIFIER = com.victorchu.rival;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
