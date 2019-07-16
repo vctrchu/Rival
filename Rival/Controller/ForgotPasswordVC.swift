@@ -44,8 +44,8 @@ class ForgotPasswordVC: UIViewController, UITextFieldDelegate {
                 } else {
                     self.sendButton.stopAnimation()
                     self.sendButton.isEnabled = false
-                    let alert = UIAlertController(title: "Password Reset Success!", message: "Please check your email and follow the instructions.", preferredStyle: UIAlertControllerStyle.alert)
-                    alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.default, handler: { (action) in
+                    let alert = UIAlertController(title: "Password Reset Success!", message: "Please check your email and follow the instructions.", preferredStyle: UIAlertController.Style.alert)
+                    alert.addAction(UIAlertAction(title: "Dimiss", style: UIAlertAction.Style.default, handler: { (action) in
                         self.dismiss(animated: true, completion: nil)
                     }))
                     self.present(alert, animated: true, completion: nil)

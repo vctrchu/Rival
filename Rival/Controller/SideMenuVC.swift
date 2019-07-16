@@ -70,14 +70,14 @@ class SideMenuVC: UIViewController {
         
         DataService.instance.numberFollowing(uid: uid!) { (returnNumber) in
             let title = NSAttributedString(string: returnNumber + " Following", attributes:
-                [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
-            self.followingBtn.setAttributedTitle(title, for: UIControlState.normal)
+                [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            self.followingBtn.setAttributedTitle(title, for: UIControl.State.normal)
         }
         
         DataService.instance.numberOfFollowers(uid: uid!) { (returnNumber) in
             let title = NSAttributedString(string: returnNumber + " Followers", attributes:
-                [.underlineStyle: NSUnderlineStyle.styleSingle.rawValue])
-            self.followersBtn.setAttributedTitle(title, for: UIControlState.normal)
+                [.underlineStyle: NSUnderlineStyle.single.rawValue])
+            self.followersBtn.setAttributedTitle(title, for: UIControl.State.normal)
         }
     }
     
@@ -97,14 +97,14 @@ class SideMenuVC: UIViewController {
     }
     
     func createLogoutAlert() {
-        let alert = UIAlertController(title: "Are you sure you want to log out of Rival?", message: nil, preferredStyle: UIAlertControllerStyle.alert)
+        let alert = UIAlertController(title: "Are you sure you want to log out of Rival?", message: nil, preferredStyle: UIAlertController.Style.alert)
         let logoutFailure = UIAlertController(title: "Logout failed. Please try again or check your connection", message: nil, preferredStyle: .alert)
         
-        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
         }))
         
-        alert.addAction(UIAlertAction(title: "Logout", style: UIAlertActionStyle.default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Logout", style: UIAlertAction.Style.default, handler: { (action) in
             do {
                 try Auth.auth().signOut()
                 self.delegate?.onLogoutPressed()
@@ -114,7 +114,7 @@ class SideMenuVC: UIViewController {
             }
         }))
         
-        logoutFailure.addAction(UIAlertAction(title: "Dimiss", style: UIAlertActionStyle.default, handler: { (action) in
+        logoutFailure.addAction(UIAlertAction(title: "Dimiss", style: UIAlertAction.Style.default, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
         }))
         

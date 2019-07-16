@@ -83,7 +83,7 @@ class EditProfileVC: UIViewController {
                     self.errorLabel.text = String(describing: error.localizedDescription)
                     SVProgressHUD.dismiss()
                 } else {
-                    if let profileImg = self.selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+                    if let profileImg = self.selectedImage, let imageData = profileImg.jpegData(compressionQuality: 0.1) {
                         StorageService.instance.uploadProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
                     }
                     Auth.auth().currentUser?.updateEmail(to: self.emailTxtField.text!, completion: { (error) in
@@ -102,7 +102,7 @@ class EditProfileVC: UIViewController {
         if selectedImage == nil && emailTxtField.text != Auth.auth().currentUser?.email! {
             self.present(alert, animated: true, completion: nil)
         } else if selectedImage != nil && emailTxtField.text == Auth.auth().currentUser?.email! {
-            if let profileImg = selectedImage, let imageData = UIImageJPEGRepresentation(profileImg, 0.1) {
+            if let profileImg = selectedImage, let imageData = profileImg.jpegData(compressionQuality: 0.1) {
                 StorageService.instance.uploadProfileImage(uid: (Auth.auth().currentUser?.uid)!, data: imageData)
                 dismiss(animated: true, completion: nil)
             }

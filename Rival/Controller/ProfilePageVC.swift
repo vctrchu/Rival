@@ -62,7 +62,7 @@ class ProfilePageVC: UIViewController {
                 self.profileUrl = returnUrl
                 DataService.instance.updateFollowing(uid: self.uid, name: self.name, profileUrl: self.profileUrl, sendComplete: { (isComplete) in
                     if isComplete {
-                        self.followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
+                        self.followBtn.setImage(UIImage(named: "following.png"), for: UIControl.State.normal)
                     } else {
                         print("there was an error updating the following")
                     }
@@ -73,7 +73,7 @@ class ProfilePageVC: UIViewController {
                 self.currentUserProfileUrl = returnUrl
                 DataService.instance.updateFollowers(uid: self.uid, name: self.currentUserName, profileUrl: self.currentUserProfileUrl, sendComplete: { (isComplete) in
                     if isComplete {
-                        self.followBtn.setImage(UIImage(named: "following.png"), for: UIControlState.normal)
+                        self.followBtn.setImage(UIImage(named: "following.png"), for: UIControl.State.normal)
                     } else {
                         print("there was an error with updating the follower")
                     }
@@ -86,7 +86,7 @@ class ProfilePageVC: UIViewController {
             DataService.instance.numberOfFollowers(uid: uid) { (returnNumberOfFollowers) in
                 self.followersLbl.text = returnNumberOfFollowers
             }
-            followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
+            followBtn.setImage(UIImage(named: "follow.png"), for: UIControl.State.normal)
         }
     }
     
@@ -132,9 +132,9 @@ class ProfilePageVC: UIViewController {
             DataService.instance.checkIfFollowing(uid: uid) { (returnBool) in
                 if returnBool {
                     let image = UIImage(named: "following.png")
-                    self.followBtn.setImage(image, for: UIControlState.normal)
+                    self.followBtn.setImage(image, for: UIControl.State.normal)
                 } else {
-                    self.followBtn.setImage(UIImage(named: "follow.png"), for: UIControlState.normal)
+                    self.followBtn.setImage(UIImage(named: "follow.png"), for: UIControl.State.normal)
                 }
             }
         } else if typeOfProfile == "self" {
