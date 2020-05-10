@@ -1,14 +1,17 @@
 
-![screenshot](https://github.com/victorchu8/Rival/blob/master/Rival_Project.png)
+![screenshot](https://github.com/vctrchu/Rival/blob/master/RivalCoverImage.png)
 
 ##
 ![](RivalPreview.gif)
 
 ## Key Features
-
-A fitness iOS application that allows users to track, view and compete against friends. 
-
-Built with Swift and Firebase.
+* Calendar
+* Public feed
+* Search for friends
+* Followers / Following
+* Profiles
+* Profile Images
+* Group Messenging 
 
 ## Download
 
