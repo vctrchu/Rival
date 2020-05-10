@@ -108,7 +108,3 @@ extension CreateGroupVC: UITableViewDelegate, UITableViewDataSource {
         }
     }
 }
-
-extension CreateGroupVC: UITextFieldDelegate {
-    
-}
