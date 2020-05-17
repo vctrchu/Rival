@@ -57,6 +57,7 @@ extension MessagesVC: UITableViewDelegate, UITableViewDataSource {
         guard let groupFeedVC = storyboard?.instantiateViewController(withIdentifier: "GroupMessagesVC") as? GroupMessagesVC else { return }
         groupFeedVC.hero.isEnabled = true
         groupFeedVC.hero.modalAnimationType = .slide(direction: .left)
+        groupFeedVC.modalPresentationStyle = .fullScreen
         groupFeedVC.initData(forGroup: groupsArray[indexPath.row])
         present(groupFeedVC, animated: true, completion: nil)
     }

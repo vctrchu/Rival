@@ -50,9 +50,10 @@ class DataService {
                 
                 for message in messageSnapshot {
                     let messageKey = message.key
-                    let senderId = message.childSnapshot(forPath: "senderId").value as! String
-                    if senderId == uid {
-                        self.REF_GROUPS.child(groupKey!).child("messages").child(messageKey).updateChildValues(["profileUrl": profileUrl])
+                    if let senderId = message.childSnapshot(forPath: "senderId").value as? String {
+                        if senderId == uid {
+                            self.REF_GROUPS.child(groupKey!).child("messages").child(messageKey).updateChildValues(["profileUrl": profileUrl])
+                        }
                     }
                 }
                 sendComplete(true)
@@ -70,11 +71,12 @@ class DataService {
                 guard let messageSnapshot = messageSnapshot.children.allObjects as? [DataSnapshot] else { return }
                 
                 for message in messageSnapshot {
-                    let senderId = message.childSnapshot(forPath: "senderId").value as! String
-                    
-                    self.getUserImage(uid: senderId, handler: { (returnedUrl) in
-                        self.REF_GROUPS.child(key!).child("messages").child(message.key).updateChildValues(["profileUrl": returnedUrl])
-                    })
+                    if let senderId = message.childSnapshot(forPath: "senderId").value as? String {
+                        self.getUserImage(uid: senderId, handler: { (returnedUrl) in
+                            self.REF_GROUPS.child(key!).child("messages").child(message.key).updateChildValues(["profileUrl": returnedUrl])
+                        })
+                    }
+
                 }
                 handler(true)
             }
@@ -85,11 +87,11 @@ class DataService {
                 
                 for post in postSnapshot {
                     
-                    let senderId = post.childSnapshot(forPath: "senderID").value as! String
-                    
-                    self.getUserImage(uid: senderId, handler: { (returnedUrl) in
-                        self.REF_FEED.child(post.key).updateChildValues(["profileUrl": returnedUrl])
-                    })
+                    if let senderId = post.childSnapshot(forPath: "senderID").value as? String {
+                        self.getUserImage(uid: senderId, handler: { (returnedUrl) in
+                            self.REF_FEED.child(post.key).updateChildValues(["profileUrl": returnedUrl])
+                        })
+                    }
                 }
                 handler(true)
             }
@@ -102,13 +104,14 @@ class DataService {
             guard let snapshot = snapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for message in snapshot {
-                let content = message.childSnapshot(forPath: "content").value as! String
-                let senderId = message.childSnapshot(forPath: "senderID").value as! String
-                let senderName = message.childSnapshot(forPath: "name").value as! String
-                let url = message.childSnapshot(forPath: "profileUrl").value as! String
-                
-                let message = Message(content: content, senderId: senderId, senderName: senderName, senderProfielUrl: url)
-                messageArray.append(message)
+                if  let content = message.childSnapshot(forPath: "content").value as? String,
+                    let senderId = message.childSnapshot(forPath: "senderID").value as? String,
+                    let senderName = message.childSnapshot(forPath: "name").value as? String,
+                    let url = message.childSnapshot(forPath: "profileUrl").value as? String
+                {
+                    let message = Message(content: content, senderId: senderId, senderName: senderName, senderProfielUrl: url)
+                    messageArray.append(message)
+                }
             }
             handler(messageArray)
         }
@@ -121,13 +124,14 @@ class DataService {
             guard let groupMessageSnapshot = groupMessageSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for groupMessage in groupMessageSnapshot {
-                let content = groupMessage.childSnapshot(forPath: "content").value as! String
-                let senderId = groupMessage.childSnapshot(forPath: "senderId").value as! String
-                let name = groupMessage.childSnapshot(forPath: "name").value as! String
-                let profileUrl = groupMessage.childSnapshot(forPath: "profileUrl").value as! String
-                let groupMessage = Message(content: content, senderId: senderId, senderName: name, senderProfielUrl: profileUrl)
-                
-                groupMessageArray.append(groupMessage)
+                if  let content = groupMessage.childSnapshot(forPath: "content").value as? String,
+                    let senderId = groupMessage.childSnapshot(forPath: "senderId").value as? String,
+                    let name = groupMessage.childSnapshot(forPath: "name").value as? String,
+                    let profileUrl = groupMessage.childSnapshot(forPath: "profileUrl").value as? String
+                {
+                    let groupMessage = Message(content: content, senderId: senderId, senderName: name, senderProfielUrl: profileUrl)
+                    groupMessageArray.append(groupMessage)
+                }
             }
             handler(groupMessageArray)
         }
@@ -164,11 +168,12 @@ class DataService {
         
         REF_USERS.child(uid).child("calendarEvents").observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children {
-                let snap = child as! DataSnapshot
-                let value = snap.value as! String
-                
-                if value == "check in" {
-                    numberCheckIns += 1
+                if let snap = child as? DataSnapshot {
+                    if let value = snap.value as? String {
+                        if value == "check in" {
+                            numberCheckIns += 1
+                        }
+                    }
                 }
             }
             handler(String(numberCheckIns))
@@ -176,12 +181,12 @@ class DataService {
     }
     
     func updateFollowing(uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
-        REF_USERS.child((Auth.auth().currentUser?.uid)!).child("following").child(uid).updateChildValues(["name": name, "profileUrl": profileUrl])
+        REF_USERS.child(Auth.auth().currentUser!.uid).child("following").child(uid).updateChildValues(["name": name, "profileUrl": profileUrl])
         sendComplete(true)
     }
     
     func updateFollowers(uid: String, name: String, profileUrl: String, sendComplete: @escaping(_ status: Bool) -> ()) {
-        REF_USERS.child(uid).child("followers").child((Auth.auth().currentUser?.uid)!).updateChildValues(["name": name, "profileUrl": profileUrl])
+        REF_USERS.child(uid).child("followers").child(Auth.auth().currentUser!.uid).updateChildValues(["name": name, "profileUrl": profileUrl])
         sendComplete(true)
     }
     
@@ -194,7 +199,7 @@ class DataService {
         let currentUserUID = Auth.auth().currentUser?.uid
         REF_USERS.child(uid).child("followers").child(currentUserUID!).removeValue()
     }
- 
+
     func uploadDBUserCalendarEvent(uid: String, userData: Dictionary <String, Any>) {
         let calendarEventRef = REF_USERS.child(uid).child("calendarEvents")
         calendarEventRef.updateChildValues(userData)
@@ -205,7 +210,9 @@ class DataService {
         REF_USERS.observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.hasChild(uid) {
                 if snapshot.childSnapshot(forPath: uid).hasChild("profile_image") {
-                    imageUrl = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "profile_image").value as! String
+                    if let profileImage = snapshot.childSnapshot(forPath: uid).childSnapshot(forPath: "profile_image").value as? String {
+                        imageUrl = profileImage
+                    }
                 }
             }
             handler(imageUrl)
@@ -213,11 +220,10 @@ class DataService {
     }
     
     func getFullName(uid: String, handler: @escaping (_ fullName: String) -> ()) {
-        var fullName = ""
-        
         REF_USERS.child(uid).child("fullname").observeSingleEvent(of: .value) { (snapshot) in
-            fullName = snapshot.value as! String
-            handler(fullName)
+            if let fullName = snapshot.value as? String {
+                handler(fullName)
+            }
         }
     }
     
@@ -259,8 +265,10 @@ class DataService {
             for user in snapshot {
                 var url = "none"
                 if uidArray.contains(user.key) && user.hasChild("profile_image") {
-                    url = user.childSnapshot(forPath: "profile_image").value as! String
-                    imageDict[user.key] = url
+                    if let profileImage = user.childSnapshot(forPath: "profile_image").value as? String {
+                        url = profileImage
+                        imageDict[user.key] = url
+                    }
                 } else if uidArray.contains(user.key) && user.hasChild("profile_image") == false {
                     imageDict[user.key] = url
                 }
@@ -276,7 +284,6 @@ class DataService {
             guard let followerSnapshot = followerSnapshot.children.allObjects as? [DataSnapshot] else { return }
             
             for follower in followerSnapshot {
-                
                 self.getUserImage(uid: follower.key, handler: { (returnedUrl) in
                     self.REF_USERS.child(uid).child(type).child(follower.key).updateChildValues(["profileUrl": returnedUrl])
                 })
@@ -293,11 +300,12 @@ class DataService {
             
             for child in followerSnapshot {
                 let uid = child.key
-                let name = child.childSnapshot(forPath: "name").value as! String
-                let profileUrl = child.childSnapshot(forPath: "profileUrl").value as! String
-                
-                let follower = Follower(senderId: uid, senderName: name, senderProfielUrl: profileUrl)
-                followerArray.append(follower)
+                if  let name = child.childSnapshot(forPath: "name").value as? String,
+                    let profileUrl = child.childSnapshot(forPath: "profileUrl").value as? String
+                {
+                    let follower = Follower(senderId: uid, senderName: name, senderProfielUrl: profileUrl)
+                    followerArray.append(follower)
+                }
             }
             handler(followerArray)
         }
@@ -312,18 +320,18 @@ class DataService {
             guard let userSnapshot = userSnapshot.children.allObjects as? [DataSnapshot] else { return }
             for user in userSnapshot {
                 var url = "none"
-                let fullName = user.childSnapshot(forPath: "fullname").value as! String
-                let email = user.childSnapshot(forPath: "email").value as! String
-                let uid = user.key
-                
-                if user.hasChild("profile_image") {
-                    url = user.childSnapshot(forPath: "profile_image").value as! String
-                }
-                
-                if fullName.contains(query) == true && email != Auth.auth().currentUser?.email {
-                    userDictionary[fullName] = url
-                    fullNameArray.append(fullName)
-                    uidArray.append(uid)
+                if let fullName = user.childSnapshot(forPath: "fullname").value as? String, let email = user.childSnapshot(forPath: "email").value as? String {
+                    let uid = user.key
+
+                    if user.hasChild("profile_image") {
+                        url = user.childSnapshot(forPath: "profile_image").value as! String
+                    }
+
+                    if fullName.contains(query) == true && email != Auth.auth().currentUser?.email {
+                        userDictionary[fullName] = url
+                        fullNameArray.append(fullName)
+                        uidArray.append(uid)
+                    }
                 }
             }
             handler(userDictionary,fullNameArray,uidArray)
@@ -338,12 +346,13 @@ class DataService {
             
             for child in snapshot {
                 let uid = child.key
-                let name = child.childSnapshot(forPath: "name").value as! String
-                let profileUrl = child.childSnapshot(forPath: "profileUrl").value as! String
-                
-                if name.contains(query.capitalized) == true || name.contains(query.lowercased()) {
-                    let follower = Follower(senderId: uid, senderName: name, senderProfielUrl: profileUrl)
-                    followerArray.append(follower)
+                if  let name = child.childSnapshot(forPath: "name").value as? String,
+                    let profileUrl = child.childSnapshot(forPath: "profileUrl").value as? String
+                {
+                    if name.contains(query.capitalized) == true || name.contains(query.lowercased()) {
+                        let follower = Follower(senderId: uid, senderName: name, senderProfielUrl: profileUrl)
+                        followerArray.append(follower)
+                    }
                 }
             }
             handler(followerArray)
@@ -363,7 +372,7 @@ class DataService {
             
             for group in groupSnapshot {
                 let memberArray = group.childSnapshot(forPath: "members").value as! [String]
-                if memberArray.contains((Auth.auth().currentUser?.uid)!) {
+                if memberArray.contains(Auth.auth().currentUser!.uid) {
                     let title = group.childSnapshot(forPath: "title").value as! String
                     let description = group.childSnapshot(forPath: "description").value as! String
                     let group = Group(title: title, description: description, key: group.key, memberCount: memberArray.count, members: memberArray)
@@ -382,8 +391,9 @@ class DataService {
             
             for user in userSnapshot {
                 if group.members.contains(user.key) {
-                    let name = user.childSnapshot(forPath: "fullname").value as! String
-                    nameArray.append(name)
+                    if let name = user.childSnapshot(forPath: "fullname").value as? String {
+                        nameArray.append(name)
+                    }
                 }
             }
             handler(nameArray)

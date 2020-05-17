@@ -1,0 +1,6 @@
+framework module Pods_Rival {
+  umbrella header "Pods-Rival-umbrella.h"
+
+  export *
+  module * { export * }
+}

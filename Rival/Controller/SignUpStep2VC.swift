@@ -80,6 +80,7 @@ class SignUpStep2VC: UIViewController, UITextFieldDelegate, CalendarVCDelegate {
                                 }
                                 
                                 calendarVCTabBarController.modalTransitionStyle = .crossDissolve
+                                calendarVCTabBarController.modalPresentationStyle = .fullScreen
                                 self.calendarVCTabBarController?.selectedIndex = 1
                                 self.present(calendarVCTabBarController, animated: true, completion: nil)
                             }

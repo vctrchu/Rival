@@ -9,7 +9,7 @@
 import UIKit
 import Firebase
 
-class CreateGroupVC: UIViewController {
+class CreateGroupVC: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var titleTextField: UITextField!
     @IBOutlet weak var descriptionTextField: UITextField!

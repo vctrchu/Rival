@@ -49,6 +49,7 @@ class LoginVC: UIViewController, UITextFieldDelegate, CalendarVCDelegate, SignUp
                         if let calendarVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                             self.calendarVCTabBarController = calendarVCTabBarController
                             calendarVCTabBarController.modalTransitionStyle = .crossDissolve
+                            calendarVCTabBarController.modalPresentationStyle = .fullScreen
                             if let navController = calendarVCTabBarController.viewControllers?[1] as? UINavigationController {
                                 if let groupsVC = navController.viewControllers[0] as? CalendarVC {
                                     groupsVC.delegate = self

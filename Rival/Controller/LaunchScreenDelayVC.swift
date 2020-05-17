@@ -26,6 +26,7 @@ class LaunchScreenDelayVC: UIViewController, CalendarVCDelegate {
                 if let groupsVCTabBarController = self.storyboard?.instantiateViewController(withIdentifier: "TabBarVC") as? RAMAnimatedTabBarController {
                     self.groupsVCTabBarController = groupsVCTabBarController
                     groupsVCTabBarController.modalTransitionStyle = .crossDissolve
+                    groupsVCTabBarController.modalPresentationStyle = .fullScreen
                     if let navController = groupsVCTabBarController.viewControllers?[1] as? UINavigationController {
                         if let groupsVC = navController.viewControllers[0] as? CalendarVC {
                             groupsVC.delegate = self
@@ -42,6 +43,7 @@ class LaunchScreenDelayVC: UIViewController, CalendarVCDelegate {
     private func presentLoginScreen() {
         let loginVC = self.storyboard?.instantiateViewController(withIdentifier: "LoginVC")
         loginVC!.modalTransitionStyle = .crossDissolve
+        loginVC?.modalPresentationStyle = .fullScreen
         self.present(loginVC!, animated: true, completion: nil)
     }
 
